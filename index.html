@@ -1,0 +1,723 @@
+﻿<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Playbook migration SFCC vers composable - Etam</title><style>:root{--ink:#1f2933;--muted:#5c6670;--line:#d9dee5;--soft:#f5f7fa;--soft2:#eef2f6;--brand:#8b1e3f;--code:#f1f5f9}*{box-sizing:border-box}html{font-size:12px}body{margin:0;background:#fff;color:var(--ink);font:12px/1.48 Arial,Helvetica,sans-serif}a{color:#075985;text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;border-right:1px solid var(--line);background:var(--soft);padding:18px 14px}.brand{font-weight:700;color:var(--brand);font-size:12px;letter-spacing:.02em;text-transform:uppercase}.subtitle{margin:6px 0 14px;color:var(--muted);font-size:11px}.toc{display:flex;flex-direction:column;gap:2px}.toc a{display:block;padding:5px 7px;border-radius:4px;color:#26313c}.toc a:hover{background:#e6ebf1;text-decoration:none}.toc-l1{font-weight:700}.toc-l2{padding-left:16px!important;font-size:11px}.content{padding:24px 28px 64px;max-width:1280px}.doc-meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}.pill{border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:3px 8px;color:var(--muted);font-size:11px}h1{font-size:12px;line-height:1.25;margin:0 0 12px;color:#111827}h2{font-size:12px;margin:28px 0 10px;padding:8px 10px;background:var(--soft2);border-left:4px solid var(--brand)}h3{font-size:12px;margin:20px 0 8px;color:#111827;border-bottom:1px solid var(--line);padding-bottom:4px}h4,h5,h6{font-size:12px;margin:14px 0 6px;color:#111827}p{margin:7px 0}ul{margin:6px 0 10px 18px;padding:0}li{margin:3px 0}.anchor{float:right;color:#a0a8b2;font-weight:400;margin-left:8px}.table-wrap{overflow:auto;margin:8px 0 16px;border:1px solid var(--line);border-radius:6px}table{width:100%;border-collapse:collapse;min-width:780px}th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:6px 7px;vertical-align:top}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}th{background:#edf1f5;color:#111827;text-align:left;font-weight:700;position:sticky;top:0}tr:nth-child(even) td{background:#fbfcfd}code{font-family:Consolas,Monaco,monospace;font-size:11px;background:var(--code);border:1px solid #e2e8f0;border-radius:3px;padding:0 3px}pre{background:#0f172a;color:#e5e7eb;padding:10px;border-radius:6px;overflow:auto;font-size:11px;line-height:1.45}pre code{background:transparent;border:0;color:inherit;padding:0}.print-actions{position:fixed;right:16px;bottom:16px;display:flex;gap:8px}.print-actions button{font:12px Arial;border:1px solid var(--line);background:#fff;border-radius:4px;padding:7px 10px;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.12)}@media(max-width:900px){.layout{display:block}.sidebar{position:relative;height:auto}.content{padding:18px 14px}.print-actions{display:none}table{min-width:680px}}@media print{.sidebar,.print-actions,.anchor{display:none}.layout{display:block}.content{max-width:none;padding:0}body,html{font-size:10px}h1{font-size:12px}h2{font-size:12px;break-after:avoid}h3{font-size:12px;break-after:avoid}.table-wrap{break-inside:auto;border:1px solid #aaa}table{min-width:0;font-size:9px}th,td{padding:4px}a{color:#111;text-decoration:none}pre{white-space:pre-wrap}}</style></head><body><div class="layout"><aside class="sidebar"><div class="brand">Etam - migration composable</div><div class="subtitle">Playbook op?rationnel SFCC vers commercetools, Contentstack et Algolia</div><nav class="toc"><a class="toc-l1" href="#playbook-de-migration-sfcc-vers-commercetools-contentstack-et-algolia">Playbook de migration SFCC vers commercetools, Contentstack et Algolia</a><a class="toc-l2" href="#0-synthese-executive-pm-comex">0. SynthÃ¨se exÃ©cutive PM / COMEX</a><a class="toc-l2" href="#1-cartographie-sfcc-cible">1. Cartographie SFCC -&gt; cible</a><a class="toc-l2" href="#2-modelisation-des-donnees">2. ModÃ©lisation des donnÃ©es</a><a class="toc-l2" href="#3-nomenclature-et-conventions-a-figer">3. Nomenclature et conventions Ã  figer</a><a class="toc-l2" href="#4-extractions-sfcc-a-produire">4. Extractions SFCC Ã  produire</a><a class="toc-l2" href="#5-users-roles-droits">5. Users, rÃ´les, droits</a><a class="toc-l2" href="#6-workflows-et-gouvernance-contenu">6. Workflows et gouvernance contenu</a><a class="toc-l2" href="#7-internationalisation">7. Internationalisation</a><a class="toc-l2" href="#8-search-et-merchandising-algolia">8. Search et merchandising Algolia</a><a class="toc-l2" href="#9-seo-et-migration-urls">9. SEO et migration URLs</a><a class="toc-l2" href="#10-medias-et-dam">10. MÃ©dias et DAM</a><a class="toc-l2" href="#11-integrations-et-flux-tiers">11. IntÃ©grations et flux tiers</a><a class="toc-l2" href="#12-environnements-branches-releases">12. Environnements, branches, releases</a><a class="toc-l2" href="#13-cutover-go-live">13. Cutover / go-live</a><a class="toc-l2" href="#14-formation-et-conduite-du-changement">14. Formation et conduite du changement</a><a class="toc-l2" href="#15-risques-et-dependances">15. Risques et dÃ©pendances</a><a class="toc-l2" href="#16-annexes">16. Annexes</a></nav></aside><main class="content"><div class="doc-meta"><span class="pill">Police: 12 px max</span><span class="pill">Version HTML autonome</span><span class="pill">Publi? pour pilotage projet</span></div><h1 id="playbook-de-migration-sfcc-vers-commercetools-contentstack-et-algolia"><a class="anchor" href="#playbook-de-migration-sfcc-vers-commercetools-contentstack-et-algolia">#</a>Playbook de migration SFCC vers commercetools, Contentstack et Algolia</h1>
+<p>Date de consultation des docs: 2026-05-07 PÃ©rimÃ¨tre: Etam e-commerce FR et international, migration depuis Salesforce B2C Commerce / SFCC / Demandware vers commercetools, Contentstack et Algolia.</p>
+<h2 id="0-synthese-executive-pm-comex"><a class="anchor" href="#0-synthese-executive-pm-comex">#</a>0. SynthÃ¨se exÃ©cutive PM / COMEX</h2>
+<h3 id="decisions-structurantes-a-prendre-en-premier"><a class="anchor" href="#decisions-structurantes-a-prendre-en-premier">#</a>DÃ©cisions structurantes Ã  prendre en premier</h3>
+<div class="table-wrap"><table><thead><tr><th>Sujet</th><th>Reco opÃ©rationnelle</th><th>Pourquoi</th><th>Owner</th></tr></thead><tbody>
+<tr><td>ModÃ¨le commerce</td><td>1 projet commercetools Europe, Stores par marchÃ©, Channels pour prix et stock, Product Selections si assortiment diffÃ©renciÃ©</td><td>Les Stores filtrent langues, pays, distribution/supply channels et assortiments, avec limites Ã  surveiller: 100 distribution channels, 100 supply channels et 100 product selections par Store selon la doc Stores commercetools</td><td>PM + dev + intÃ©grateur</td></tr>
+<tr><td>Produit</td><td>1 Product commercetools = modÃ¨le commercial / master SFCC, variants = SKU taille/couleur si le PDP groupe naturellement ces choix</td><td>commercetools impose un master variant et limite par dÃ©faut Ã  100 variants par Product. Pour lingerie, valider que les combinaisons couleur x taille x bonnet ne dÃ©passent pas ce seuil</td><td>e-merch + dev</td></tr>
+<tr><td>Prix</td><td>Standalone Prices si la volumÃ©trie prix par pays/devise/customer group est Ã©levÃ©e; Embedded Prices seulement si le scope reste simple</td><td>La doc indique 100 embedded prices max par variant, tandis que Standalone Prices visent les grands volumes et peuvent aller jusqu'Ã  50 000 prix par variant selon l'overview pricing</td><td>dev + intÃ©grateur</td></tr>
+<tr><td>CMS</td><td>Contentstack pour pages, blocs, SEO Ã©ditorial, guides, landing campagnes; pas pour stock/prix ni catalogue transactionnel</td><td>Contentstack est fait pour contenu structurÃ© et livraison via CDA; CMA sert Ã  gÃ©rer le contenu. SÃ©parer strictement commerce et Ã©ditorial rÃ©duit les conflits d'ownership</td><td>e-merch + contenu</td></tr>
+<tr><td>Search</td><td>1 index Algolia produits par locale et environnement, records au niveau variant couleur ou SKU selon UX, <code>distinct</code> sur product ID si records variant</td><td>Algolia recommande de choisir la structure record selon l'expÃ©rience e-commerce; un index a une stratÃ©gie de ranking, les tris passent par replicas</td><td>e-merch + dev</td></tr>
+<tr><td>SEO</td><td>PrÃ©server les slugs existants quand possible, sinon mapping 301 exhaustif avant go-live</td><td>La perte SEO est le risque business le plus Ã©levÃ© hors tunnel de commande</td><td>e-merch + PM</td></tr>
+<tr><td>Gouvernance</td><td>Freeze nomenclature avant premier import: keys CT, UIDs CS, index Algolia, locale codes, slugs</td><td>Les corrections tardives coÃ»tent cher: keys et UIDs sont souvent utilisÃ©es dans API, exports, mappings, rÃ¨gles et monitoring</td><td>PM</td></tr>
+</tbody></table></div>
+<h3 id="points-de-vigilance"><a class="anchor" href="#points-de-vigilance">#</a>Points de vigilance</h3>
+<div class="table-wrap"><table><thead><tr><th>Risque majeur</th><th>Impact</th><th>Parade</th></tr></thead><tbody>
+<tr><td>Trop de donnÃ©es dans Algolia</td><td>CoÃ»t, record too big, pertinence dÃ©gradÃ©e</td><td>N'indexer que les attributs utiles Ã  recherche, facettes, ranking et affichage; contrÃ´ler la taille moyenne des records</td></tr>
+<tr><td>Variants commercetools mal modÃ©lisÃ©s</td><td>PDP, stock, prix et panier instables</td><td>Atelier produit Etam: MC, gamme, couleur, taille, bonnet, coupe, lot, pack, cadeaux</td></tr>
+<tr><td>Contentstack trop libre</td><td>Pages incohÃ©rentes et dette Ã©ditoriale</td><td>Modular Blocks cadrÃ©s, Global Fields SEO, workflow Draft -&gt; Review -&gt; Approved -&gt; Published</td></tr>
+<tr><td>Droits trop larges</td><td>Incident prod, RGPD, fuite clÃ©s</td><td>Matrice RBAC par outil, sÃ©paration admin/indexing/search-only/preview</td></tr>
+<tr><td>Cutover sous-estimÃ©</td><td>Perte CA, commandes ou SEO</td><td>Run parallÃ¨le, delta imports, smoke tests J-1/J, rollback DNS/applicatif documentÃ©</td></tr>
+</tbody></table></div>
+<h3 id="cadence-recommandee"><a class="anchor" href="#cadence-recommandee">#</a>Cadence recommandÃ©e</h3>
+<div class="table-wrap"><table><thead><tr><th>Phase</th><th>DurÃ©e cible</th><th>Sorties obligatoires</th></tr></thead><tbody>
+<tr><td>Cadrage data et gouvernance</td><td>3 Ã  4 semaines</td><td>Inventaire SFCC, dictionnaire attributs, conventions, RACI, dÃ©cisions Stores/indices/locales</td></tr>
+<tr><td>ModÃ©lisation et POC imports</td><td>4 Ã  6 semaines</td><td>Product Types CT, Content Types CS, settings Algolia, scripts d'import, rapport d'Ã©carts</td></tr>
+<tr><td>Migration pilote FR</td><td>6 Ã  8 semaines</td><td>Catalogue saison pilote, pages clÃ©s, search, SEO mapping, tests tunnel</td></tr>
+<tr><td>Industrialisation international</td><td>6 Ã  10 semaines</td><td>Locales, prix/devises, taxes, shipping, traductions, assortiment par marchÃ©</td></tr>
+<tr><td>Cutover</td><td>2 Ã  4 semaines</td><td>Freeze, delta, bascule, monitoring J+7</td></tr>
+</tbody></table></div>
+<h2 id="1-cartographie-sfcc-cible"><a class="anchor" href="#1-cartographie-sfcc-cible">#</a>1. Cartographie SFCC -&gt; cible</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>Sortir l'inventaire complet des objets SFCC par site et par catalogue.</li>
+<li>Marquer chaque objet: migrer, recrÃ©er, archiver, abandonner.</li>
+<li>DÃ©finir le format pivot unique: JSONL pour imports API, CSV pour revue mÃ©tier, XML source conservÃ© pour preuve.</li>
+<li>Identifier les objets Ã  double ownership, notamment promotions, SEO, contenus de campagne et search refinements.</li>
+<li>CrÃ©er un registre <code>sfcc_object_mapping.csv</code> avec source, cible, mÃ©thode d'extraction, owner, frÃ©quence delta.</li>
+</ul>
+<h3 id="mapping-operationnel"><a class="anchor" href="#mapping-operationnel">#</a>Mapping opÃ©rationnel</h3>
+<div class="table-wrap"><table><thead><tr><th>Objet SFCC</th><th>Cible principale</th><th>Cible secondaire</th><th>Extraction SFCC</th><th>Format pivot reco</th><th>Owner</th><th>Notes / risques</th></tr></thead><tbody>
+<tr><td>Catalog</td><td>commercetools Project + Categories + Products</td><td>Algolia products index</td><td>Business Manager catalog export XML; OCAPI Data/Shop API si delta</td><td>XML source + JSONL CT</td><td>dev + intÃ©grateur</td><td>Garder l'ID catalogue SFCC comme champ legacy</td></tr>
+<tr><td>Master Products</td><td>commercetools Product</td><td>Algolia grouped records</td><td>BM catalog XML, OCAPI products</td><td>JSONL <code>products</code></td><td>e-merch + dev</td><td>VÃ©rifier mapping MC/gamme: gamme hors nom produit</td></tr>
+<tr><td>Variation Products / SKUs</td><td>Product Variants</td><td>Algolia variant records, InventoryEntry</td><td>BM catalog XML, OCAPI</td><td>JSONL variants + CSV revue</td><td>e-merch</td><td>Risque &gt;100 variants par Product dans CT</td></tr>
+<tr><td>Product custom attributes</td><td>Product Type AttributeDefinitions</td><td>Algolia attributes si search/facet/ranking</td><td>BM system object/custom attributes export, OCAPI Meta API</td><td><code>attribute_dictionary.xlsx</code> + JSON schema</td><td>e-merch + dev</td><td>Typage Ã  figer avant import</td></tr>
+<tr><td>Categories</td><td>CT Categories</td><td>Algolia categories/facets, Contentstack pages catÃ©gorie Ã©ditoriales</td><td>BM catalog XML</td><td>JSONL categories</td><td>e-merch</td><td>Arborescence et slug catÃ©gorie Ã  prÃ©server</td></tr>
+<tr><td>Category assignments</td><td>Product categories</td><td>Algolia hierarchical facets</td><td>BM catalog XML</td><td>CSV <code>product_category_assignments.csv</code></td><td>e-merch</td><td>Distinguer primary category, classification, multiples</td></tr>
+<tr><td>Content Slots</td><td>Contentstack Modular Blocks / entries</td><td>Algolia banners/rules si search merchandising</td><td>BM content export, OCAPI Data API slot configurations</td><td>JSON + HTML source</td><td>contenu + e-merch</td><td>Les slots dynamiques SFCC doivent Ãªtre remodÃ©lisÃ©s</td></tr>
+<tr><td>Content Assets</td><td>Contentstack Entries / Assets</td><td>CDN/DAM</td><td>BM content export, OCAPI content assets</td><td>JSON + HTML + asset manifest</td><td>contenu</td><td>Nettoyer HTML SFCC et scripts inline</td></tr>
+<tr><td>Page Designer pages</td><td>Contentstack Page + Modular Blocks</td><td>Frontend routes</td><td>BM export / custom job si nÃ©cessaire</td><td>JSON normalized</td><td>contenu + intÃ©grateur</td><td>Ã€ recrÃ©er souvent, pas migrer 1:1 aveuglÃ©ment</td></tr>
+<tr><td>Promotions</td><td>CT Cart Discounts, Product Discounts, Discount Codes</td><td>Algolia Rules pour visibilitÃ© search</td><td>BM promotions/campaign export, OCAPI Data API</td><td>CSV mÃ©tier + JSON CT</td><td>e-merch + dev</td><td>Moteurs promo non isomorphes: prÃ©voir analyse rÃ¨gle par rÃ¨gle</td></tr>
+<tr><td>Coupons</td><td>CT Discount Codes</td><td>CRM/OMS si contraintes usage</td><td>BM coupon export, OCAPI Data API</td><td>CSV + JSONL</td><td>CRM + dev</td><td>RGPD et volumÃ©trie codes uniques</td></tr>
+<tr><td>Campaigns</td><td>CT discounts + Contentstack Releases</td><td>Algolia Rules</td><td>BM campaign export</td><td>CSV planning</td><td>e-merch</td><td>RecrÃ©er la coordination go-live dans CS Releases + jobs CT</td></tr>
+<tr><td>Customer Groups</td><td>CT Customer Groups</td><td>Algolia secured filters/persona si besoin</td><td>BM customer groups export / OCAPI</td><td>CSV + JSONL</td><td>CRM + dev</td><td>Groupes dynamiques SFCC Ã  clarifier</td></tr>
+<tr><td>Sites</td><td>CT Stores, CS environments/locales, Algolia index/app env</td><td>Frontend config</td><td>BM site export/custom config</td><td>YAML/JSON config</td><td>PM + dev</td><td>DÃ©cision 1 Store par marchÃ© recommandÃ©e</td></tr>
+<tr><td>Locales</td><td>Project languages CT, CS languages, Algolia index locale</td><td>Frontend i18n</td><td>BM site/locales export</td><td>CSV <code>locale_matrix.csv</code></td><td>international</td><td>Aligner codes IETF/ISO</td></tr>
+<tr><td>Users &amp; Roles BM</td><td>CT OAuth clients/scopes, CS roles, Algolia team/API keys</td><td>SSO/SCIM</td><td>BM users/roles export</td><td>RACI XLSX</td><td>PM + sÃ©curitÃ©</td><td>Pas migrer les users tels quels</td></tr>
+<tr><td>Workflows</td><td>Contentstack Workflows + Publish Rules</td><td>PM process</td><td>BM roles/process docs</td><td>BPMN/Markdown</td><td>PM + contenu</td><td>Les workflows SFCC ne se transposent pas automatiquement</td></tr>
+<tr><td>Search Refinements</td><td>Algolia facets/filtering attributes</td><td>CT searchable attributes non prioritaire</td><td>BM search refinements export</td><td>CSV <code>facet_mapping.csv</code></td><td>e-merch</td><td>Facettes doivent Ãªtre localisÃ©es et ordonnÃ©es</td></tr>
+<tr><td>Sorting Rules</td><td>Algolia replicas / customRanking</td><td>Frontend sort UI</td><td>BM sorting rules export</td><td>JSON settings</td><td>e-merch + dev</td><td>1 ranking par index, donc replicas</td></tr>
+<tr><td>URL rules</td><td>Frontend router + 301 rules</td><td>Contentstack URL field</td><td>BM URL rules export, crawl site</td><td>CSV redirects</td><td>SEO</td><td>DÃ©cision slug preserve/refonte</td></tr>
+<tr><td>Redirects</td><td>Edge/server 301</td><td>Algolia Rules redirects pour search query</td><td>BM redirects, crawl logs, GSC</td><td>CSV <code>redirects_301.csv</code></td><td>SEO + dev</td><td>Ã‰viter d'utiliser Algolia comme seul mÃ©canisme 301</td></tr>
+<tr><td>SEO meta</td><td>CT product meta, CS Global Field SEO</td><td>Algolia display only</td><td>BM catalog/content export</td><td>CSV + JSON</td><td>SEO + contenu</td><td>Product SEO dans CT; page SEO dans CS</td></tr>
+<tr><td>Robot rules</td><td>Frontend/hosting config</td><td>Aucun</td><td>BM site preferences</td><td>TXT + config repo</td><td>SEO + dev</td><td>Ã€ versionner</td></tr>
+<tr><td>Hooks/jobs SFCC</td><td>Pipeline intÃ©gration, API Extensions, Subscriptions, schedulers</td><td>iPaaS</td><td>Code review SFCC cartridges/jobs</td><td>Architecture Decision Record</td><td>dev + intÃ©grateur</td><td>Reconcevoir, pas migrer</td></tr>
+<tr><td>OCAPI/SCAPI configs</td><td>API clients CT, frontend services, export scripts</td><td>Aucun</td><td>BM OCAPI settings</td><td>JSON source</td><td>dev</td><td>Salesforce doc: OCAPI settings pilotent permissions par client/site</td></tr>
+</tbody></table></div>
+<p>Sources: <a href="https://developer.salesforce.com/docs/commerce/commerce-api/guide/get-started-with-ocapi.html">Salesforce OCAPI overview</a>, <a href="https://developer.salesforce.com/docs/commerce/ocapi/guide/b2c-content-assets-for-developers.html">Salesforce content assets</a>, <a href="https://help.salesforce.com/s/articleView?id=cc.b2c_catalog_object_import_export.htm&amp;type=5">Salesforce catalog object import/export</a>, <a href="https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-script-api/dw.catalog.Catalog.html">SFCC Catalog class</a>.</p>
+<h3 id="decisions"><a class="anchor" href="#decisions">#</a>DÃ©cisions</h3>
+<div class="table-wrap"><table><thead><tr><th>DÃ©cision</th><th>Options</th><th>Reco</th></tr></thead><tbody>
+<tr><td>Migration contenu SFCC</td><td>Migration HTML brute, recrÃ©ation manuelle, remodÃ©lisation semi-automatique</td><td>RemodÃ©lisation semi-automatique: extraire, classer, nettoyer, recrÃ©er en Contentstack</td></tr>
+<tr><td>Promotions</td><td>Migration automatique, analyse rÃ¨gle par rÃ¨gle</td><td>Analyse rÃ¨gle par rÃ¨gle avec tests panier</td></tr>
+<tr><td>Clients et commandes</td><td>Migration vivante, archive consultable, double approche</td><td>Archive commandes historiques sauf besoin service client; clients Ã  dÃ©cider avec RGPD/CRM</td></tr>
+</tbody></table></div>
+<h3 id="a-clarifier"><a class="anchor" href="#a-clarifier">#</a>Ã€ clarifier</h3>
+<ul>
+<li>Export SFCC exact disponible chez Etam: quels jobs dÃ©jÃ  prÃ©sents, quels catalogues, quelles bibliothÃ¨ques de contenu.</li>
+<li>Droits Etam sur mÃ©dias CDN SFCC aprÃ¨s sortie de contrat.</li>
+<li>Historique commandes: obligation lÃ©gale, besoin service client, solution archive.</li>
+</ul>
+<h2 id="2-modelisation-des-donnees"><a class="anchor" href="#2-modelisation-des-donnees">#</a>2. ModÃ©lisation des donnÃ©es</h2>
+<h3 id="2-1-commercetools"><a class="anchor" href="#2-1-commercetools">#</a>2.1 commercetools</h3>
+<p>Sources clÃ©s: <a href="https://docs.commercetools.com/api/projects/productTypes">Product Types</a>, <a href="https://docs.commercetools.com/api/projects/products">Products</a>, <a href="https://docs.commercetools.com/api/product-catalog-overview">Product catalog overview</a>, <a href="https://docs.commercetools.com/api/projects/stores">Stores</a>, <a href="https://docs.commercetools.com/api/projects/channels">Channels</a>, <a href="https://docs.commercetools.com/api/projects/product-selections">Product Selections</a>, <a href="https://docs.commercetools.com/api/projects/standalone-prices">Standalone Prices</a>, <a href="https://docs.commercetools.com/api/pricing-and-discounts-overview">Pricing overview</a>, <a href="https://docs.commercetools.com/api/projects/types">Types / Custom Fields</a>, <a href="https://docs.commercetools.com/api/projects/inventory">Inventory</a>.</p>
+<h4 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h4>
+<ul>
+<li>Construire un dictionnaire attributs SFCC avec typage, localisation, source, usage search/facet/ranking, obligatoire ou non.</li>
+<li>CrÃ©er un Product Type minimum viable, puis enrichir par familles, pas par catÃ©gories commerciales.</li>
+<li>Valider le seuil 100 variants par Product sur les familles Etam.</li>
+<li>DÃ©cider <code>priceMode</code>: Embedded vs Standalone.</li>
+<li>CrÃ©er Channels: distribution par marchÃ©/prix, supply par entrepÃ´t ou zone stock.</li>
+<li>CrÃ©er Stores par marchÃ© avec langues, pays, channels et product selections.</li>
+<li>DÃ©finir Custom Types uniquement pour les champs mÃ©tier non catalogues: Cart, LineItem, Customer, Order, Store, Category si nÃ©cessaire.</li>
+</ul>
+<h4 id="product-types-proposes"><a class="anchor" href="#product-types-proposes">#</a>Product Types proposÃ©s</h4>
+<div class="table-wrap"><table><thead><tr><th>Product Type</th><th>Usage</th><th>Attributs produit</th><th>Attributs variant</th><th>Owner</th></tr></thead><tbody>
+<tr><td><code>lingerie</code></td><td>soutiens-gorge, culottes, bodies, ensembles</td><td><code>range_key</code>, <code>range_label</code>, <code>product_name</code>, <code>family</code>, <code>fit</code>, <code>padding</code>, <code>wire</code>, <code>collection</code>, <code>season</code>, <code>care</code>, <code>composition</code>, <code>seo_*</code></td><td><code>color_code</code>, <code>color_label</code>, <code>size</code>, <code>cup</code>, <code>ean</code>, <code>sku_status</code>, <code>launch_date</code>, <code>image_set_id</code></td><td>e-merch</td></tr>
+<tr><td><code>nightwear</code></td><td>pyjamas, nuisettes, homewear</td><td><code>range_key</code>, <code>product_name</code>, <code>material</code>, <code>season</code>, <code>collection</code>, <code>care</code>, <code>composition</code></td><td><code>color_code</code>, <code>size</code>, <code>ean</code>, <code>length</code>, <code>image_set_id</code></td><td>e-merch</td></tr>
+<tr><td><code>swimwear</code></td><td>maillots, beachwear</td><td><code>range_key</code>, <code>product_name</code>, <code>shape</code>, <code>coverage</code>, <code>season</code>, <code>composition</code></td><td><code>color_code</code>, <code>size</code>, <code>cup</code>, <code>ean</code></td><td>e-merch</td></tr>
+<tr><td><code>accessory</code></td><td>accessoires, lessive, collants si applicable</td><td><code>product_name</code>, <code>family</code>, <code>usage</code>, <code>composition</code></td><td><code>color_code</code>, <code>size</code>, <code>ean</code></td><td>e-merch</td></tr>
+</tbody></table></div>
+<h4 id="regle-etam-gamme-vs-nom-produit"><a class="anchor" href="#regle-etam-gamme-vs-nom-produit">#</a>RÃ¨gle Etam gamme vs nom produit</h4>
+<ul>
+<li><code>product_name</code>: nom commercial sans gamme.</li>
+<li><code>range_key</code>: identifiant stable de la gamme.</li>
+<li><code>range_label</code>: libellÃ© localisÃ© de la gamme.</li>
+<li><code>display_name_front</code>: construit cÃ´tÃ© frontend ou pipeline: gamme + nom si l'UX le requiert, mais pas stockÃ© comme source mÃ©tier unique.</li>
+<li>Risque: si la gamme reste concatÃ©nÃ©e dans le nom, impossible de filtrer, traduire ou renommer proprement une gamme.</li>
+</ul>
+<h4 id="attributdefinition-regles"><a class="anchor" href="#attributdefinition-regles">#</a>AttributDefinition: rÃ¨gles</h4>
+<div class="table-wrap"><table><thead><tr><th>Type de donnÃ©e</th><th>Type CT recommandÃ©</th><th>LocalisÃ©</th><th>Searchable CT</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Couleur affichÃ©e</td><td>LocalizedEnum ou LocalizableText</td><td>Oui</td><td>Oui si recherche CT nÃ©cessaire</td><td>Algolia reste moteur search front</td></tr>
+<tr><td>Code couleur</td><td>Text / Enum</td><td>Non</td><td>Non</td><td>ClÃ© stable venant PIM/SFCC</td></tr>
+<tr><td>Taille</td><td>Enum</td><td>Non</td><td>Oui si filtres CT</td><td>PrÃ©voir ordre mÃ©tier hors libellÃ©</td></tr>
+<tr><td>Bonnet</td><td>Enum</td><td>Non</td><td>Oui si filtres CT</td><td>Ne pas mÃ©langer taille et bonnet</td></tr>
+<tr><td>Composition</td><td>LocalizableText</td><td>Oui</td><td>Non ou oui selon PDP search</td><td>Long texte: attention taille searchable</td></tr>
+<tr><td>SaisonnalitÃ©</td><td>Enum</td><td>Non</td><td>Oui</td><td>Ranking Algolia possible</td></tr>
+<tr><td>Best-seller score</td><td>Number</td><td>Non</td><td>Non CT, oui Algolia</td><td>CalculÃ© par analytics/ERP</td></tr>
+<tr><td>SEO title/description produit</td><td>LocalizableText</td><td>Oui</td><td>Non</td><td>CT product meta si product page</td></tr>
+</tbody></table></div>
+<p>Doc Ã  respecter: les noms d'attribut CT font 2 Ã  256 caractÃ¨res et acceptent <code>A-Za-z0-9_-</code>; <code>isSearchable</code> rend l'attribut disponible pour Product Search/Product Projection Search selon le type et le niveau. Les Products ont par dÃ©faut 100 variants maximum et les Embedded Prices 100 prix maximum par variant. Voir <a href="https://docs.commercetools.com/api/projects/productTypes">Product Types</a> et <a href="https://docs.commercetools.com/api/projects/products">Products</a>.</p>
+<h4 id="stores-channels-prix-et-stock"><a class="anchor" href="#stores-channels-prix-et-stock">#</a>Stores, Channels, prix et stock</h4>
+<div class="table-wrap"><table><thead><tr><th>Concept</th><th>Reco Etam</th><th>DÃ©cision Ã  trancher</th></tr></thead><tbody>
+<tr><td>Store</td><td>1 Store par marchÃ© e-commerce: <code>fr</code>, <code>be_fr</code>, <code>be_nl</code>, <code>de</code>, <code>es</code>, etc.</td><td>Confirmer si tous les marchÃ©s partagent les mÃªmes assortiments</td></tr>
+<tr><td>Distribution Channel</td><td>Prix/assortiment commercial par marchÃ© ou groupe marchÃ©</td><td>Channel par pays vs zone de prix</td></tr>
+<tr><td>Supply Channel</td><td>EntrepÃ´t ou source stock: ecom central, magasin, marketplace si applicable</td><td>Besoin ship-from-store ou stock marketplace</td></tr>
+<tr><td>Product Selection</td><td>Assortiment par Store si certains marchÃ©s excluent des produits</td><td>Base catalog + exclusions par marchÃ©</td></tr>
+<tr><td>Standalone Prices</td><td>RecommandÃ© si prix par pays/devise/customer group/promos nombreuses</td><td>Valider plan et impacts performance/API</td></tr>
+</tbody></table></div>
+<h3 id="2-2-contentstack"><a class="anchor" href="#2-2-contentstack">#</a>2.2 Contentstack</h3>
+<p>Sources clÃ©s: <a href="https://www.contentstack.com/docs/developers/create-content-types/modular-blocks">Modular Blocks</a>, <a href="https://www.contentstack.com/docs/developers/create-content-types/global">Global Field</a>, <a href="https://www.contentstack.com/docs/developers/create-content-types/reference/">Reference Field</a>, <a href="https://www.contentstack.com/docs/developers/branches/about-branches">About Branches</a>, <a href="https://www.contentstack.com/docs/developers/set-up-environments/about-environments">Environments</a>, <a href="https://www.contentstack.com/docs/developers/multilingual-content/about-languages/">Languages</a>, <a href="https://www.contentstack.com/docs/developers/multilingual-content/about-fallback-languages/">Fallback Languages</a>, <a href="https://www.contentstack.com/docs/developers/set-up-workflows-and-publish-rules/about-workflows">Workflows</a>, <a href="https://www.contentstack.com/docs/developers/set-up-workflows-and-publish-rules/add-a-publish-rule">Publish Rules</a>, <a href="https://www.contentstack.com/docs/developers/invite-users-and-assign-roles/types-of-roles">Roles</a>, <a href="https://www.contentstack.com/docs/developers/apis/content-management-api">CMA</a>, <a href="https://www.contentstack.com/docs/developers/apis/content-delivery-api">CDA</a>.</p>
+<h4 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h4>
+<ul>
+<li>DÃ©finir <code>page</code> comme content type conteneur, avec <code>seo</code> Global Field et <code>components</code> Modular Blocks.</li>
+<li>CrÃ©er des content types autonomes pour contenus rÃ©utilisables: FAQ, guide taille, lookbook, menu, legal page.</li>
+<li>Utiliser les rÃ©fÃ©rences vers commercetools sous forme de champs stables: <code>product_key</code>, <code>sku</code>, <code>category_key</code>, pas de copie prix/stock.</li>
+<li>Utiliser Releases pour campagnes multi-entrÃ©es.</li>
+<li>CrÃ©er branches <code>main</code>, <code>release_xxx</code>, <code>hotfix_xxx</code> seulement si inclus dans le plan et si l'Ã©quipe sait merger.</li>
+</ul>
+<h4 id="content-types-proposes"><a class="anchor" href="#content-types-proposes">#</a>Content Types proposÃ©s</h4>
+<div class="table-wrap"><table><thead><tr><th>UID</th><th>RÃ´le</th><th>Champs clÃ©s</th><th>Owner</th></tr></thead><tbody>
+<tr><td><code>page_generic</code></td><td>Page flexible</td><td><code>title</code>, <code>slug</code>, <code>seo</code>, <code>components</code>, <code>market_visibility</code>, <code>tracking_tags</code></td><td>contenu</td></tr>
+<tr><td><code>page_category_editorial</code></td><td>Landing/category enrichie</td><td><code>category_key</code>, <code>slug</code>, <code>seo</code>, <code>hero</code>, <code>components</code>, <code>linked_algolia_rule_context</code></td><td>e-merch + contenu</td></tr>
+<tr><td><code>block_hero</code></td><td>Hero campagne</td><td><code>title</code>, <code>subtitle</code>, <code>asset_desktop</code>, <code>asset_mobile</code>, <code>cta</code>, <code>theme</code></td><td>contenu</td></tr>
+<tr><td><code>block_product_carousel</code></td><td>Carrousel produits</td><td><code>title</code>, <code>source_type</code>, <code>product_keys</code>, <code>algolia_filter</code>, <code>cta</code></td><td>e-merch</td></tr>
+<tr><td><code>block_editorial_rte</code></td><td>Texte Ã©ditorial</td><td><code>body_json_rte</code>, <code>layout</code></td><td>contenu</td></tr>
+<tr><td><code>guide_size</code></td><td>Guide tailles</td><td><code>body</code>, <code>tables</code>, <code>product_family</code>, <code>locale_scope</code></td><td>contenu + e-merch</td></tr>
+<tr><td><code>faq</code></td><td>FAQ</td><td><code>question</code>, <code>answer</code>, <code>tags</code>, <code>market_visibility</code></td><td>contenu</td></tr>
+<tr><td><code>lookbook</code></td><td>Editorial saison</td><td><code>title</code>, <code>assets</code>, <code>linked_products</code>, <code>components</code></td><td>contenu</td></tr>
+<tr><td><code>navigation_menu</code></td><td>Menu</td><td>Modular Blocks: internal page, external link, category link, product link</td><td>e-merch</td></tr>
+<tr><td><code>redirect_content</code></td><td>Redirections Ã©ditoriales si gÃ©rÃ©es CMS</td><td><code>source</code>, <code>target</code>, <code>status</code>, <code>market</code></td><td>SEO</td></tr>
+</tbody></table></div>
+<h4 id="limites-a-integrer-au-design"><a class="anchor" href="#limites-a-integrer-au-design">#</a>Limites Ã  intÃ©grer au design</h4>
+<ul>
+<li>Contentstack indique 5 Modular Blocks fields max par content type et 100 block definitions par Modular Blocks field dans la page Modular Blocks; la page Field Limitations indique 400 champs max par content type et 500 champs par entrÃ©e. Ã€ valider avec votre plan car les docs historiques peuvent varier par version de stack.</li>
+<li>Les branches sont plan-based, UID en minuscules, <code>_</code> comme sÃ©parateur, 15 caractÃ¨res max, et compare/merge limitÃ© aux content types et global fields via CMA/CLI selon la doc Branches.</li>
+<li>Les assets: 700 MB max via UI, 100 MB via API, 10 assets par batch, 10 000 assets par stack par dÃ©faut selon Asset Limitations.</li>
+</ul>
+<h3 id="2-3-algolia"><a class="anchor" href="#2-3-algolia">#</a>2.3 Algolia</h3>
+<p>Sources clÃ©s: <a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data">Prepare records</a>, <a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/in-depth/what-is-in-a-record">Algolia records</a>, <a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/ecommerce-records/">Ecommerce records</a>, <a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/in-depth/choosing-between-one-or-more-indices">Choosing indices</a>, <a href="https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/in-depth/replicas">Replicas</a>, <a href="https://www.algolia.com/doc/guides/managing-results/rules/rules-overview/">Rules</a>, <a href="https://www.algolia.com/doc/guides/managing-results/refine-results/faceting">Faceting</a>, <a href="https://www.algolia.com/doc/guides/security/api-keys">API keys</a>, <a href="https://www.algolia.com/doc/guides/sending-events">Events</a>, <a href="https://www.algolia.com/doc/guides/scaling/algolia-service-limits/">Service limits</a>.</p>
+<h4 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h4>
+<ul>
+<li>DÃ©cider record level: SKU, couleur, ou master.</li>
+<li>CrÃ©er 1 index produits par locale et environnement.</li>
+<li>CrÃ©er indices sÃ©parÃ©s pour contenu Ã©ditorial, query suggestions, Ã©ventuellement FAQ.</li>
+<li>DÃ©finir <code>searchableAttributes</code>, <code>attributesForFaceting</code>, <code>customRanking</code>, replicas.</li>
+<li>Activer click/conversion/view events dÃ¨s J1 pour Analytics, Recommend, Personalization, NeuralSearch, Dynamic Re-Ranking.</li>
+<li>DÃ©finir qui peut Ã©diter Rules et qui peut pousser settings.</li>
+</ul>
+<h4 id="structure-d-index-recommandee"><a class="anchor" href="#structure-d-index-recommandee">#</a>Structure d'index recommandÃ©e</h4>
+<div class="table-wrap"><table><thead><tr><th>Index</th><th>Exemple</th><th>Record</th><th>Usage</th></tr></thead><tbody>
+<tr><td>Produits FR prod</td><td><code>etam_fr_products_prod</code></td><td>1 record par variant couleur ou SKU selon UX</td><td>Search, PLP, navigation</td></tr>
+<tr><td>Produit tri prix asc</td><td><code>etam_fr_products_prod_price_asc</code></td><td>Replica</td><td>Tri prix croissant</td></tr>
+<tr><td>Produit tri prix desc</td><td><code>etam_fr_products_prod_price_desc</code></td><td>Replica</td><td>Tri prix dÃ©croissant</td></tr>
+<tr><td>Produit nouveautÃ©</td><td><code>etam_fr_products_prod_newness_desc</code></td><td>Replica</td><td>Tri nouveautÃ©s</td></tr>
+<tr><td>Query Suggestions</td><td><code>etam_fr_query_suggestions_prod</code></td><td>Query</td><td>Autocomplete</td></tr>
+<tr><td>Contenu Ã©ditorial</td><td><code>etam_fr_content_prod</code></td><td>1 record par page/bloc indexable</td><td>Federated search</td></tr>
+</tbody></table></div>
+<h4 id="record-produit-type"><a class="anchor" href="#record-produit-type">#</a>Record produit type</h4>
+<pre><code class="language-json">{
+  "objectID": "fr-FR:product-key:sku-or-color",
+  "productID": "ct-product-key",
+  "sku": "sku",
+  "name": "Nom sans gamme",
+  "range": "Gamme",
+  "categoryPaths": ["Lingerie &gt; Soutiens-gorge"],
+  "color": "Noir",
+  "size": ["85B", "90B"],
+  "price": 39.99,
+  "currency": "EUR",
+  "inStock": true,
+  "newness": 1716508800,
+  "salesRank": 124,
+  "marginRank": 87,
+  "image": "https://...",
+  "url": "/fr_FR/p/...",
+  "_tags": ["market:fr", "season:pe26"]
+}</code></pre>
+<p>Reco: pour Etam, partir sur records variant couleur avec tailles disponibles en tableau si les PLP affichent surtout des coloris; passer au record SKU si les filtres taille/bonnet et disponibilitÃ© doivent Ãªtre exacts au hit. Utiliser <code>distinct</code> sur <code>productID</code> si records SKU et UX groupÃ©e.</p>
+<h2 id="3-nomenclature-et-conventions-a-figer"><a class="anchor" href="#3-nomenclature-et-conventions-a-figer">#</a>3. Nomenclature et conventions Ã  figer</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>Publier un fichier <code>naming_conventions.md</code>.</li>
+<li>Bloquer tout import tant que les clÃ©s Product Type, Category, Attribute, Store, Channel, Content Type UID, index Algolia ne sont pas validÃ©es.</li>
+<li>Mettre un validateur CI sur les fichiers de mapping.</li>
+</ul>
+<h3 id="conventions"><a class="anchor" href="#conventions">#</a>Conventions</h3>
+<div class="table-wrap"><table><thead><tr><th>Domaine</th><th>Convention</th><th>Exemple</th><th>RÃ¨gle doc / risque</th></tr></thead><tbody>
+<tr><td>CT keys</td><td>lowercase kebab ou snake, 2-256 chars, <code>A-Za-z0-9_-</code></td><td><code>lingerie-sg</code>, <code>store-fr</code></td><td>Les keys CT suivent le pattern documentÃ© sur Stores/Types/Product Types</td></tr>
+<tr><td>CT attribute name</td><td>snake_case lisible, stable</td><td><code>range_key</code>, <code>color_code</code>, <code>cup_size</code></td><td>Nom 2-256, <code>A-Za-z0-9_-</code>; ne pas renommer sans migration</td></tr>
+<tr><td>CS content type UID</td><td>snake_case, domaine prÃ©fixÃ©</td><td><code>page_category_editorial</code>, <code>block_hero</code></td><td>Contentstack accepte alphanum + underscores, UID content type max 200</td></tr>
+<tr><td>CS branch UID</td><td>lowercase + <code>_</code>, max 15</td><td><code>release_pe26</code>, <code>hotfix_seo</code></td><td>Limite Branches</td></tr>
+<tr><td>Algolia index</td><td><code>{brand}_{locale}_{type}_{env}</code></td><td><code>etam_fr_products_prod</code></td><td>Index names publics dans les requÃªtes: pas de PII</td></tr>
+<tr><td>Algolia replica</td><td><code>{primary}_{sort}_{direction}</code></td><td><code>etam_fr_products_prod_price_asc</code></td><td>AlignÃ© doc replicas</td></tr>
+<tr><td>Locale</td><td>IETF cohÃ©rent entre outils</td><td><code>fr-FR</code>, <code>en-GB</code>, <code>de-DE</code></td><td>CT Stores utilise languages du Project; CS languages; Algolia par locale</td></tr>
+<tr><td>Slug</td><td>lowercase, hyphen, sans ID technique si possible</td><td><code>/soutiens-gorge/ampli/</code></td><td>CT product slug pattern documentÃ©: <code>A-Za-z0-9_-</code>, 2-256, unique par projet</td></tr>
+<tr><td>Releases CS</td><td><code>{market}_{campaign}_{date}</code></td><td><code>fr_soldes_2026_06_24</code></td><td>Facile Ã  auditer</td></tr>
+<tr><td>Tags CS/Algolia</td><td><code>domain:value</code></td><td><code>season:pe26</code>, <code>market:fr</code></td><td>Ã‰vite collisions</td></tr>
+</tbody></table></div>
+<h3 id="decisions"><a class="anchor" href="#decisions">#</a>DÃ©cisions</h3>
+<div class="table-wrap"><table><thead><tr><th>Sujet</th><th>Options</th><th>Reco</th></tr></thead><tbody>
+<tr><td>snake_case vs camelCase</td><td>snake_case partout mÃ©tier, camelCase seulement si SDK impose</td><td>snake_case pour CS/CSV/Algolia; CT accepte <code>_</code></td></tr>
+<tr><td>Codes marchÃ©s</td><td><code>fr</code>, <code>fr-FR</code>, <code>FR</code></td><td><code>fr-FR</code> pour locale, <code>fr</code> pour Store/index segment</td></tr>
+<tr><td>ClÃ©s catÃ©gories</td><td>importer SFCC IDs ou normaliser</td><td>conserver <code>legacy_sfcc_id</code>, crÃ©er <code>category_key</code> stable normalisÃ©</td></tr>
+</tbody></table></div>
+<h2 id="4-extractions-sfcc-a-produire"><a class="anchor" href="#4-extractions-sfcc-a-produire">#</a>4. Extractions SFCC Ã  produire</h2>
+<h3 id="checklist-generale"><a class="anchor" href="#checklist-generale">#</a>Checklist gÃ©nÃ©rale</h3>
+<ul>
+<li>Produire un export initial complet.</li>
+<li>Produire un delta quotidien pendant build.</li>
+<li>Produire un delta freeze J-1/J.</li>
+<li>Stocker les exports sources immuables dans un rÃ©pertoire datÃ©.</li>
+<li>Associer chaque export Ã  un contrÃ´le qualitÃ©: nombre, champs obligatoires, doublons, valeurs inconnues.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>Export</th><th>MÃ©thode</th><th>Format source</th><th>Format pivot</th><th>FrÃ©quence</th><th>Destinataire</th><th>ContrÃ´les</th></tr></thead><tbody>
+<tr><td>Produits masters</td><td>BM catalog export XML, OCAPI Data/Shop si delta</td><td>XML/JSON</td><td>JSONL CT + CSV revue</td><td>Initial + delta</td><td>intÃ©grateur</td><td>count, ID unique, nom, catÃ©gorie</td></tr>
+<tr><td>Variations/SKUs</td><td>BM catalog XML</td><td>XML</td><td>JSONL variants</td><td>Initial + delta</td><td>intÃ©grateur</td><td>SKU unique, EAN, taille/couleur</td></tr>
+<tr><td>Attributs custom</td><td>BM metadata export, OCAPI Meta API</td><td>XML/JSON</td><td><code>attribute_dictionary.xlsx</code></td><td>Initial + changement</td><td>e-merch/dev</td><td>type, valeurs enum, localisÃ©</td></tr>
+<tr><td>Prix</td><td>BM price books export</td><td>XML/CSV</td><td>JSONL standalone prices</td><td>Initial + delta quotidien</td><td>dev</td><td>currency, country/channel, customer group</td></tr>
+<tr><td>Stock</td><td>OMS/WMS source prioritaire ou SFCC inventory lists</td><td>CSV/XML</td><td>JSONL inventory</td><td>Delta frÃ©quent</td><td>dev</td><td>SKU, supply channel, quantity</td></tr>
+<tr><td>CatÃ©gories</td><td>BM catalog XML</td><td>XML</td><td>JSONL categories</td><td>Initial + delta</td><td>e-merch</td><td>parent, slug, online flag</td></tr>
+<tr><td>Assignations produit-catÃ©gorie</td><td>BM catalog XML</td><td>XML</td><td>CSV</td><td>Initial + delta</td><td>e-merch</td><td>produits sans catÃ©gorie</td></tr>
+<tr><td>MÃ©dias</td><td>URL CDN + extraction binaires si droits</td><td>CSV + fichiers</td><td>asset manifest</td><td>Initial + delta</td><td>contenu</td><td>404, poids, dimensions</td></tr>
+<tr><td>Content Assets</td><td>BM content export, OCAPI Data content</td><td>XML/HTML</td><td>JSON + HTML nettoyÃ©</td><td>Initial + delta</td><td>contenu</td><td>HTML valide, dÃ©pendances assets</td></tr>
+<tr><td>Content Slots</td><td>BM site export, OCAPI Data slot configs</td><td>XML/JSON</td><td>JSON mapping</td><td>Initial + delta</td><td>e-merch</td><td>rÃ¨gle slot, calendrier</td></tr>
+<tr><td>Page Designer</td><td>BM export/custom job</td><td>JSON/XML</td><td>JSON normalized</td><td>Initial</td><td>contenu/dev</td><td>composants non supportÃ©s</td></tr>
+<tr><td>Promotions</td><td>BM export, OCAPI Data</td><td>XML/JSON</td><td>CSV mÃ©tier + JSON CT</td><td>Initial + freeze</td><td>e-merch/dev</td><td>conditions, cumul, calendrier</td></tr>
+<tr><td>Coupons</td><td>BM export</td><td>CSV/XML</td><td>CSV</td><td>Initial + freeze</td><td>CRM/dev</td><td>codes uniques, dates, usages</td></tr>
+<tr><td>Customer Groups</td><td>BM export/OCAPI</td><td>JSON/CSV</td><td>JSONL CT</td><td>Initial + delta</td><td>CRM</td><td>dynamiques vs statiques</td></tr>
+<tr><td>SEO meta</td><td>catalog/content exports + crawl</td><td>CSV</td><td>CSV</td><td>Initial + freeze</td><td>SEO</td><td>title/description manquants</td></tr>
+<tr><td>Redirects</td><td>BM redirects + crawl/logs/GSC</td><td>CSV</td><td>CSV 301</td><td>Initial + freeze</td><td>SEO/dev</td><td>boucle, chaines, 404</td></tr>
+<tr><td>Sitemap</td><td>SFCC sitemap</td><td>XML</td><td>CSV URL inventory</td><td>Initial + J-1</td><td>SEO</td><td>coverage</td></tr>
+<tr><td>Robots</td><td>BM/site config</td><td>TXT</td><td>TXT</td><td>Initial</td><td>SEO/dev</td><td>directives par env</td></tr>
+<tr><td>Clients</td><td>OCAPI/Data API ou export client</td><td>CSV/JSON</td><td>Ã  dÃ©finir RGPD</td><td>DÃ©cision</td><td>CRM/legal</td><td>consentements, hashes</td></tr>
+<tr><td>Commandes</td><td>Export order history ou archive BI</td><td>CSV/JSON</td><td>archive/search</td><td>DÃ©cision</td><td>CS/finance</td><td>obligations lÃ©gales</td></tr>
+<tr><td>Jobs/hooks/code</td><td>repo cartridges + BM jobs</td><td>code/config</td><td>ADR + inventory</td><td>Initial</td><td>dev</td><td>dÃ©pendance tiers</td></tr>
+</tbody></table></div>
+<h3 id="artefacts"><a class="anchor" href="#artefacts">#</a>Artefacts</h3>
+<ul>
+<li><code>exports/source/YYYYMMDD/sfcc_catalog.xml</code></li>
+<li><code>exports/source/YYYYMMDD/sfcc_price_books.zip</code></li>
+<li><code>exports/pivot/products.jsonl</code></li>
+<li><code>exports/pivot/product_variants.jsonl</code></li>
+<li><code>exports/pivot/attribute_dictionary.xlsx</code></li>
+<li><code>exports/pivot/category_tree.csv</code></li>
+<li><code>exports/pivot/redirects_301.csv</code></li>
+<li><code>exports/pivot/content_inventory.csv</code></li>
+<li><code>exports/qc/export_qc_report.md</code></li>
+</ul>
+<h2 id="5-users-roles-droits"><a class="anchor" href="#5-users-roles-droits">#</a>5. Users, rÃ´les, droits</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>Exporter les rÃ´les BM actuels et lister les utilisateurs rÃ©ellement actifs.</li>
+<li>Supprimer les comptes nominaux inutiles avant migration.</li>
+<li>CrÃ©er une matrice d'accÃ¨s par outil, environnement, marchÃ©, langue.</li>
+<li>SÃ©parer les clÃ©s machine des users humains.</li>
+<li>PrÃ©voir SSO/SAML et SCIM si inclus contrats.</li>
+</ul>
+<h3 id="matrice-cible"><a class="anchor" href="#matrice-cible">#</a>Matrice cible</h3>
+<div class="table-wrap"><table><thead><tr><th>Profil</th><th>commercetools</th><th>Contentstack</th><th>Algolia</th><th>Owner validation</th></tr></thead><tbody>
+<tr><td>e-merch FR</td><td>Merchant Center lecture catalogue/prix, pas API admin</td><td>Content Manager FR, publier prod si workflow approved</td><td>Merchandising Rules sur index FR, pas settings</td><td>PM + e-merch</td></tr>
+<tr><td>e-merch inter</td><td>AccÃ¨s Stores marchÃ©s, lecture prix/stock</td><td>Content Manager limitÃ© langues/marchÃ©s</td><td>Rules marchÃ©s, synonyms locaux</td><td>international</td></tr>
+<tr><td>Marketing/contenu</td><td>Pas accÃ¨s commerce sauf lecture</td><td>CrÃ©ation pages/blocs/assets, workflow review</td><td>AccÃ¨s banners/rules si formÃ©</td><td>contenu</td></tr>
+<tr><td>CRM</td><td>Customer Groups lecture/gestion selon besoin</td><td>Contenus CRM si stack concernÃ©e</td><td>Secured API keys/persona si besoin</td><td>CRM</td></tr>
+<tr><td>Customer service</td><td>Lecture commandes/client selon outil service</td><td>Aucun ou lecture FAQ</td><td>Aucun</td><td>CS + legal</td></tr>
+<tr><td>Dev interne</td><td>API clients limitÃ©s par env, manage scopes non prod</td><td>Developer non prod, tokens</td><td>settings/indexing non prod</td><td>tech lead</td></tr>
+<tr><td>IntÃ©grateur</td><td>AccÃ¨s projet non prod, prod temporaire contrÃ´lÃ©</td><td>Developer branches/dev/preprod</td><td>Indexing/settings non prod</td><td>PM + sÃ©curitÃ©</td></tr>
+<tr><td>Admin sÃ©curitÃ©</td><td>Gestion API clients/scopes</td><td>Owner/Admin restreint</td><td>App owner/admin</td><td>sÃ©curitÃ©</td></tr>
+</tbody></table></div>
+<h3 id="regles-par-outil"><a class="anchor" href="#regles-par-outil">#</a>RÃ¨gles par outil</h3>
+<div class="table-wrap"><table><thead><tr><th>Outil</th><th>Principe</th><th>Doc</th></tr></thead><tbody>
+<tr><td>commercetools</td><td>CrÃ©er des API clients par service avec OAuth scopes minimum: <code>view_products</code>, <code>manage_products</code>, <code>manage_orders</code>, etc.</td><td><a href="https://docs.commercetools.com/api/scopes">Scopes</a>, <a href="https://docs.commercetools.com/api/authorization">Authorization</a></td></tr>
+<tr><td>Contentstack</td><td>Utiliser rÃ´les systÃ¨me seulement si suffisants, sinon Custom Roles par content type/env/langue. Delivery token = lecture published env; Management token = lecture/Ã©criture CMA.</td><td><a href="https://www.contentstack.com/docs/developers/invite-users-and-assign-roles/types-of-roles">Roles</a>, <a href="https://www.contentstack.com/docs/developers/apis/content-management-api">CMA tokens</a></td></tr>
+<tr><td>Algolia</td><td>Ne jamais exposer Admin API key; frontend avec search-only ou secured API keys; clÃ©s indexing limitÃ©es aux index nÃ©cessaires.</td><td><a href="https://www.algolia.com/doc/guides/security/api-keys">API keys</a></td></tr>
+</tbody></table></div>
+<h3 id="a-clarifier"><a class="anchor" href="#a-clarifier">#</a>Ã€ clarifier</h3>
+<ul>
+<li>Contrat Contentstack: disponibilitÃ© SSO, SCIM, workflows, branches, nombre de stacks/branches.</li>
+<li>Contrat Algolia: accÃ¨s Merchandising Studio, Personalization, Recommend, NeuralSearch, virtual replicas.</li>
+<li>Organisation commercetools: teams/projects/business units activÃ©s ou non.</li>
+</ul>
+<h2 id="6-workflows-et-gouvernance-contenu"><a class="anchor" href="#6-workflows-et-gouvernance-contenu">#</a>6. Workflows et gouvernance contenu</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>Mettre en place workflow CS: Draft -&gt; Review -&gt; Approved -&gt; Published.</li>
+<li>CrÃ©er publish rules prod: publication seulement si stage Approved.</li>
+<li>CrÃ©er releases pour campagnes: Soldes, Saint-Valentin, lancement collection.</li>
+<li>Documenter le process catalogue CT: source, contrÃ´les, import, validation, publication.</li>
+<li>Documenter le process Algolia Rules: crÃ©ation, preview, validation, push prod.</li>
+</ul>
+<h3 id="process-cible"><a class="anchor" href="#process-cible">#</a>Process cible</h3>
+<div class="table-wrap"><table><thead><tr><th>Domaine</th><th>Process</th><th>Artefacts</th><th>Owner</th></tr></thead><tbody>
+<tr><td>Contenu Contentstack</td><td>CrÃ©ation Draft, assignation reviewer, validation locale, publish preprod, release prod</td><td><code>content_workflow.md</code>, release checklist</td><td>contenu + e-merch</td></tr>
+<tr><td>Campagne</td><td>CS Release + CT discounts + Algolia Rules + frontend flags</td><td><code>campaign_go_live_sheet.xlsx</code></td><td>PM</td></tr>
+<tr><td>Catalogue CT</td><td>Import PIM/SFCC delta, validation Product Types, publication product projections, sync Algolia</td><td><code>catalog_import_runbook.md</code></td><td>dev + e-merch</td></tr>
+<tr><td>Algolia</td><td>Rule Visual Editor pour e-merch, API/settings par dev, export settings versionnÃ©</td><td><code>algolia_settings/*.json</code></td><td>e-merch + dev</td></tr>
+<tr><td>Saison Etam</td><td>Batch enrichissement 3000 MC: mapping gamme, attributs, mÃ©dias, traduction, prix, stock, search</td><td><code>season_readiness_dashboard.xlsx</code></td><td>e-merch</td></tr>
+</tbody></table></div>
+<p>Sources: Contentstack Workflows permettent stages, assignments, approval rules, prevent self-advancement, branch-specific workflows si inclus plan. Publish Rules gouvernent publication/unpublication par branches/environnements. Algolia Rules Visual Editor couvre promote/hide, boost/bury, banners, facet merchandising, contexte device/segment/date selon la doc Rules.</p>
+<h2 id="7-internationalisation"><a class="anchor" href="#7-internationalisation">#</a>7. Internationalisation</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>CrÃ©er une matrice locale: marchÃ©, langue, fallback, devise, taxes, shipping, Store CT, index Algolia, environnement CS.</li>
+<li>DÃ©cider oÃ¹ vit chaque traduction: CT, CS ou Algolia calculÃ©.</li>
+<li>DÃ©finir fallback explicite et rÃ¨gles de contenu non localisable.</li>
+<li>Tester marchÃ©s partiellement traduits.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>DonnÃ©e</th><th>Source de vÃ©ritÃ©</th><th>Publication</th></tr></thead><tbody>
+<tr><td>Nom produit, descriptions, composition</td><td>CT attributs localisÃ©s</td><td>CT -&gt; Algolia locale</td></tr>
+<tr><td>Contenu page, hero, FAQ, guide tailles</td><td>Contentstack entry localisÃ©e</td><td>CDA locale</td></tr>
+<tr><td>Searchable product text</td><td>Algolia index par locale</td><td>Pipeline indexation</td></tr>
+<tr><td>Prix/devise</td><td>CT Price/Standalone Price</td><td>Store/channel</td></tr>
+<tr><td>Taxes</td><td>CT Tax Categories + Zones</td><td>Cart/order</td></tr>
+<tr><td>Shipping</td><td>CT Shipping Methods + Zones</td><td>Cart/order</td></tr>
+<tr><td>Synonymes</td><td>Algolia par index locale</td><td>Dashboard/API</td></tr>
+</tbody></table></div>
+<h3 id="stores-ct"><a class="anchor" href="#stores-ct">#</a>Stores CT</h3>
+<p>Reco: 1 Store par marchÃ© si le pays a au moins une diffÃ©rence de langue, assortiment, prix, taxe, livraison ou stock. Un projet par rÃ©gion uniquement si contraintes fortes de sÃ©paration donnÃ©es, performance, organisation ou contrat. Ã€ clarifier avec commercetools pour limites projet et gouvernance Etam.</p>
+<h3 id="contentstack"><a class="anchor" href="#contentstack">#</a>Contentstack</h3>
+<ul>
+<li>Master language impossible Ã  changer aprÃ¨s crÃ©ation de stack selon la doc Set Master Language: choisir avec prudence.</li>
+<li>Fallback language peut hÃ©riter du parent puis master si absent.</li>
+<li>Non-localizable fields utiles pour IDs, product keys, tracking, mais plan-based dans certains cas imbriquÃ©s.</li>
+</ul>
+<h2 id="8-search-et-merchandising-algolia"><a class="anchor" href="#8-search-et-merchandising-algolia">#</a>8. Search et merchandising Algolia</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>Exporter Search Refinements et Sorting Rules SFCC.</li>
+<li>DÃ©finir facettes front: catÃ©gorie, taille, bonnet, couleur, forme, prix, collection, matiÃ¨re, promo, nouveautÃ©, stock.</li>
+<li>Mapper chaque refinement SFCC vers attribut Algolia.</li>
+<li>CrÃ©er replicas pour tris.</li>
+<li>CrÃ©er rules de merchandising pour top catÃ©gories et campagnes.</li>
+<li>CÃ¢bler events Insights dÃ¨s le premier test front.</li>
+</ul>
+<h3 id="settings-produits-fr-type"><a class="anchor" href="#settings-produits-fr-type">#</a>Settings produits FR type</h3>
+<pre><code class="language-json">{
+  "searchableAttributes": [
+    "unordered(name)",
+    "unordered(range)",
+    "unordered(categoryNames)",
+    "unordered(color)",
+    "unordered(material)",
+    "sku"
+  ],
+  "attributesForFaceting": [
+    "searchable(categoryPaths)",
+    "searchable(color)",
+    "size",
+    "cup",
+    "family",
+    "collection",
+    "inStock",
+    "priceBucket",
+    "market"
+  ],
+  "customRanking": [
+    "desc(inStock)",
+    "desc(salesRank)",
+    "desc(newness)",
+    "desc(marginRank)"
+  ],
+  "replicas": [
+    "etam_fr_products_prod_price_asc",
+    "etam_fr_products_prod_price_desc",
+    "etam_fr_products_prod_newness_desc"
+  ]
+}</code></pre>
+<h3 id="rules-vs-personalization-vs-recommend-vs-neuralsearch"><a class="anchor" href="#rules-vs-personalization-vs-recommend-vs-neuralsearch">#</a>Rules vs Personalization vs Recommend vs NeuralSearch</h3>
+<div class="table-wrap"><table><thead><tr><th>Besoin</th><th>Fonction Algolia</th><th>Reco</th></tr></thead><tbody>
+<tr><td>Pinning produits sur requÃªte/catÃ©gorie</td><td>Rules Visual Editor</td><td>Oui J1</td></tr>
+<tr><td>Banners search/PLP</td><td>Rules banners</td><td>Oui si frontend InstantSearch compatible ou rendu custom</td></tr>
+<tr><td>Redirection requÃªte "carte cadeau"</td><td>Rules redirect</td><td>Oui pour search; pas pour SEO 301 global</td></tr>
+<tr><td>Boost saisonnier "soldes"</td><td>Rules + customRanking</td><td>Oui avec dates et tags</td></tr>
+<tr><td>Recos PDP/panier</td><td>Recommend</td><td>Phase 2 si events fiables</td></tr>
+<tr><td>Personnalisation par affinitÃ©</td><td>Personalization</td><td>Phase 2, aprÃ¨s consentement et events</td></tr>
+<tr><td>NeuralSearch / AI Search</td><td>NeuralSearch</td><td>Pilote contrÃ´lÃ© aprÃ¨s base keyword solide</td></tr>
+<tr><td>Query Suggestions</td><td>Query Suggestions index sÃ©parÃ©</td><td>Oui J1 search UX</td></tr>
+</tbody></table></div>
+<h3 id="synonymes-et-dictionnaires"><a class="anchor" href="#synonymes-et-dictionnaires">#</a>Synonymes et dictionnaires</h3>
+<ul>
+<li>CrÃ©er <code>synonyms_fr.json</code>: <code>culotte</code>, <code>shorty</code>, <code>tanga</code>; <code>soutien gorge</code>, <code>soutien-gorge</code>, <code>sg</code>; fautes frÃ©quentes issues analytics SFCC.</li>
+<li>SÃ©parer synonymes rÃ©guliers, one-way, corrections.</li>
+<li>Ne pas crÃ©er de synonymes qui dÃ©truisent le merchandising: <code>string</code> vs <code>tanga</code> peut Ãªtre sensible selon catÃ©gories.</li>
+</ul>
+<h3 id="limites-a-surveiller"><a class="anchor" href="#limites-a-surveiller">#</a>Limites Ã  surveiller</h3>
+<ul>
+<li>Records comptÃ©s sur tous les indices, replicas inclus pour Standard replicas selon support Algolia.</li>
+<li>Taille record selon plan: docs support indiquent 10 KB Build, 100 KB Standard/Premium/Grow avec moyenne 10 KB.</li>
+<li>Service limits publics: 1 000 indices Premium, 50 Grow, 10 Build; 20 virtual replicas par index; 10 000 synonyms par index ou 1 000 Build; conditions/rules et filters limitÃ©s selon doc Service Limits.</li>
+<li>Ã€ clarifier avec Algolia: plan Etam, over-quota, nombre d'applications, virtual replicas, NeuralSearch pricing/quotas.</li>
+</ul>
+<h2 id="9-seo-et-migration-urls"><a class="anchor" href="#9-seo-et-migration-urls">#</a>9. SEO et migration URLs</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>Crawler SFCC complet: URLs indexables, status, canonical, hreflang, meta, structured data.</li>
+<li>Exporter redirects SFCC.</li>
+<li>DÃ©finir stratÃ©gie slug: preserve par dÃ©faut.</li>
+<li>Produire <code>redirects_301.csv</code> source, target, reason, priority, owner.</li>
+<li>GÃ©nÃ©rer sitemaps nouvelle stack et comparer coverage.</li>
+<li>Mettre monitoring J: GSC, logs 404/500, ranking, revenue SEO.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>Ã‰lÃ©ment</th><th>Source SFCC</th><th>Cible</th><th>Owner</th></tr></thead><tbody>
+<tr><td>Product URL</td><td>SFCC URL rules/catalog</td><td>Frontend route + CT slug</td><td>SEO + dev</td></tr>
+<tr><td>Category URL</td><td>SFCC category slug</td><td>Frontend route + CT/CS category key</td><td>SEO</td></tr>
+<tr><td>Editorial URL</td><td>Content Assets/Page Designer</td><td>CS <code>slug</code></td><td>contenu</td></tr>
+<tr><td>Redirects</td><td>BM redirects + crawl + GSC</td><td>Edge/server rules</td><td>SEO + dev</td></tr>
+<tr><td>Canonical</td><td>Templates SFCC</td><td>Frontend</td><td>SEO + dev</td></tr>
+<tr><td>Hreflang</td><td>Sitemap/templates</td><td>Frontend locale router</td><td>international + SEO</td></tr>
+<tr><td>Structured data</td><td>SFCC templates</td><td>Frontend Product/BreadcrumbList</td><td>dev + SEO</td></tr>
+<tr><td>Robots</td><td>BM preferences</td><td>Hosting config</td><td>SEO</td></tr>
+</tbody></table></div>
+<h3 id="decision"><a class="anchor" href="#decision">#</a>DÃ©cision</h3>
+<p>Reco: Algolia Rules redirect sert aux requÃªtes internes de recherche, pas comme mÃ©canisme principal de 301 SEO. Les 301 doivent vivre au niveau edge/server/front afin que les robots et liens externes soient correctement servis.</p>
+<h2 id="10-medias-et-dam"><a class="anchor" href="#10-medias-et-dam">#</a>10. MÃ©dias et DAM</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>Inventorier tous les mÃ©dias SFCC: product images, swatches, content assets, Page Designer.</li>
+<li>Valider droits et durÃ©e d'accÃ¨s au CDN SFCC.</li>
+<li>DÃ©cider DAM cible: Contentstack Assets, DAM externe, CDN frontend.</li>
+<li>CrÃ©er un asset manifest: legacy URL, filename, checksum, dimensions, target asset UID/URL, owner.</li>
+<li>GÃ©nÃ©rer variantes responsive et formats modernes cÃ´tÃ© pipeline/CDN.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Avantages</th><th>Risques</th><th>Reco</th></tr></thead><tbody>
+<tr><td>Garder URLs SFCC</td><td>Rapide</td><td>DÃ©pendance contractuelle, risque 404 post-exit</td><td>Non sauf transition courte</td></tr>
+<tr><td>Contentstack Assets</td><td>Simple pour Ã©ditorial</td><td>Limites stack/assets, pas DAM produit massif si volumÃ©trie trÃ¨s Ã©levÃ©e</td><td>Oui pour Ã©ditorial</td></tr>
+<tr><td>DAM externe</td><td>Gouvernance mÃ©dia produit</td><td>Projet supplÃ©mentaire</td><td>RecommandÃ© si Etam a DAM groupe</td></tr>
+<tr><td>CDN frontend</td><td>Performance</td><td>Besoin pipeline image</td><td>Oui pour produit si DAM/source PIM existe</td></tr>
+</tbody></table></div>
+<p>Contentstack Asset Limitations publiques: max 700 MB via UI, 100 MB via API, 10 assets par batch, 10 000 assets par stack par dÃ©faut, image input max 50 MB pour optimisation.</p>
+<h2 id="11-integrations-et-flux-tiers"><a class="anchor" href="#11-integrations-et-flux-tiers">#</a>11. IntÃ©grations et flux tiers</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>Lister tous les jobs SFCC et cartridges tiers.</li>
+<li>Pour chaque flux, identifier trigger, frÃ©quence, sens, format, SLA, owner.</li>
+<li>Choisir mÃ©canisme cible: CT API, Import API, API Extensions, Subscriptions, Contentstack webhooks, Algolia API.</li>
+<li>DÃ©finir replay/idempotence.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>Flux</th><th>SFCC actuel</th><th>Cible</th><th>MÃ©canisme recommandÃ©</th><th>Owner</th></tr></thead><tbody>
+<tr><td>PIM/catalogue</td><td>XML Demandware</td><td>CT Products/Product Types</td><td>Import API + validation</td><td>dev + intÃ©grateur</td></tr>
+<tr><td>Prix</td><td>Price books</td><td>CT Standalone/Embedded Prices</td><td>Import API price</td><td>dev</td></tr>
+<tr><td>Stock</td><td>Inventory lists/job</td><td>CT InventoryEntry</td><td>API/import delta</td><td>dev</td></tr>
+<tr><td>Orders -&gt; OMS/ERP</td><td>SFCC order export job</td><td>CT Orders</td><td>Subscriptions ou polling API</td><td>dev</td></tr>
+<tr><td>Paiement</td><td>cartridge SFCC</td><td>Frontend + PSP + CT payment refs</td><td>custom service</td><td>dev</td></tr>
+<tr><td>Fraude</td><td>cartridge/job</td><td>Checkout/order service</td><td>API extension/subscription selon timing</td><td>dev</td></tr>
+<tr><td>CRM/emailing</td><td>SFCC customer/order feeds</td><td>CRM direct + CT events</td><td>Subscriptions/iPaaS</td><td>CRM</td></tr>
+<tr><td>Avis clients</td><td>SFCC cartridge/feed</td><td>Frontend + CT/Algolia display</td><td>custom integration</td><td>e-merch</td></tr>
+<tr><td>FidÃ©litÃ©</td><td>SFCC customer profile/custom attrs</td><td>CT Customer custom fields + CRM</td><td>API</td><td>CRM</td></tr>
+<tr><td>Livraison</td><td>SFCC shipping methods</td><td>CT Shipping Methods/Zones</td><td>API config + OMS</td><td>dev</td></tr>
+<tr><td>Search indexing</td><td>SFCC -&gt; Algolia connector si existant</td><td>CT/CS -&gt; Algolia</td><td>commercetools connector ou pipeline custom</td><td>dev + Algolia</td></tr>
+<tr><td>Content publish</td><td>BM content</td><td>CS webhooks -&gt; build/revalidate</td><td>Webhooks/Launch</td><td>dev + contenu</td></tr>
+</tbody></table></div>
+<p>Sources: <a href="https://docs.commercetools.com/api/projects/subscriptions">commercetools Subscriptions</a>, <a href="https://docs.commercetools.com/api/limits">API Extensions limits</a>, <a href="https://www.contentstack.com/docs/developers/webhooks">Contentstack webhooks</a>, <a href="https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/">Algolia send/update data</a>.</p>
+<h2 id="12-environnements-branches-releases"><a class="anchor" href="#12-environnements-branches-releases">#</a>12. Environnements, branches, releases</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>DÃ©finir un mapping env unique.</li>
+<li>SÃ©parer donnÃ©es test, donnÃ©es masquÃ©es, donnÃ©es prod.</li>
+<li>CrÃ©er seed minimal: catÃ©gories, 100 produits, 10 pages, 5 promos, 3 marchÃ©s.</li>
+<li>PrÃ©voir reset non-prod.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>Environnement</th><th>commercetools</th><th>Contentstack</th><th>Algolia</th><th>Usage</th></tr></thead><tbody>
+<tr><td>Dev</td><td>Project sandbox dev</td><td>Branch <code>main</code> dev stack ou env <code>dev</code></td><td>App/index dev</td><td>Build</td></tr>
+<tr><td>Preprod</td><td>Project preprod</td><td>Environment <code>preprod</code>, branch release si modÃ¨le change</td><td>App/index preprod</td><td>Recette</td></tr>
+<tr><td>Prod</td><td>Project prod</td><td>Environment <code>prod</code>, branch main</td><td>App/index prod</td><td>Live</td></tr>
+<tr><td>Training</td><td>Project sandbox limitÃ©</td><td>Stack/env training</td><td>Index rÃ©duit</td><td>Formation</td></tr>
+</tbody></table></div>
+<h3 id="reco"><a class="anchor" href="#reco">#</a>Reco</h3>
+<ul>
+<li>Algolia: idÃ©alement applications sÃ©parÃ©es par env pour Ã©viter pollution Analytics et accident d'indexation. La doc recommande des indices sÃ©parÃ©s ou apps/env sÃ©parÃ©s pour staging/prod.</li>
+<li>Contentstack: utiliser Environments pour destinations de publication; Branches pour changements de modÃ¨le ou gros chantiers, pas pour chaque campagne mÃ©tier.</li>
+<li>commercetools: projet prod distinct; sandbox pour tests; donnÃ©es client masquÃ©es hors prod.</li>
+</ul>
+<h2 id="13-cutover-go-live"><a class="anchor" href="#13-cutover-go-live">#</a>13. Cutover / go-live</h2>
+<h3 id="checklist-run-parallele"><a class="anchor" href="#checklist-run-parallele">#</a>Checklist run parallÃ¨le</h3>
+<ul>
+<li>PÃ©rimÃ¨tre pilote: FR desktop/mobile, catalogue complet ou famille pilote selon planning.</li>
+<li>Comparer SFCC vs nouvelle stack: count produits, prix, stock, catÃ©gories, URLs, search top queries.</li>
+<li>Geler les changements non essentiels avant bascule.</li>
+<li>PrÃ©parer rollback DNS/applicatif et rÃ©ouverture SFCC si nÃ©cessaire.</li>
+</ul>
+<h3 id="planning"><a class="anchor" href="#planning">#</a>Planning</h3>
+<div class="table-wrap"><table><thead><tr><th>Moment</th><th>Actions</th><th>Owner</th></tr></thead><tbody>
+<tr><td>J-30</td><td>Validation modÃ¨le data, premiers imports complets, SEO crawl baseline, RACI signÃ©</td><td>PM</td></tr>
+<tr><td>J-21</td><td>NRT front, search relevance benchmark, tunnel panier/checkout, monitoring en place</td><td>dev + e-merch</td></tr>
+<tr><td>J-14</td><td>Formation e-merch/contenu, dry run import delta, dry run release campagne</td><td>PM</td></tr>
+<tr><td>J-7</td><td>Freeze conventions, derniers changements structurants interdits, plan rollback validÃ©</td><td>PM + dev</td></tr>
+<tr><td>J-3</td><td>Export full SFCC, delta rehearsal, validation prix/stock/promos</td><td>dev + e-merch</td></tr>
+<tr><td>J-1</td><td>Freeze contenu/catalogue/promo selon fenÃªtre, delta final, sitemap final, 301 final</td><td>PM</td></tr>
+<tr><td>J</td><td>Bascule DNS/routing, smoke tests, monitoring logs/search/orders, dÃ©cision go/no-go</td><td>war room</td></tr>
+<tr><td>J+1</td><td>Analyse 404, conversion, search no-results, orders, incidents P1</td><td>PM + dev</td></tr>
+<tr><td>J+7</td><td>SEO/GSC, revenue par marchÃ©, backlog stabilisation, rÃ©ouverture changements</td><td>PM</td></tr>
+</tbody></table></div>
+<h3 id="smoke-tests-minimum"><a class="anchor" href="#smoke-tests-minimum">#</a>Smoke tests minimum</h3>
+<ul>
+<li>Home, PLP, PDP, search, no-results, add-to-cart, promo code, login, guest checkout, payment, order confirmation.</li>
+<li>Locale switch, prix/devise, stock, livraison, taxes.</li>
+<li>Contentstack preview/prod publish.</li>
+<li>Algolia query top 100 SFCC, synonyms, facets, sort replicas, rules.</li>
+<li>Redirections top SEO URLs.</li>
+</ul>
+<h2 id="14-formation-et-conduite-du-changement"><a class="anchor" href="#14-formation-et-conduite-du-changement">#</a>14. Formation et conduite du changement</h2>
+<h3 id="checklist"><a class="anchor" href="#checklist">#</a>Checklist</h3>
+<ul>
+<li>CrÃ©er sandbox training avec fausses donnÃ©es rÃ©alistes.</li>
+<li>Former par profil, pas par outil seulement.</li>
+<li>Produire runbooks courts: crÃ©er page, crÃ©er campagne, modifier merchandising, valider produit, analyser no-results.</li>
+<li>Mettre en place support hypercare J+14.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>Profil</th><th>Modules</th><th>Artefacts</th></tr></thead><tbody>
+<tr><td>e-merch FR</td><td>CT lecture catalogue, Algolia Rules, Contentstack category pages, campagne</td><td>fiches 1 page + exercices</td></tr>
+<tr><td>international</td><td>Localisation CS, indexes locale, QA marchÃ©</td><td>locale checklist</td></tr>
+<tr><td>contenu</td><td>Modular Blocks, assets, workflows, releases</td><td>content playbook</td></tr>
+<tr><td>CRM</td><td>customer groups, codes promo, events</td><td>CRM integration sheet</td></tr>
+<tr><td>dev/intÃ©grateur</td><td>imports, API scopes, webhooks, subscriptions, monitoring</td><td>runbooks techniques</td></tr>
+<tr><td>PM</td><td>cutover, RACI, risks, release calendar</td><td>dashboard projet</td></tr>
+</tbody></table></div>
+<h2 id="15-risques-et-dependances"><a class="anchor" href="#15-risques-et-dependances">#</a>15. Risques et dÃ©pendances</h2>
+<h3 id="top-risques"><a class="anchor" href="#top-risques">#</a>Top risques</h3>
+<div class="table-wrap"><table><thead><tr><th>Risque</th><th>ProbabilitÃ©</th><th>Impact</th><th>Mitigation</th><th>Owner</th></tr></thead><tbody>
+<tr><td>ModÃ¨le variant CT incorrect</td><td>Haute</td><td>Ã‰levÃ©</td><td>Atelier produit + tests familles extrÃªmes</td><td>e-merch + dev</td></tr>
+<tr><td>Promotions non Ã©quivalentes SFCC/CT</td><td>Haute</td><td>Ã‰levÃ©</td><td>Catalogue de rÃ¨gles, tests panier automatisÃ©s</td><td>e-merch + dev</td></tr>
+<tr><td>SEO URLs mal redirigÃ©es</td><td>Moyenne</td><td>TrÃ¨s Ã©levÃ©</td><td>Crawl, mapping 301, monitoring J+7</td><td>SEO</td></tr>
+<tr><td>Algolia record trop lourd/coÃ»teux</td><td>Moyenne</td><td>Ã‰levÃ©</td><td>Payload minimal, audit taille, plan vendor</td><td>dev</td></tr>
+<tr><td>Droits trop ouverts</td><td>Moyenne</td><td>Ã‰levÃ©</td><td>RBAC, SSO, API keys limitÃ©es</td><td>sÃ©curitÃ©</td></tr>
+<tr><td>Traductions/fallback incohÃ©rents</td><td>Moyenne</td><td>Moyen</td><td>Locale matrix, QA marchÃ©</td><td>international</td></tr>
+<tr><td>MÃ©dias 404 post-SFCC</td><td>Moyenne</td><td>Ã‰levÃ©</td><td>RÃ©hÃ©bergement, manifest, tests 404</td><td>contenu + dev</td></tr>
+<tr><td>Import delta instable</td><td>Haute</td><td>Ã‰levÃ©</td><td>Idempotence, logs, replay, dry runs</td><td>intÃ©grateur</td></tr>
+<tr><td>Workflows trop complexes</td><td>Moyenne</td><td>Moyen</td><td>Workflow minimal J1, Ã©volution aprÃ¨s go-live</td><td>PM</td></tr>
+<tr><td>DÃ©pendance intÃ©grateur</td><td>Moyenne</td><td>Ã‰levÃ©</td><td>Ownership Etam des mappings/scripts/runbooks</td><td>PM</td></tr>
+</tbody></table></div>
+<h3 id="dependances-bloquantes"><a class="anchor" href="#dependances-bloquantes">#</a>DÃ©pendances bloquantes</h3>
+<ul>
+<li>Contrats vendor signÃ©s et plans connus: Contentstack branches/workflows/assets, Algolia replicas/NeuralSearch/record quota, commercetools limits.</li>
+<li>AccÃ¨s SFCC export complet et droits OCAPI/Data API.</li>
+<li>Inventaire PIM/ERP/OMS/CRM disponible.</li>
+<li>DÃ©cision RGPD clients/commandes.</li>
+<li>Ã‰quipe e-merch disponible pour arbitrages attributs, promotions, search.</li>
+</ul>
+<h2 id="16-annexes"><a class="anchor" href="#16-annexes">#</a>16. Annexes</h2>
+<h3 id="16-1-glossaire"><a class="anchor" href="#16-1-glossaire">#</a>16.1 Glossaire</h3>
+<div class="table-wrap"><table><thead><tr><th>SFCC</th><th>commercetools</th><th>Contentstack</th><th>Algolia</th></tr></thead><tbody>
+<tr><td>Master Product</td><td>Product avec master variant + variants</td><td>RÃ©fÃ©rence <code>product_key</code></td><td><code>productID</code> / distinct group</td></tr>
+<tr><td>Variation Product</td><td>Product Variant</td><td>RÃ©fÃ©rence SKU</td><td>Record SKU/variant</td></tr>
+<tr><td>Product custom attribute</td><td>AttributeDefinition</td><td>Champ uniquement si contenu Ã©ditorial</td><td>Record attribute</td></tr>
+<tr><td>Category</td><td>Category</td><td>Page category editorial</td><td>Facet/category path</td></tr>
+<tr><td>Content Asset</td><td>Entry / Asset</td><td>Entry / Asset</td><td>Content record si search</td></tr>
+<tr><td>Content Slot</td><td>Modular Block / placement</td><td>Modular Blocks</td><td>Rule banner si search</td></tr>
+<tr><td>Page Designer</td><td>Page + Modular Blocks</td><td>Page content type</td><td>Content record</td></tr>
+<tr><td>Search Refinement</td><td>Non frontal direct</td><td>Non</td><td>Facet</td></tr>
+<tr><td>Sorting Rule</td><td>Product Search/Projection possible</td><td>Non</td><td>Replica/customRanking</td></tr>
+<tr><td>Campaign</td><td>Discounts + schedule</td><td>Release</td><td>Rule date/context</td></tr>
+<tr><td>Coupon</td><td>DiscountCode</td><td>Non</td><td>Non sauf search display</td></tr>
+<tr><td>Customer Group</td><td>CustomerGroup</td><td>Non</td><td>secured filters/persona si besoin</td></tr>
+<tr><td>Site</td><td>Store</td><td>Environment/locale</td><td>Index/app env</td></tr>
+<tr><td>BM Role</td><td>OAuth scopes / org role</td><td>Role/Custom Role</td><td>API key/team permission</td></tr>
+</tbody></table></div>
+<h3 id="16-2-templates"><a class="anchor" href="#16-2-templates">#</a>16.2 Templates</h3>
+<h4 id="attribute-dictionary-csv"><a class="anchor" href="#attribute-dictionary-csv">#</a><code>attribute_dictionary.csv</code></h4>
+<pre><code class="language-csv">legacy_sfcc_id,target_tool,target_name,target_type,localized,required,searchable,facetable,ranking,owner,notes
+custom.gamme,CT,range_key,text,false,true,false,false,false,e-merch,source of truth gamme
+custom.colorLabel,CT,color_label,lenum,true,true,true,true,false,e-merch,localized enum
+custom.salesRank,Algolia,salesRank,number,false,false,false,false,true,e-merch,computed daily</code></pre>
+<h4 id="redirects-301-csv"><a class="anchor" href="#redirects-301-csv">#</a><code>redirects_301.csv</code></h4>
+<pre><code class="language-csv">source_url,target_url,status,market,reason,priority,validated
+/fr_FR/old-product.html,/fr-FR/p/new-product,301,fr,product slug migration,high,false</code></pre>
+<h4 id="product-type-ct-skeleton"><a class="anchor" href="#product-type-ct-skeleton">#</a>Product Type CT skeleton</h4>
+<pre><code class="language-json">{
+  "key": "lingerie",
+  "name": "Lingerie",
+  "description": "Etam lingerie products",
+  "attributes": [
+    {
+      "name": "range_key",
+      "label": { "fr-FR": "Gamme" },
+      "type": { "name": "text" },
+      "isRequired": true,
+      "attributeConstraint": "SameForAll",
+      "isSearchable": false
+    }
+  ]
+}</code></pre>
+<h4 id="content-type-cs-skeleton"><a class="anchor" href="#content-type-cs-skeleton">#</a>Content Type CS skeleton</h4>
+<pre><code class="language-json">{
+  "content_type": {
+    "title": "Page Category Editorial",
+    "uid": "page_category_editorial",
+    "schema": [
+      { "display_name": "Title", "uid": "title", "data_type": "text", "mandatory": true },
+      { "display_name": "Slug", "uid": "slug", "data_type": "text", "mandatory": true },
+      { "display_name": "Category Key", "uid": "category_key", "data_type": "text", "mandatory": true }
+    ]
+  }
+}</code></pre>
+<h4 id="algolia-settings-skeleton"><a class="anchor" href="#algolia-settings-skeleton">#</a>Algolia settings skeleton</h4>
+<pre><code class="language-json">{
+  "indexName": "etam_fr_products_prod",
+  "settings": {
+    "searchableAttributes": ["unordered(name)", "unordered(range)", "unordered(categoryNames)", "sku"],
+    "attributesForFaceting": ["searchable(categoryPaths)", "color", "size", "cup", "family", "inStock"],
+    "customRanking": ["desc(inStock)", "desc(salesRank)", "desc(newness)"],
+    "replicas": ["etam_fr_products_prod_price_asc", "etam_fr_products_prod_price_desc"]
+  }
+}</code></pre>
+<h3 id="16-3-liens-directs-consultes"><a class="anchor" href="#16-3-liens-directs-consultes">#</a>16.3 Liens directs consultÃ©s</h3>
+<h4 id="commercetools"><a class="anchor" href="#commercetools">#</a>commercetools</h4>
+<ul>
+<li><a href="https://docs.commercetools.com/api/limits">Limits</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/productTypes">Product Types</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/products">Products</a></li>
+<li><a href="https://docs.commercetools.com/api/product-catalog-overview">Product catalog overview</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/stores">Stores</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/channels">Channels</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/product-selections">Product Selections</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/standalone-prices">Standalone Prices</a></li>
+<li><a href="https://docs.commercetools.com/api/pricing-and-discounts-overview">Pricing and discounts overview</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/inventory">Inventory</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/types">Types / Custom Fields</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/custom-fields">Custom Fields</a></li>
+<li><a href="https://docs.commercetools.com/api/carts-orders-overview">Carts and Orders overview</a></li>
+<li><a href="https://docs.commercetools.com/api/projects/subscriptions">Subscriptions</a></li>
+<li><a href="https://docs.commercetools.com/api/scopes">Scopes</a></li>
+<li><a href="https://docs.commercetools.com/api/authorization">Authorization</a></li>
+<li><a href="https://docs.commercetools.com/api/import-export/import-container">Import Containers</a></li>
+<li><a href="https://docs.commercetools.com/api/import-export/import-requests">Import Requests</a></li>
+</ul>
+<h4 id="contentstack"><a class="anchor" href="#contentstack">#</a>Contentstack</h4>
+<ul>
+<li><a href="https://www.contentstack.com/docs/developers/create-content-types">Create Content Types</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/create-content-types/modular-blocks">Modular Blocks</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/create-content-types/global">Global Field</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/create-content-types/reference/">Reference Field</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/create-content-types/field-limitations">Field Limitations</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/create-content-types/limitations-of-content-types">Limitations of Content Types</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/branches/about-branches">Branches</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/branches/limitations-of-branches">Limitations of Branches</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/branches/about-compare-and-merge-branches">Compare and Merge Branches</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/set-up-environments/about-environments">Environments</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/multilingual-content/about-languages/">Languages</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/multilingual-content/set-the-master-language">Master Language</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/multilingual-content/about-fallback-languages/">Fallback Languages</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/set-up-workflows-and-publish-rules/about-workflows">Workflows</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/set-up-workflows-and-publish-rules/add-a-publish-rule">Publish Rules</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/invite-users-and-assign-roles/types-of-roles">Roles</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/apis/content-management-api">CMA</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/apis/content-delivery-api">CDA</a></li>
+<li><a href="https://www.contentstack.com/docs/content-managers/working-with-assets/asset-limitations/">Asset Limitations</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/launch/about-launch">Launch</a></li>
+<li><a href="https://www.contentstack.com/docs/developers/apis/automation-hub-management-api">Automation Hub Management API</a></li>
+</ul>
+<h4 id="algolia"><a class="anchor" href="#algolia">#</a>Algolia</h4>
+<ul>
+<li><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data">Prepare records</a></li>
+<li><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/in-depth/what-is-in-a-record">Algolia records</a></li>
+<li><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/ecommerce-records/">Structure ecommerce product records</a></li>
+<li><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/in-depth/choosing-between-one-or-more-indices">Choosing between indices</a></li>
+<li><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/">Send and update data</a></li>
+<li><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices">Manage indices</a></li>
+<li><a href="https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/in-depth/replicas">Replicas</a></li>
+<li><a href="https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/how-to/creating-replicas">Create replicas</a></li>
+<li><a href="https://www.algolia.com/doc/guides/managing-results/refine-results/faceting">Faceting</a></li>
+<li><a href="https://www.algolia.com/doc/guides/managing-results/rules/rules-overview/">Rules overview</a></li>
+<li><a href="https://www.algolia.com/doc/guides/managing-results/rules/merchandising-and-promoting/how-to/add-banners">Add banners</a></li>
+<li><a href="https://www.algolia.com/doc/guides/managing-results/optimize-search-results/adding-synonyms/">Synonyms</a></li>
+<li><a href="https://www.algolia.com/doc/guides/security/api-keys">API keys</a></li>
+<li><a href="https://www.algolia.com/doc/api-reference/api-methods/generate-secured-api-key/">Secured API keys</a></li>
+<li><a href="https://www.algolia.com/doc/guides/sending-events">Click and conversion events</a></li>
+<li><a href="https://www.algolia.com/doc/guides/scaling/algolia-service-limits/">Service limits</a></li>
+<li><a href="https://support.algolia.com/hc/en-us/articles/4406981897617-Is-there-a-size-limit-for-my-index-records">Record size limits</a></li>
+<li><a href="https://support.algolia.com/hc/en-us/articles/17245378392977-How-does-Algolia-count-records-and-operations">Records and operations billing</a></li>
+<li><a href="https://support.algolia.com/hc/en-us/articles/44485795695889-Rate-Limits">Rate limits</a></li>
+<li><a href="https://www.algolia.com/doc/integration/commercetools/indexing/product-schema">commercetools product schema in Algolia</a></li>
+</ul>
+<h4 id="salesforce-b2c-commerce-sfcc"><a class="anchor" href="#salesforce-b2c-commerce-sfcc">#</a>Salesforce B2C Commerce / SFCC</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/commerce/commerce-api/guide/get-started-with-ocapi.html">OCAPI overview</a></li>
+<li><a href="https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html">OCAPI settings</a></li>
+<li><a href="https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/apiusage.html">OCAPI usage</a></li>
+<li><a href="https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/metadata.html">OCAPI metadata</a></li>
+<li><a href="https://developer.salesforce.com/docs/commerce/ocapi/guide/b2c-content-assets-for-developers.html">Content Assets</a></li>
+<li><a href="https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-script-api/dw.catalog.Catalog.html">Catalog Script API</a></li>
+<li><a href="https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-promotions-for-developers.html">Promotions for developers</a></li>
+<li><a href="https://help.salesforce.com/s/articleView?id=cc.b2c_catalog_object_import_export.htm&amp;type=5">Catalog object import/export</a></li>
+</ul>
+<h3 id="16-4-questions-vendor-a-poser"><a class="anchor" href="#16-4-questions-vendor-a-poser">#</a>16.4 Questions vendor Ã  poser</h3>
+<h4 id="commercetools"><a class="anchor" href="#commercetools">#</a>commercetools</h4>
+<ul>
+<li>Limites actuelles du futur projet Etam via GraphQL <code>limits</code>: Product Types, variants, Standalone Prices, Product Selections, Stores, API Extensions, Subscriptions.</li>
+<li>Recommandation officielle Stores vs Projects pour FR + international Etam.</li>
+<li>Connecteur ou rÃ©fÃ©rence d'architecture CT -&gt; Algolia recommandÃ©.</li>
+<li>StratÃ©gie prix promos complexes vs Product Discounts / Cart Discounts.</li>
+</ul>
+<h4 id="contentstack"><a class="anchor" href="#contentstack">#</a>Contentstack</h4>
+<ul>
+<li>Plan Etam: branches, workflows, publish rules, releases, asset quota, roles par langue/environnement, SSO/SCIM.</li>
+<li>Limites exactes applicables Ã  la stack versionnÃ©e Etam: champs, entries, assets, API usage.</li>
+<li>Bonnes pratiques migration Page Designer SFCC vers Modular Blocks.</li>
+<li>Launch pertinent ou frontend hors Contentstack.</li>
+</ul>
+<h4 id="algolia"><a class="anchor" href="#algolia">#</a>Algolia</h4>
+<ul>
+<li>Plan Etam: records inclus, opÃ©rations, replicas standard/virtual, NeuralSearch, Recommend, Personalization, Analytics retention.</li>
+<li>CoÃ»t des records avec replicas selon structure SKU vs couleur.</li>
+<li>Reco officielle pour lingerie: record SKU + distinct ou record couleur.</li>
+<li>Gouvernance Merchandising Studio et rÃ´les utilisateurs.</li>
+</ul></main></div><div class="print-actions"><button onclick="window.print()">Imprimer / PDF</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Haut de page</button></div></body></html>
