@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Etam - Plan métier de replat e-commerce</title>
+  <title>Etam - Plan m&#233;tier de replat e-commerce</title>
   <style>
     :root {
       --ink: #20242a;
       --muted: #65717d;
-      --line: #e5dfe6;
-      --paper: #fffdfb;
-      --soft: #faf6f8;
-      --lilac: #f2eefb;
-      --blue: #eef7fb;
-      --peach: #fff3e8;
-      --rose: #b24b6f;
-      --plum: #6f4b7b;
-      --sand: #f7efe5;
+      --line: #ead8e2;
+      --paper: #fff9fb;
+      --soft: #fdeff5;
+      --lilac: #efe7ff;
+      --blue: #e9f7ff;
+      --peach: #fff1df;
+      --rose: #c83f72;
+      --plum: #6a3478;
+      --sand: #fff4e8;
     }
 
     * { box-sizing: border-box; }
@@ -45,7 +45,7 @@
       height: 100vh;
       overflow: auto;
       padding: 18px 14px;
-      background: linear-gradient(180deg, var(--soft), var(--lilac));
+      background: linear-gradient(180deg, #fdeaf2 0%, #f2e9ff 52%, #eaf7ff 100%);
       border-right: 1px solid var(--line);
     }
 
@@ -97,7 +97,7 @@
       margin: 28px 0 10px;
       padding: 9px 10px;
       color: #242935;
-      background: var(--lilac);
+      background: linear-gradient(90deg, #f0e5ff, #fdeaf2);
       border-left: 4px solid var(--rose);
       border-radius: 0 6px 6px 0;
       font-weight: 800;
@@ -120,7 +120,7 @@
       padding: 3px 8px;
       margin-bottom: 8px;
       color: var(--plum);
-      background: var(--lilac);
+      background: #f0e5ff;
       border: 1px solid #ddd2ec;
       border-radius: 999px;
       font-weight: 700;
@@ -194,7 +194,7 @@
 
     th {
       color: #242935;
-      background: #f7f0f5;
+      background: #f6e6ef;
       font-weight: 800;
     }
 
@@ -256,119 +256,119 @@
   <div class="layout">
     <aside>
       <div class="brand">Etam</div>
-      <div class="subtitle">Plan métier pour anticiper le replat SFCC vers la nouvelle stack composable.</div>
+      <div class="subtitle">Plan m&#233;tier pour anticiper le replat SFCC vers la nouvelle stack composable.</div>
       <nav aria-label="Sommaire">
         <a href="#objectif">Objectif</a>
-        <a href="#message-cle">Message clé</a>
+        <a href="#message-cle">Message cl&#233;</a>
         <a href="#chantiers">Chantiers prioritaires</a>
-        <a href="#memos">Mémos de cadrage</a>
-        <a href="#recensement">Checklists de recensement</a>
-        <a href="#use-cases">Use cases de recette</a>
-        <a href="#calendrier">Calendrier de préparation</a>
-        <a href="#catalogue">Catalogue et données produit</a>
+        <a href="#memos">M&#233;mos de cadrage</a>
+        <a href="#recensement">Listes de recensement</a>
+        <a href="#use-cases">Cas de recette m&#233;tier</a>
+        <a href="#calendrier">Calendrier de pr&#233;paration</a>
+        <a href="#catalogue">Catalogue et donn&#233;es produit</a>
         <a href="#contenus">Contenus et CMS</a>
-        <a href="#search">Search et merchandising</a>
+        <a href="#search">Recherche et merchandising</a>
         <a href="#international">International</a>
         <a href="#seo">SEO et URLs</a>
         <a href="#promotions">Promotions et campagnes</a>
         <a href="#gouvernance">Droits et gouvernance</a>
-        <a href="#bascule">Bascule et hypercare</a>
+        <a href="#bascule">Bascule et support post-lancement</a>
         <a href="#risques">Risques majeurs</a>
-        <a href="#ateliers">Ateliers à planifier</a>
-        <a href="#sources">Sources et points à clarifier</a>
+        <a href="#ateliers">Ateliers &#224; planifier</a>
+        <a href="#sources">Sources et points &#224; clarifier</a>
       </nav>
     </aside>
 
     <main>
-      <span class="kicker">Version métier - 13 mai 2026</span>
-      <h1 id="objectif">Plan d’anticipation du replat e-commerce Etam</h1>
-      <p>Ce document sert à piloter la préparation métier avant la migration de SFCC vers commercetools, Contentstack et Algolia. Il s’adresse aux équipes e-merchandising, international, contenu, CRM, PM, développement et intégration.</p>
-      <p>L’objectif n’est pas de recopier SFCC tel quel. L’objectif est de préparer des données propres, des règles explicites et une gouvernance claire pour sécuriser le replat, les migrations et le futur run.</p>
+      <span class="kicker">Version m&#233;tier - 13 mai 2026</span>
+      <h1 id="objectif">Plan d&#8217;anticipation du replat e-commerce Etam</h1>
+      <p>Ce document sert &#224; piloter la pr&#233;paration m&#233;tier avant la migration de SFCC vers commercetools, Contentstack et Algolia. Il s&#8217;adresse aux &#233;quipes e-merchandising, international, contenu, CRM, PM, d&#233;veloppement et int&#233;gration.</p>
+      <p>L&#8217;objectif n&#8217;est pas de recopier SFCC tel quel. L&#8217;objectif est de pr&#233;parer des donn&#233;es propres, des r&#232;gles explicites et une gouvernance claire pour s&#233;curiser le replat, les migrations et le futur run.</p>
 
       <div class="summary">
-        <div class="tile"><strong>Nettoyer</strong>Produits, attributs, catégories, contenus, promotions, URLs, rôles et exports SFCC.</div>
-        <div class="tile"><strong>Décider</strong>Règles de gamme, variantes, pays, langues, prix, stock, recherche, publication et responsabilités.</div>
-        <div class="tile"><strong>Tester</strong>Importer un périmètre pilote, comparer avec SFCC, corriger, puis industrialiser.</div>
-        <div class="tile"><strong>Basculer</strong>Préparer le gel, le delta final, les tests, le monitoring, le support et le retour arrière.</div>
+        <div class="tile"><strong>Nettoyer</strong>Produits, attributs, cat&#233;gories, contenus, promotions, URLs, r&#244;les et exports SFCC.</div>
+        <div class="tile"><strong>D&#233;cider</strong>R&#232;gles de gamme, variantes, pays, langues, prix, stock, recherche, publication et responsabilit&#233;s.</div>
+        <div class="tile"><strong>Tester</strong>Importer un p&#233;rim&#232;tre pilote, comparer avec SFCC, corriger, puis industrialiser.</div>
+        <div class="tile"><strong>Basculer</strong>Pr&#233;parer le gel, le delta final, les tests, le monitoring, le support et le retour arri&#232;re.</div>
       </div>
 
-      <h2 id="message-cle">Message clé pour les équipes métier</h2>
+      <h2 id="message-cle">Message cl&#233; pour les &#233;quipes m&#233;tier</h2>
       <div class="note">
-        Le replat doit être traité comme un projet de fiabilisation métier avant d’être un projet d’outillage. Les nouveaux outils ne compenseront pas des données incohérentes, des attributs mal définis, des redirections incomplètes ou des règles de promotion non documentées.
+        Le replat doit &#234;tre trait&#233; comme un projet de fiabilisation m&#233;tier avant d&#8217;&#234;tre un projet d&#8217;outillage. Les nouveaux outils ne compenseront pas des donn&#233;es incoh&#233;rentes, des attributs mal d&#233;finis, des redirections incompl&#232;tes ou des r&#232;gles de promotion non document&#233;es.
       </div>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Ce qui change</th><th>Impact pour les équipes</th><th>Décision attendue</th><th>Owner suggéré</th></tr>
+            <tr><th>Ce qui change</th><th>Impact pour les &#233;quipes</th><th>D&#233;cision attendue</th><th>Owner sugg&#233;r&#233;</th></tr>
           </thead>
           <tbody>
-            <tr><td>SFCC n’est plus le back-office unique.</td><td>Les actions seront réparties entre commercetools, Contentstack, Algolia et les outils internes.</td><td>Définir qui agit dans quel outil, sur quel périmètre et avec quel niveau de validation.</td><td>PM + e-merch</td></tr>
-            <tr><td>Le catalogue et le contenu sont séparés.</td><td>Une page campagne ne doit plus porter la vérité produit, prix ou stock.</td><td>Définir la frontière entre données commerce et contenu éditorial.</td><td>e-merch + contenu</td></tr>
-            <tr><td>La recherche devient un chantier dédié.</td><td>Facettes, tris, synonymes et règles de merchandising doivent être préparés, testés et gouvernés.</td><td>Construire une matrice search avant l’indexation complète.</td><td>e-merch</td></tr>
-            <tr><td>Le multi-pays doit être explicite.</td><td>Chaque marché doit avoir ses langues, devises, prix, contenus, SEO et règles de livraison.</td><td>Créer une matrice par marché avant la recette.</td><td>International</td></tr>
+            <tr><td>SFCC n&#8217;est plus le back-office unique.</td><td>Les actions seront r&#233;parties entre commercetools, Contentstack, Algolia et les outils internes.</td><td>D&#233;finir qui agit dans quel outil, sur quel p&#233;rim&#232;tre et avec quel niveau de validation.</td><td>PM + e-merch</td></tr>
+            <tr><td>Le catalogue et le contenu sont s&#233;par&#233;s.</td><td>Une page campagne ne doit plus porter la v&#233;rit&#233; produit, prix ou stock.</td><td>D&#233;finir la fronti&#232;re entre donn&#233;es commerce et contenu &#233;ditorial.</td><td>e-merch + contenu</td></tr>
+            <tr><td>La recherche devient un chantier d&#233;di&#233;.</td><td>Facettes, tris, synonymes et r&#232;gles de merchandising doivent &#234;tre pr&#233;par&#233;s, test&#233;s et gouvern&#233;s.</td><td>Construire une matrice search avant l&#8217;indexation compl&#232;te.</td><td>e-merch</td></tr>
+            <tr><td>Le multi-pays doit &#234;tre explicite.</td><td>Chaque march&#233; doit avoir ses langues, devises, prix, contenus, SEO et r&#232;gles de livraison.</td><td>Cr&#233;er une matrice par march&#233; avant la recette.</td><td>International</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="chantiers">Chantiers prioritaires à lancer</h2>
+      <h2 id="chantiers">Chantiers prioritaires &#224; lancer</h2>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Chantier</th><th>Ce qu’il faut faire maintenant</th><th>Livrable attendu</th><th>Owner</th><th>Priorité</th></tr>
+            <tr><th>Chantier</th><th>Ce qu&#8217;il faut faire maintenant</th><th>Livrable attendu</th><th>Owner</th><th>Priorit&#233;</th></tr>
           </thead>
           <tbody>
-            <tr><td>Inventaire SFCC</td><td>Lister les produits, catégories, attributs, contenus, slots, pages, promotions, coupons, customer groups, redirections, utilisateurs et rôles.</td><td>Inventaire par objet avec volume, qualité et décision de migration.</td><td>PM + intégrateur</td><td><span class="tag">Critique</span></td></tr>
-            <tr><td>Dictionnaire attributs produit</td><td>Identifier les attributs utiles, inutiles, doublons, localisés, obligatoires, visibles en front, utilisés en filtre ou en ranking.</td><td>Dictionnaire attributs validé par l’e-merchandising.</td><td>e-merch</td><td><span class="tag">Critique</span></td></tr>
-            <tr><td>Règle gamme et nom produit</td><td>Appliquer la règle Etam : la gamme ne doit pas être noyée dans le nom produit source.</td><td>Mapping gamme, nom, libellé front et règles de traduction.</td><td>e-merch</td><td><span class="tag">Critique</span></td></tr>
-            <tr><td>Arborescence catégories</td><td>Comparer l’arborescence SFCC, la navigation actuelle, les besoins SEO et les besoins internationaux.</td><td>Arbre cible avec URLs, facettes et pages éditoriales associées.</td><td>e-merch + SEO</td><td><span class="tag">Haute</span></td></tr>
-            <tr><td>Contenus</td><td>Classer les contenus SFCC : à migrer, réécrire, archiver ou supprimer.</td><td>Inventaire contenu avec owner et mode de reprise.</td><td>Contenu</td><td><span class="tag">Haute</span></td></tr>
-            <tr><td>Search et merchandising</td><td>Exporter les top requêtes, no-results, facettes, tris, redirections search et synonymes existants.</td><td>Matrice Algolia de recherche et merchandising.</td><td>e-merch</td><td><span class="tag">Haute</span></td></tr>
-            <tr><td>SEO migration</td><td>Crawler les URLs actuelles, exporter les redirections, métadonnées, canonicals, hreflang, sitemap et robots.</td><td>Plan de redirections 301 et matrice SEO.</td><td>SEO</td><td><span class="tag">Critique</span></td></tr>
-            <tr><td>Droits et workflows</td><td>Recenser les rôles SFCC actuels et définir les nouveaux droits par outil.</td><td>Matrice RACI et matrice des droits cibles.</td><td>PM + sécurité</td><td><span class="tag">Haute</span></td></tr>
-            <tr><td>Promotions et campagnes</td><td>Classifier les mécanismes promotionnels SFCC et identifier ceux à recréer, simplifier ou abandonner.</td><td>Catalogue des promotions avec scénarios de test panier.</td><td>e-merch + CRM</td><td><span class="tag">Haute</span></td></tr>
+            <tr><td>Inventaire SFCC</td><td>Lister les produits, cat&#233;gories, attributs, contenus, slots, pages, promotions, coupons, customer groups, redirections, utilisateurs et r&#244;les.</td><td>Inventaire par objet avec volume, qualit&#233; et d&#233;cision de migration.</td><td>PM + int&#233;grateur</td><td><span class="tag">Critique</span></td></tr>
+            <tr><td>Dictionnaire attributs produit</td><td>Identifier les attributs utiles, inutiles, doublons, localis&#233;s, obligatoires, visibles en front, utilis&#233;s en filtre ou en ranking.</td><td>Dictionnaire attributs valid&#233; par l&#8217;e-merchandising.</td><td>e-merch</td><td><span class="tag">Critique</span></td></tr>
+            <tr><td>R&#232;gle gamme et nom produit</td><td>Appliquer la r&#232;gle Etam : la gamme ne doit pas &#234;tre noy&#233;e dans le nom produit source.</td><td>Mapping gamme, nom, libell&#233; front et r&#232;gles de traduction.</td><td>e-merch</td><td><span class="tag">Critique</span></td></tr>
+            <tr><td>Arborescence cat&#233;gories</td><td>Comparer l&#8217;arborescence SFCC, la navigation actuelle, les besoins SEO et les besoins internationaux.</td><td>Arbre cible avec URLs, facettes et pages &#233;ditoriales associ&#233;es.</td><td>e-merch + SEO</td><td><span class="tag">Haute</span></td></tr>
+            <tr><td>Contenus</td><td>Classer les contenus SFCC : &#224; migrer, r&#233;&#233;crire, archiver ou supprimer.</td><td>Inventaire contenu avec owner et mode de reprise.</td><td>Contenu</td><td><span class="tag">Haute</span></td></tr>
+            <tr><td>Search et merchandising</td><td>Exporter les top requ&#234;tes, no-results, facettes, tris, redirections search et synonymes existants.</td><td>Matrice Algolia de recherche et merchandising.</td><td>e-merch</td><td><span class="tag">Haute</span></td></tr>
+            <tr><td>SEO migration</td><td>Crawler les URLs actuelles, exporter les redirections, m&#233;tadonn&#233;es, canonicals, hreflang, sitemap et robots.</td><td>Plan de redirections 301 et matrice SEO.</td><td>SEO</td><td><span class="tag">Critique</span></td></tr>
+            <tr><td>Droits et workflows</td><td>Recenser les r&#244;les SFCC actuels et d&#233;finir les nouveaux droits par outil.</td><td>Matrice RACI et matrice des droits cibles.</td><td>PM + s&#233;curit&#233;</td><td><span class="tag">Haute</span></td></tr>
+            <tr><td>Promotions et campagnes</td><td>Classifier les m&#233;canismes promotionnels SFCC et identifier ceux &#224; recr&#233;er, simplifier ou abandonner.</td><td>Catalogue des promotions avec sc&#233;narios de test panier.</td><td>e-merch + CRM</td><td><span class="tag">Haute</span></td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="memos">Mémos de cadrage à partager aux équipes</h2>
-      <p>Ces mémos servent à aligner les équipes avant les ateliers. Ils traduisent les principes MACH, les contraintes SFCC et le contexte e-merch Etam en règles de travail concrètes.</p>
+      <h2 id="memos">M&#233;mos de cadrage &#224; partager aux &#233;quipes</h2>
+      <p>Ces m&#233;mos servent &#224; aligner les &#233;quipes avant les ateliers. Ils traduisent les principes MACH, les contraintes SFCC et le contexte e-merch Etam en r&#232;gles de travail concr&#232;tes.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Mémo</th><th>À retenir</th><th>Conséquence pour Etam</th><th>À ne pas oublier</th></tr>
+            <tr><th>M&#233;mo</th><th>&#192; retenir</th><th>Cons&#233;quence pour Etam</th><th>&#192; ne pas oublier</th></tr>
           </thead>
           <tbody>
-            <tr><td>MACH / composable</td><td>La stack cible est composée de plusieurs briques spécialisées, reliées par APIs.</td><td>Chaque donnée doit avoir une source de vérité claire : commerce, contenu, recherche, CRM, ERP ou OMS.</td><td>Un outil ne doit pas compenser les faiblesses de gouvernance d’un autre.</td></tr>
-            <tr><td>SFCC</td><td>SFCC centralise aujourd’hui catalogue, contenus, promotions, search, SEO et back-office.</td><td>Le replat exige de découper ce qui était regroupé : produit dans commercetools, éditorial dans Contentstack, recherche dans Algolia.</td><td>Les exports SFCC doivent être conservés comme preuve et base de contrôle.</td></tr>
-            <tr><td>e-merchandising</td><td>L’équipe métier doit piloter les règles qui influencent directement la conversion.</td><td>Les facettes, tris, mises en avant, synonymes, redirections search et pages catégories doivent être recensés avant l’intégration.</td><td>Le run futur doit rester pilotable sans ticket technique pour chaque opération courante.</td></tr>
-            <tr><td>International</td><td>Un marché n’est pas seulement une langue.</td><td>Il faut recenser langue, devise, prix, taxes, livraison, assortiment, contenu, SEO, search et règles promotionnelles par marché.</td><td>Les fallbacks doivent être décidés, pas subis.</td></tr>
-            <tr><td>Qualité des données</td><td>Une migration révèle les incohérences existantes.</td><td>Les anomalies doivent être qualifiées : bloquantes, acceptables au go-live ou à corriger après lancement.</td><td>Ne pas importer en masse sans règles de contrôle et seuils d’acceptation.</td></tr>
+            <tr><td>MACH / composable</td><td>La stack cible est compos&#233;e de plusieurs briques sp&#233;cialis&#233;es, reli&#233;es par APIs.</td><td>Chaque donn&#233;e doit avoir une source de v&#233;rit&#233; claire : commerce, contenu, recherche, CRM, ERP ou OMS.</td><td>Un outil ne doit pas compenser les faiblesses de gouvernance d&#8217;un autre.</td></tr>
+            <tr><td>SFCC</td><td>SFCC centralise aujourd&#8217;hui catalogue, contenus, promotions, search, SEO et back-office.</td><td>Le replat exige de d&#233;couper ce qui &#233;tait regroup&#233; : produit dans commercetools, &#233;ditorial dans Contentstack, recherche dans Algolia.</td><td>Les exports SFCC doivent &#234;tre conserv&#233;s comme preuve et base de contr&#244;le.</td></tr>
+            <tr><td>e-merchandising</td><td>L&#8217;&#233;quipe m&#233;tier doit piloter les r&#232;gles qui influencent directement la conversion.</td><td>Les facettes, tris, mises en avant, synonymes, redirections search et pages cat&#233;gories doivent &#234;tre recens&#233;s avant l&#8217;int&#233;gration.</td><td>Le run futur doit rester pilotable sans ticket technique pour chaque op&#233;ration courante.</td></tr>
+            <tr><td>International</td><td>Un march&#233; n&#8217;est pas seulement une langue.</td><td>Il faut recenser langue, devise, prix, taxes, livraison, assortiment, contenu, SEO, search et r&#232;gles promotionnelles par march&#233;.</td><td>Les fallbacks doivent &#234;tre d&#233;cid&#233;s, pas subis.</td></tr>
+            <tr><td>Qualit&#233; des donn&#233;es</td><td>Une migration r&#233;v&#232;le les incoh&#233;rences existantes.</td><td>Les anomalies doivent &#234;tre qualifi&#233;es : bloquantes, acceptables au go-live ou &#224; corriger apr&#232;s lancement.</td><td>Ne pas importer en masse sans r&#232;gles de contr&#244;le et seuils d&#8217;acceptation.</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="note soft">
-        Point de méthode : le fichier local “MACHI” n’a pas été trouvé dans le dossier projet. Le document s’appuie donc sur les principes publics MACH Alliance et sur le contexte Etam fourni. Si une documentation interne MACHI existe, elle doit être ajoutée au dépôt ou transmise pour intégration.
+        Point de m&#233;thode : le fichier local &#8220;MACHI&#8221; n&#8217;a pas &#233;t&#233; trouv&#233; dans le dossier projet. Le document s&#8217;appuie donc sur les principes publics MACH Alliance et sur le contexte Etam fourni. Si une documentation interne MACHI existe, elle doit &#234;tre ajout&#233;e au d&#233;p&#244;t ou transmise pour int&#233;gration.
       </div>
 
-      <h2 id="recensement">Checklists de recensement à produire avant migration</h2>
-      <p>Le sujet clé pour les équipes métier est le recensement. Avant de migrer, il faut savoir ce qui existe, ce qui sert encore, ce qui doit être nettoyé et ce qui doit être reconstruit.</p>
+      <h2 id="recensement">Listes de recensement &#224; produire avant migration</h2>
+      <p>Le sujet cl&#233; pour les &#233;quipes m&#233;tier est le recensement. Avant de migrer, il faut savoir ce qui existe, ce qui sert encore, ce qui doit &#234;tre nettoy&#233; et ce qui doit &#234;tre reconstruit.</p>
 
       <h3>1. Recensement catalogue</h3>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>À recenser</th><th>Questions à poser</th><th>Format de sortie</th><th>Owner</th></tr>
+            <tr><th>&#192; recenser</th><th>Questions &#224; poser</th><th>Format de sortie</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Masters produits</td><td>Quels produits sont actifs, inactifs, archivés, saisonniers ou à exclure ?</td><td>Export masters avec statut, saison, famille, gamme et pays.</td><td>e-merch</td></tr>
-            <tr><td>Variantes</td><td>Les couleurs, tailles, bonnets, EAN et SKU sont-ils complets et cohérents ?</td><td>Table variantes avec anomalies et décisions.</td><td>e-merch + catalogue</td></tr>
-            <tr><td>Attributs</td><td>À quoi sert chaque attribut : affichage, filtre, recherche, SEO, promo, reporting ou rien ?</td><td>Dictionnaire attributs avec usage cible.</td><td>e-merch</td></tr>
-            <tr><td>Gammes</td><td>La gamme est-elle stockée séparément du nom produit ? Existe-t-il des doublons ou libellés incohérents ?</td><td>Référentiel gammes et règles de nommage.</td><td>e-merch</td></tr>
-            <tr><td>Médias produit</td><td>Quels visuels sont utilisés, obsolètes, manquants ou dépendants du CDN SFCC ?</td><td>Manifest médias avec URL source, statut et cible.</td><td>Contenu + studio</td></tr>
-            <tr><td>Prix et stock</td><td>Quelle source est fiable pour les prix, les prix barrés, les stocks et les disponibilités par marché ?</td><td>Matrice prix / stock par pays et canal.</td><td>e-merch + finance + opérations</td></tr>
+            <tr><td>Masters produits</td><td>Quels produits sont actifs, inactifs, archiv&#233;s, saisonniers ou &#224; exclure ?</td><td>Export masters avec statut, saison, famille, gamme et pays.</td><td>e-merch</td></tr>
+            <tr><td>Variantes</td><td>Les couleurs, tailles, bonnets, EAN et SKU sont-ils complets et coh&#233;rents ?</td><td>Table variantes avec anomalies et d&#233;cisions.</td><td>e-merch + catalogue</td></tr>
+            <tr><td>Attributs</td><td>&#192; quoi sert chaque attribut : affichage, filtre, recherche, SEO, promo, reporting ou rien ?</td><td>Dictionnaire attributs avec usage cible.</td><td>e-merch</td></tr>
+            <tr><td>Gammes</td><td>La gamme est-elle stock&#233;e s&#233;par&#233;ment du nom produit ? Existe-t-il des doublons ou libell&#233;s incoh&#233;rents ?</td><td>R&#233;f&#233;rentiel gammes et r&#232;gles de nommage.</td><td>e-merch</td></tr>
+            <tr><td>M&#233;dias produit</td><td>Quels visuels sont utilis&#233;s, obsol&#232;tes, manquants ou d&#233;pendants du CDN SFCC ?</td><td>Manifest m&#233;dias avec URL source, statut et cible.</td><td>Contenu + studio</td></tr>
+            <tr><td>Prix et stock</td><td>Quelle source est fiable pour les prix, les prix barr&#233;s, les stocks et les disponibilit&#233;s par march&#233; ?</td><td>Matrice prix / stock par pays et canal.</td><td>e-merch + finance + op&#233;rations</td></tr>
           </tbody>
         </table>
       </div>
@@ -377,15 +377,15 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>À recenser</th><th>Questions à poser</th><th>Format de sortie</th><th>Owner</th></tr>
+            <tr><th>&#192; recenser</th><th>Questions &#224; poser</th><th>Format de sortie</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Arborescence catégories</td><td>Quelles catégories sont visibles, cachées, SEO-only, promotionnelles ou obsolètes ?</td><td>Arbre catégories avec statut et owner.</td><td>e-merch + SEO</td></tr>
-            <tr><td>Navigation principale</td><td>Quels menus sont communs, locaux, saisonniers ou spécifiques à un marché ?</td><td>Mapping navigation desktop / mobile par marché.</td><td>e-merch + international</td></tr>
-            <tr><td>Pages catégories</td><td>Quelles pages ont du contenu éditorial, des règles de tri, des facettes spécifiques ou un enjeu SEO ?</td><td>Inventaire PLP avec règles et contenus associés.</td><td>e-merch + SEO</td></tr>
-            <tr><td>Pages éditoriales</td><td>Quelles pages doivent être migrées, réécrites, supprimées ou fusionnées ?</td><td>Inventaire pages avec décision de reprise.</td><td>Contenu</td></tr>
-            <tr><td>Landings campagnes</td><td>Quelles pages reviennent chaque saison : soldes, fêtes, collection, opérations marché ?</td><td>Calendrier campagnes et modèles de pages.</td><td>Marketing + contenu</td></tr>
-            <tr><td>Pages service</td><td>Guides tailles, FAQ, livraison, retours, paiement, fidélité : qui les maintient ?</td><td>Registre pages service avec owner et fréquence de revue.</td><td>Contenu + service client</td></tr>
+            <tr><td>Arborescence cat&#233;gories</td><td>Quelles cat&#233;gories sont visibles, cach&#233;es, SEO-only, promotionnelles ou obsol&#232;tes ?</td><td>Arbre cat&#233;gories avec statut et owner.</td><td>e-merch + SEO</td></tr>
+            <tr><td>Navigation principale</td><td>Quels menus sont communs, locaux, saisonniers ou sp&#233;cifiques &#224; un march&#233; ?</td><td>Mapping navigation desktop / mobile par march&#233;.</td><td>e-merch + international</td></tr>
+            <tr><td>Pages cat&#233;gories</td><td>Quelles pages ont du contenu &#233;ditorial, des r&#232;gles de tri, des facettes sp&#233;cifiques ou un enjeu SEO ?</td><td>Inventaire PLP avec r&#232;gles et contenus associ&#233;s.</td><td>e-merch + SEO</td></tr>
+            <tr><td>Pages &#233;ditoriales</td><td>Quelles pages doivent &#234;tre migr&#233;es, r&#233;&#233;crites, supprim&#233;es ou fusionn&#233;es ?</td><td>Inventaire pages avec d&#233;cision de reprise.</td><td>Contenu</td></tr>
+            <tr><td>Landings campagnes</td><td>Quelles pages reviennent chaque saison : soldes, f&#234;tes, collection, op&#233;rations march&#233; ?</td><td>Calendrier campagnes et mod&#232;les de pages.</td><td>Marketing + contenu</td></tr>
+            <tr><td>Pages service</td><td>Guides tailles, FAQ, livraison, retours, paiement, fid&#233;lit&#233; : qui les maintient ?</td><td>Registre pages service avec owner et fr&#233;quence de revue.</td><td>Contenu + service client</td></tr>
           </tbody>
         </table>
       </div>
@@ -394,14 +394,14 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>À recenser</th><th>Questions à poser</th><th>Format de sortie</th><th>Owner</th></tr>
+            <tr><th>&#192; recenser</th><th>Questions &#224; poser</th><th>Format de sortie</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Content Assets SFCC</td><td>Quels contenus sont encore utilisés en production ? Lesquels contiennent du HTML ancien ou des liens cassés ?</td><td>Inventaire assets avec statut : migrer, réécrire, archiver, supprimer.</td><td>Contenu</td></tr>
-            <tr><td>Content Slots</td><td>Quels slots pilotent réellement des emplacements business ? Quels slots sont historiques ?</td><td>Mapping slots vers composants Contentstack ou abandon.</td><td>e-merch + contenu</td></tr>
-            <tr><td>Page Designer</td><td>Quels composants doivent être recréés dans Contentstack ? Lesquels ne sont plus nécessaires ?</td><td>Bibliothèque de composants cibles.</td><td>Contenu + intégrateur</td></tr>
-            <tr><td>Images et vidéos</td><td>Quels assets doivent être réhébergés ? Quels droits ou dates d’expiration existent ?</td><td>Manifest médias avec droits, poids, dimensions et destination.</td><td>Contenu + juridique</td></tr>
-            <tr><td>Traductions</td><td>Quelles pages sont traduites, partiellement traduites ou uniquement disponibles en français ?</td><td>Matrice de traduction par locale.</td><td>International</td></tr>
+            <tr><td>Content Assets SFCC</td><td>Quels contenus sont encore utilis&#233;s en production ? Lesquels contiennent du HTML ancien ou des liens cass&#233;s ?</td><td>Inventaire assets avec statut : migrer, r&#233;&#233;crire, archiver, supprimer.</td><td>Contenu</td></tr>
+            <tr><td>Content Slots</td><td>Quels slots pilotent r&#233;ellement des emplacements business ? Quels slots sont historiques ?</td><td>Mapping slots vers composants Contentstack ou abandon.</td><td>e-merch + contenu</td></tr>
+            <tr><td>Page Designer</td><td>Quels composants doivent &#234;tre recr&#233;&#233;s dans Contentstack ? Lesquels ne sont plus n&#233;cessaires ?</td><td>Biblioth&#232;que de composants cibles.</td><td>Contenu + int&#233;grateur</td></tr>
+            <tr><td>Images et vid&#233;os</td><td>Quels assets doivent &#234;tre r&#233;h&#233;berg&#233;s ? Quels droits ou dates d&#8217;expiration existent ?</td><td>Manifest m&#233;dias avec droits, poids, dimensions et destination.</td><td>Contenu + juridique</td></tr>
+            <tr><td>Traductions</td><td>Quelles pages sont traduites, partiellement traduites ou uniquement disponibles en fran&#231;ais ?</td><td>Matrice de traduction par locale.</td><td>International</td></tr>
           </tbody>
         </table>
       </div>
@@ -410,15 +410,15 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>À recenser</th><th>Questions à poser</th><th>Format de sortie</th><th>Owner</th></tr>
+            <tr><th>&#192; recenser</th><th>Questions &#224; poser</th><th>Format de sortie</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Facettes</td><td>Quels filtres sont visibles par catégorie ? Sont-ils utiles, compris et correctement alimentés ?</td><td>Matrice facettes par famille et catégorie.</td><td>e-merch</td></tr>
-            <tr><td>Tris</td><td>Quels tris existent aujourd’hui ? Lesquels sont réellement utilisés ?</td><td>Matrice des tris avec règle métier associée.</td><td>e-merch + analytics</td></tr>
-            <tr><td>Boosts et mises en avant</td><td>Quels produits sont poussés selon saison, marge, stock, nouveauté ou campagne ?</td><td>Registre des règles de merchandising.</td><td>e-merch</td></tr>
-            <tr><td>Synonymes</td><td>Quels synonymes lingerie et fautes fréquentes doivent être repris ?</td><td>Liste synonymes par langue.</td><td>e-merch + international</td></tr>
-            <tr><td>Redirections search</td><td>Quelles requêtes envoient vers une page, une catégorie, une landing ou un guide ?</td><td>Mapping requête vers destination.</td><td>e-merch + SEO</td></tr>
-            <tr><td>No-results</td><td>Quelles requêtes ne donnent pas de résultat mais devraient convertir ?</td><td>Plan d’action no-results.</td><td>e-merch + analytics</td></tr>
+            <tr><td>Facettes</td><td>Quels filtres sont visibles par cat&#233;gorie ? Sont-ils utiles, compris et correctement aliment&#233;s ?</td><td>Matrice facettes par famille et cat&#233;gorie.</td><td>e-merch</td></tr>
+            <tr><td>Tris</td><td>Quels tris existent aujourd&#8217;hui ? Lesquels sont r&#233;ellement utilis&#233;s ?</td><td>Matrice des tris avec r&#232;gle m&#233;tier associ&#233;e.</td><td>e-merch + analytics</td></tr>
+            <tr><td>Boosts et mises en avant</td><td>Quels produits sont pouss&#233;s selon saison, marge, stock, nouveaut&#233; ou campagne ?</td><td>Registre des r&#232;gles de merchandising.</td><td>e-merch</td></tr>
+            <tr><td>Synonymes</td><td>Quels synonymes lingerie et fautes fr&#233;quentes doivent &#234;tre repris ?</td><td>Liste synonymes par langue.</td><td>e-merch + international</td></tr>
+            <tr><td>Redirections search</td><td>Quelles requ&#234;tes envoient vers une page, une cat&#233;gorie, une landing ou un guide ?</td><td>Mapping requ&#234;te vers destination.</td><td>e-merch + SEO</td></tr>
+            <tr><td>No-results</td><td>Quelles requ&#234;tes ne donnent pas de r&#233;sultat mais devraient convertir ?</td><td>Plan d&#8217;action no-results.</td><td>e-merch + analytics</td></tr>
           </tbody>
         </table>
       </div>
@@ -427,14 +427,14 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>À recenser</th><th>Questions à poser</th><th>Format de sortie</th><th>Owner</th></tr>
+            <tr><th>&#192; recenser</th><th>Questions &#224; poser</th><th>Format de sortie</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Promotions panier</td><td>Quelles conditions, exclusions, priorités et cumuls existent dans SFCC ?</td><td>Catalogue promotions avec règles lisibles métier.</td><td>e-merch</td></tr>
-            <tr><td>Promotions produit</td><td>Quels produits, catégories, pays et périodes sont concernés ?</td><td>Mapping promotions produit.</td><td>e-merch + finance</td></tr>
-            <tr><td>Coupons</td><td>Quels codes sont actifs, expirés, segmentés, uniques ou réutilisables ?</td><td>Export coupons avec statut et règle d’usage.</td><td>CRM</td></tr>
-            <tr><td>Campagnes</td><td>Quels contenus, prix, produits, règles search et emails doivent partir ensemble ?</td><td>Checklist campagne multi-outils.</td><td>PM + marketing</td></tr>
-            <tr><td>Customer groups</td><td>Quels groupes clients déclenchent des prix, offres ou contenus spécifiques ?</td><td>Matrice groupes clients et règles associées.</td><td>CRM + e-merch</td></tr>
+            <tr><td>Promotions panier</td><td>Quelles conditions, exclusions, priorit&#233;s et cumuls existent dans SFCC ?</td><td>Catalogue promotions avec r&#232;gles lisibles m&#233;tier.</td><td>e-merch</td></tr>
+            <tr><td>Promotions produit</td><td>Quels produits, cat&#233;gories, pays et p&#233;riodes sont concern&#233;s ?</td><td>Mapping promotions produit.</td><td>e-merch + finance</td></tr>
+            <tr><td>Coupons</td><td>Quels codes sont actifs, expir&#233;s, segment&#233;s, uniques ou r&#233;utilisables ?</td><td>Export coupons avec statut et r&#232;gle d&#8217;usage.</td><td>CRM</td></tr>
+            <tr><td>Campagnes</td><td>Quels contenus, prix, produits, r&#232;gles search et emails doivent partir ensemble ?</td><td>Checklist campagne multi-outils.</td><td>PM + marketing</td></tr>
+            <tr><td>Customer groups</td><td>Quels groupes clients d&#233;clenchent des prix, offres ou contenus sp&#233;cifiques ?</td><td>Matrice groupes clients et r&#232;gles associ&#233;es.</td><td>CRM + e-merch</td></tr>
           </tbody>
         </table>
       </div>
@@ -443,182 +443,182 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>À recenser</th><th>Questions à poser</th><th>Format de sortie</th><th>Owner</th></tr>
+            <tr><th>&#192; recenser</th><th>Questions &#224; poser</th><th>Format de sortie</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>URLs indexées</td><td>Quelles URLs génèrent du trafic, du chiffre d’affaires ou des backlinks ?</td><td>Inventaire URLs avec priorité SEO.</td><td>SEO</td></tr>
-            <tr><td>Redirections existantes</td><td>Quelles redirections SFCC doivent être conservées, nettoyées ou fusionnées ?</td><td>Export redirections qualifié.</td><td>SEO + dev</td></tr>
-            <tr><td>Métadonnées</td><td>Quels titles, descriptions, canonicals et hreflang existent par page et par marché ?</td><td>Matrice SEO par type de page.</td><td>SEO</td></tr>
-            <tr><td>Pages à risque</td><td>Quelles pages ne doivent surtout pas perdre leur URL ou leur contenu ?</td><td>Liste des pages critiques.</td><td>SEO + e-merch</td></tr>
-            <tr><td>Sitemap et robots</td><td>Quelles règles doivent être reprises ou corrigées ?</td><td>Checklist technique SEO validée métier.</td><td>SEO + dev</td></tr>
+            <tr><td>URLs index&#233;es</td><td>Quelles URLs g&#233;n&#232;rent du trafic, du chiffre d&#8217;affaires ou des backlinks ?</td><td>Inventaire URLs avec priorit&#233; SEO.</td><td>SEO</td></tr>
+            <tr><td>Redirections existantes</td><td>Quelles redirections SFCC doivent &#234;tre conserv&#233;es, nettoy&#233;es ou fusionn&#233;es ?</td><td>Export redirections qualifi&#233;.</td><td>SEO + dev</td></tr>
+            <tr><td>M&#233;tadonn&#233;es</td><td>Quels titles, descriptions, canonicals et hreflang existent par page et par march&#233; ?</td><td>Matrice SEO par type de page.</td><td>SEO</td></tr>
+            <tr><td>Pages &#224; risque</td><td>Quelles pages ne doivent surtout pas perdre leur URL ou leur contenu ?</td><td>Liste des pages critiques.</td><td>SEO + e-merch</td></tr>
+            <tr><td>Sitemap et robots</td><td>Quelles r&#232;gles doivent &#234;tre reprises ou corrig&#233;es ?</td><td>Checklist technique SEO valid&#233;e m&#233;tier.</td><td>SEO + dev</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="use-cases">Use cases métier à tester pendant le pilote</h2>
-      <p>Ces cas doivent être utilisés pour construire la recette, car ils représentent les situations où les écarts de données ou de gouvernance apparaissent le plus vite.</p>
+      <h2 id="use-cases">Cas de recette m&#233;tier &#224; tester pendant le pilote</h2>
+      <p>Ces cas doivent &#234;tre utilis&#233;s pour construire la recette, car ils repr&#233;sentent les situations o&#249; les &#233;carts de donn&#233;es ou de gouvernance apparaissent le plus vite.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Use case</th><th>Ce qu’il faut tester</th><th>Données nécessaires</th><th>Critère de réussite</th></tr>
+            <tr><th>Use case</th><th>Ce qu&#8217;il faut tester</th><th>Donn&#233;es n&#233;cessaires</th><th>Crit&#232;re de r&#233;ussite</th></tr>
           </thead>
           <tbody>
-            <tr><td>Lancement d’une nouvelle gamme lingerie</td><td>Création produit, variantes couleur / taille / bonnet, contenus PDP, visuels, search, PLP et SEO.</td><td>Produit pilote complet, médias, attributs, prix, stock, slug, textes localisés.</td><td>La gamme est visible, filtrable, cherchable et achetable sur les marchés prévus.</td></tr>
-            <tr><td>Campagne soldes</td><td>Synchronisation prix, promotions, contenus, bannières, règles de merchandising, emails et pages catégories.</td><td>Catalogue promo, règles de cumul, contenus campagne, rules search, redirections.</td><td>Les prix, contenus et mises en avant partent ensemble, sans incohérence panier.</td></tr>
-            <tr><td>Page catégorie stratégique</td><td>Arborescence, contenu éditorial, facettes, tri par défaut, produits poussés, SEO et navigation mobile.</td><td>Catégorie pilote, attributs filtrants, règles de tri, texte SEO, visuels.</td><td>La page est correcte en desktop, mobile, search, SEO et parcours d’achat.</td></tr>
-            <tr><td>Marché international partiellement traduit</td><td>Fallback langue, prix, devise, taxes, livraison, contenu manquant et search localisée.</td><td>Matrice locale, traductions disponibles, prix pays, règles livraison.</td><td>Aucun libellé critique n’est vide ; les fallbacks sont assumés et documentés.</td></tr>
-            <tr><td>Recherche avec synonymes lingerie</td><td>Requêtes “soutien-gorge”, “sg”, “brassière”, “tanga”, “culotte”, fautes fréquentes et noms de gamme.</td><td>Top requêtes SFCC, synonymes, attributs produits, résultats attendus.</td><td>Les requêtes importantes retournent des résultats pertinents et merchandisables.</td></tr>
-            <tr><td>Produit avec faible stock ou rupture</td><td>Affichage PLP/PDP, filtres stock, disponibilité taille, alternatives et recommandations.</td><td>Stock par SKU, règles d’affichage, produits alternatifs.</td><td>La cliente ne se retrouve pas bloquée sur une taille indisponible sans alternative.</td></tr>
-            <tr><td>Code promo CRM segmenté</td><td>Éligibilité, cumul, expiration, usage unique, customer group, panier et messages d’erreur.</td><td>Coupons, groupes clients, scénarios panier, comptes test.</td><td>Le code fonctionne uniquement pour le bon segment et donne un message clair sinon.</td></tr>
-            <tr><td>Migration d’une page à fort trafic SEO</td><td>URL, redirection, contenu, title, description, canonical, hreflang, données structurées.</td><td>Crawl SFCC, trafic SEO, mapping URL, contenu cible.</td><td>La page cible répond correctement, conserve son intention SEO et ne génère pas de 404.</td></tr>
-            <tr><td>Opération e-merch sans intervention dev</td><td>Créer une mise en avant, ajuster un bloc contenu, pousser des produits, publier en préproduction puis production.</td><td>Droits utilisateurs, workflow, index de test, contenu pilote.</td><td>L’équipe métier réalise l’opération avec validation, sans ticket technique hors incident.</td></tr>
+            <tr><td>Lancement d&#8217;une nouvelle gamme lingerie</td><td>Cr&#233;ation produit, variantes couleur / taille / bonnet, contenus PDP, visuels, search, PLP et SEO.</td><td>Produit pilote complet, m&#233;dias, attributs, prix, stock, slug, textes localis&#233;s.</td><td>La gamme est visible, filtrable, cherchable et achetable sur les march&#233;s pr&#233;vus.</td></tr>
+            <tr><td>Campagne soldes</td><td>Synchronisation prix, promotions, contenus, banni&#232;res, r&#232;gles de merchandising, emails et pages cat&#233;gories.</td><td>Catalogue promo, r&#232;gles de cumul, contenus campagne, rules search, redirections.</td><td>Les prix, contenus et mises en avant partent ensemble, sans incoh&#233;rence panier.</td></tr>
+            <tr><td>Page cat&#233;gorie strat&#233;gique</td><td>Arborescence, contenu &#233;ditorial, facettes, tri par d&#233;faut, produits pouss&#233;s, SEO et navigation mobile.</td><td>Cat&#233;gorie pilote, attributs filtrants, r&#232;gles de tri, texte SEO, visuels.</td><td>La page est correcte en desktop, mobile, search, SEO et parcours d&#8217;achat.</td></tr>
+            <tr><td>March&#233; international partiellement traduit</td><td>Fallback langue, prix, devise, taxes, livraison, contenu manquant et search localis&#233;e.</td><td>Matrice locale, traductions disponibles, prix pays, r&#232;gles livraison.</td><td>Aucun libell&#233; critique n&#8217;est vide ; les fallbacks sont assum&#233;s et document&#233;s.</td></tr>
+            <tr><td>Recherche avec synonymes lingerie</td><td>Requ&#234;tes &#8220;soutien-gorge&#8221;, &#8220;sg&#8221;, &#8220;brassi&#232;re&#8221;, &#8220;tanga&#8221;, &#8220;culotte&#8221;, fautes fr&#233;quentes et noms de gamme.</td><td>Top requ&#234;tes SFCC, synonymes, attributs produits, r&#233;sultats attendus.</td><td>Les requ&#234;tes importantes retournent des r&#233;sultats pertinents et merchandisables.</td></tr>
+            <tr><td>Produit avec faible stock ou rupture</td><td>Affichage PLP/PDP, filtres stock, disponibilit&#233; taille, alternatives et recommandations.</td><td>Stock par SKU, r&#232;gles d&#8217;affichage, produits alternatifs.</td><td>La cliente ne se retrouve pas bloqu&#233;e sur une taille indisponible sans alternative.</td></tr>
+            <tr><td>Code promo CRM segment&#233;</td><td>&#201;ligibilit&#233;, cumul, expiration, usage unique, customer group, panier et messages d&#8217;erreur.</td><td>Coupons, groupes clients, sc&#233;narios panier, comptes test.</td><td>Le code fonctionne uniquement pour le bon segment et donne un message clair sinon.</td></tr>
+            <tr><td>Migration d&#8217;une page &#224; fort trafic SEO</td><td>URL, redirection, contenu, title, description, canonical, hreflang, donn&#233;es structur&#233;es.</td><td>Crawl SFCC, trafic SEO, mapping URL, contenu cible.</td><td>La page cible r&#233;pond correctement, conserve son intention SEO et ne g&#233;n&#232;re pas de 404.</td></tr>
+            <tr><td>Op&#233;ration e-merch sans intervention dev</td><td>Cr&#233;er une mise en avant, ajuster un bloc contenu, pousser des produits, publier en pr&#233;production puis production.</td><td>Droits utilisateurs, workflow, index de test, contenu pilote.</td><td>L&#8217;&#233;quipe m&#233;tier r&#233;alise l&#8217;op&#233;ration avec validation, sans ticket technique hors incident.</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="calendrier">Calendrier de préparation recommandé</h2>
+      <h2 id="calendrier">Calendrier de pr&#233;paration recommand&#233;</h2>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Phase</th><th>Objectif métier</th><th>Sorties attendues</th><th>Point de vigilance</th></tr>
+            <tr><th>Phase</th><th>Objectif m&#233;tier</th><th>Sorties attendues</th><th>Point de vigilance</th></tr>
           </thead>
           <tbody>
-            <tr><td>Semaines 1 à 3</td><td>Comprendre l’existant SFCC et nettoyer les zones floues.</td><td>Inventaires, volumes, owners, décisions « migrer / recréer / archiver ».</td><td>Ne pas lancer d’import complet sans dictionnaire attributs validé.</td></tr>
-            <tr><td>Semaines 4 à 6</td><td>Valider les modèles cibles avec un périmètre pilote.</td><td>Famille produit pilote, page Contentstack pilote, index Algolia pilote.</td><td>Tester des cas complexes, pas seulement les produits les plus simples.</td></tr>
-            <tr><td>Semaines 7 à 12</td><td>Industrialiser catalogue, contenus, search, SEO et international.</td><td>Imports reproductibles, matrices pays, plan 301, workflow contenu.</td><td>Mesurer les écarts SFCC vs cible chaque semaine.</td></tr>
-            <tr><td>J-30 à J-7</td><td>Stabiliser, former et figer les décisions structurantes.</td><td>Checklist go-live, supports de formation, smoke tests, monitoring.</td><td>Limiter les changements hors incidents et obligations business.</td></tr>
-            <tr><td>J-7 à J</td><td>Exécuter le gel, le delta final, la bascule et les vérifications.</td><td>Exports finaux, redirections, tests panier, tracking, support war room.</td><td>Prévoir un retour arrière clair et décidé avant J.</td></tr>
+            <tr><td>Semaines 1 &#224; 3</td><td>Comprendre l&#8217;existant SFCC et nettoyer les zones floues.</td><td>Inventaires, volumes, owners, d&#233;cisions &#171; migrer / recr&#233;er / archiver &#187;.</td><td>Ne pas lancer d&#8217;import complet sans dictionnaire attributs valid&#233;.</td></tr>
+            <tr><td>Semaines 4 &#224; 6</td><td>Valider les mod&#232;les cibles avec un p&#233;rim&#232;tre pilote.</td><td>Famille produit pilote, page Contentstack pilote, index Algolia pilote.</td><td>Tester des cas complexes, pas seulement les produits les plus simples.</td></tr>
+            <tr><td>Semaines 7 &#224; 12</td><td>Industrialiser catalogue, contenus, search, SEO et international.</td><td>Imports reproductibles, matrices pays, plan 301, workflow contenu.</td><td>Mesurer les &#233;carts SFCC vs cible chaque semaine.</td></tr>
+            <tr><td>J-30 &#224; J-7</td><td>Stabiliser, former et figer les d&#233;cisions structurantes.</td><td>Checklist go-live, supports de formation, smoke tests, monitoring.</td><td>Limiter les changements hors incidents et obligations business.</td></tr>
+            <tr><td>J-7 &#224; J</td><td>Ex&#233;cuter le gel, le delta final, la bascule et les v&#233;rifications.</td><td>Exports finaux, redirections, tests panier, tracking, support war room.</td><td>Pr&#233;voir un retour arri&#232;re clair et d&#233;cid&#233; avant J.</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="catalogue">Catalogue et données produit</h2>
-      <p>Le catalogue cible doit être propre, exploitable et gouverné. La migration doit servir à supprimer les attributs morts, clarifier les variantes, normaliser les tailles et séparer la gamme du nom produit.</p>
+      <h2 id="catalogue">Catalogue et donn&#233;es produit</h2>
+      <p>Le catalogue cible doit &#234;tre propre, exploitable et gouvern&#233;. La migration doit servir &#224; supprimer les attributs morts, clarifier les variantes, normaliser les tailles et s&#233;parer la gamme du nom produit.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Sujet</th><th>Action métier</th><th>Artefact attendu</th><th>Décision à prendre</th></tr>
+            <tr><th>Sujet</th><th>Action m&#233;tier</th><th>Artefact attendu</th><th>D&#233;cision &#224; prendre</th></tr>
           </thead>
           <tbody>
-            <tr><td>Produits masters</td><td>Valider ce qui correspond à un modèle commercial Etam.</td><td>Liste des masters avec gamme, famille, saison et statut.</td><td>Déterminer quel niveau porte le nom, la gamme, le SEO et les visuels.</td></tr>
-            <tr><td>Variantes</td><td>Contrôler couleur, taille, bonnet, EAN, SKU et disponibilité.</td><td>Table des variantes et anomalies.</td><td>Déterminer si l’affichage PLP doit être piloté au niveau couleur ou SKU.</td></tr>
-            <tr><td>Attributs</td><td>Classer chaque attribut : conserver, fusionner, supprimer, recalculer.</td><td>Dictionnaire attributs.</td><td>Définir les attributs obligatoires au go-live.</td></tr>
-            <tr><td>Catégories</td><td>Revoir l’arborescence avec les équipes SEO et international.</td><td>Arbre cible des catégories.</td><td>Préserver l’arborescence actuelle ou la simplifier.</td></tr>
-            <tr><td>Prix</td><td>Lister les prix par pays, devise, groupe client et période.</td><td>Mapping prix et règles de priorité.</td><td>Confirmer le niveau de complexité prix avec les équipes techniques.</td></tr>
-            <tr><td>Stock</td><td>Identifier la source de vérité stock et la fréquence de mise à jour.</td><td>Matrice stock par canal.</td><td>Clarifier stock central, magasin, marketplace et réserve e-commerce.</td></tr>
+            <tr><td>Produits masters</td><td>Valider ce qui correspond &#224; un mod&#232;le commercial Etam.</td><td>Liste des masters avec gamme, famille, saison et statut.</td><td>D&#233;terminer quel niveau porte le nom, la gamme, le SEO et les visuels.</td></tr>
+            <tr><td>Variantes</td><td>Contr&#244;ler couleur, taille, bonnet, EAN, SKU et disponibilit&#233;.</td><td>Table des variantes et anomalies.</td><td>D&#233;terminer si l&#8217;affichage PLP doit &#234;tre pilot&#233; au niveau couleur ou SKU.</td></tr>
+            <tr><td>Attributs</td><td>Classer chaque attribut : conserver, fusionner, supprimer, recalculer.</td><td>Dictionnaire attributs.</td><td>D&#233;finir les attributs obligatoires au go-live.</td></tr>
+            <tr><td>Cat&#233;gories</td><td>Revoir l&#8217;arborescence avec les &#233;quipes SEO et international.</td><td>Arbre cible des cat&#233;gories.</td><td>Pr&#233;server l&#8217;arborescence actuelle ou la simplifier.</td></tr>
+            <tr><td>Prix</td><td>Lister les prix par pays, devise, groupe client et p&#233;riode.</td><td>Mapping prix et r&#232;gles de priorit&#233;.</td><td>Confirmer le niveau de complexit&#233; prix avec les &#233;quipes techniques.</td></tr>
+            <tr><td>Stock</td><td>Identifier la source de v&#233;rit&#233; stock et la fr&#233;quence de mise &#224; jour.</td><td>Matrice stock par canal.</td><td>Clarifier stock central, magasin, marketplace et r&#233;serve e-commerce.</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="note attention">
-        Risque principal : migrer les attributs SFCC tels quels. Parade : chaque attribut doit avoir un usage cible clair — affichage, filtre, recherche, SEO, reporting, règle promotionnelle, opération interne ou abandon.
+        Risque principal : migrer les attributs SFCC tels quels. Parade : chaque attribut doit avoir un usage cible clair &#8212; affichage, filtre, recherche, SEO, reporting, r&#232;gle promotionnelle, op&#233;ration interne ou abandon.
       </div>
 
       <h2 id="contenus">Contenus et CMS</h2>
-      <p>Contentstack doit devenir un outil éditorial maîtrisé, pas une zone de stockage de contenus historiques SFCC. Les pages doivent être reconstruites sous forme de blocs réutilisables, localisables et gouvernés.</p>
+      <p>Contentstack doit devenir un outil &#233;ditorial ma&#238;tris&#233;, pas une zone de stockage de contenus historiques SFCC. Les pages doivent &#234;tre reconstruites sous forme de blocs r&#233;utilisables, localisables et gouvern&#233;s.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Contenu SFCC</th><th>Cible métier</th><th>Action recommandée</th><th>Owner</th></tr>
+            <tr><th>Contenu SFCC</th><th>Cible m&#233;tier</th><th>Action recommand&#233;e</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Content Assets</td><td>Entrées Contentstack ou assets.</td><td>Nettoyer le HTML, retirer les éléments obsolètes et recréer en blocs.</td><td>Contenu</td></tr>
-            <tr><td>Content Slots</td><td>Blocs modulaires ou règles de placement.</td><td>Recréer uniquement les placements utiles.</td><td>e-merch + contenu</td></tr>
-            <tr><td>Page Designer</td><td>Pages et composants Contentstack.</td><td>Remodéliser plutôt que recopier à l’identique.</td><td>Contenu + intégrateur</td></tr>
-            <tr><td>Pages catégories enrichies</td><td>Page éditoriale liée à une catégorie.</td><td>Conserver le lien catégorie, sans recopier prix ou stock.</td><td>e-merch</td></tr>
-            <tr><td>Guides tailles et FAQ</td><td>Contenus réutilisables et localisés.</td><td>Centraliser et relier aux familles produit.</td><td>Contenu + international</td></tr>
+            <tr><td>Content Assets</td><td>Entr&#233;es Contentstack ou assets.</td><td>Nettoyer le HTML, retirer les &#233;l&#233;ments obsol&#232;tes et recr&#233;er en blocs.</td><td>Contenu</td></tr>
+            <tr><td>Content Slots</td><td>Blocs modulaires ou r&#232;gles de placement.</td><td>Recr&#233;er uniquement les placements utiles.</td><td>e-merch + contenu</td></tr>
+            <tr><td>Page Designer</td><td>Pages et composants Contentstack.</td><td>Remod&#233;liser plut&#244;t que recopier &#224; l&#8217;identique.</td><td>Contenu + int&#233;grateur</td></tr>
+            <tr><td>Pages cat&#233;gories enrichies</td><td>Page &#233;ditoriale li&#233;e &#224; une cat&#233;gorie.</td><td>Conserver le lien cat&#233;gorie, sans recopier prix ou stock.</td><td>e-merch</td></tr>
+            <tr><td>Guides tailles et FAQ</td><td>Contenus r&#233;utilisables et localis&#233;s.</td><td>Centraliser et relier aux familles produit.</td><td>Contenu + international</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h3>À préparer</h3>
+      <h3>&#192; pr&#233;parer</h3>
       <ul>
-        <li>Inventaire des contenus avec statut : migrer, réécrire, archiver, supprimer.</li>
-        <li>Liste des composants attendus : hero, carrousel produit, push catégorie, bloc texte, guide, FAQ, lookbook.</li>
-        <li>Workflow éditorial : brouillon, revue, validation, publication.</li>
-        <li>Calendrier des releases : soldes, Saint-Valentin, lancement saison, opérations internationales.</li>
+        <li>Inventaire des contenus avec statut : migrer, r&#233;&#233;crire, archiver, supprimer.</li>
+        <li>Liste des composants attendus : hero, carrousel produit, push cat&#233;gorie, bloc texte, guide, FAQ, lookbook.</li>
+        <li>Workflow &#233;ditorial : brouillon, revue, validation, publication.</li>
+        <li>Calendrier des releases : soldes, Saint-Valentin, lancement saison, op&#233;rations internationales.</li>
       </ul>
 
-      <h2 id="search">Search et merchandising</h2>
-      <p>Algolia doit être préparé avec les usages réels des clientes : requêtes fréquentes, fautes, synonymes, filtres utiles, tris attendus et animations commerciales. Les fonctions avancées ne remplaceront pas une base de recherche mal cadrée.</p>
+      <h2 id="search">Recherche et merchandising</h2>
+      <p>Algolia doit &#234;tre pr&#233;par&#233; avec les usages r&#233;els des clientes : requ&#234;tes fr&#233;quentes, fautes, synonymes, filtres utiles, tris attendus et animations commerciales. Les fonctions avanc&#233;es ne remplaceront pas une base de recherche mal cadr&#233;e.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Sujet</th><th>À préparer</th><th>Pourquoi c’est critique</th><th>Owner</th></tr>
+            <tr><th>Sujet</th><th>&#192; pr&#233;parer</th><th>Pourquoi c&#8217;est critique</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Facettes</td><td>Liste des filtres par catégorie : taille, bonnet, couleur, forme, matière, collection, prix, stock.</td><td>Les filtres visibles en PLP dépendent de cette matrice.</td><td>e-merch</td></tr>
-            <tr><td>Tris</td><td>Prix croissant, prix décroissant, nouveauté, best-seller, pertinence, promotions.</td><td>Chaque tri doit être prévu et testé.</td><td>e-merch + dev</td></tr>
-            <tr><td>Synonymes</td><td>Termes lingerie, fautes fréquentes, équivalents pays, noms de gamme.</td><td>La recherche ne saura pas deviner toute la langue Etam.</td><td>e-merch</td></tr>
-            <tr><td>Merchandising</td><td>Produits à pousser, masquer, épingler, campagnes, bannières, redirections search.</td><td>Permet de piloter les temps forts sans dépendre en permanence du développement.</td><td>e-merch</td></tr>
-            <tr><td>No-results</td><td>Top requêtes sans résultat SFCC et actions attendues.</td><td>Les no-results sont une perte directe de conversion.</td><td>e-merch + analytics</td></tr>
-            <tr><td>Analytics</td><td>Événements vue, clic, ajout panier et conversion.</td><td>Nécessaire pour piloter les performances et activer les recommandations.</td><td>dev + analytics</td></tr>
+            <tr><td>Facettes</td><td>Liste des filtres par cat&#233;gorie : taille, bonnet, couleur, forme, mati&#232;re, collection, prix, stock.</td><td>Les filtres visibles en PLP d&#233;pendent de cette matrice.</td><td>e-merch</td></tr>
+            <tr><td>Tris</td><td>Prix croissant, prix d&#233;croissant, nouveaut&#233;, best-seller, pertinence, promotions.</td><td>Chaque tri doit &#234;tre pr&#233;vu et test&#233;.</td><td>e-merch + dev</td></tr>
+            <tr><td>Synonymes</td><td>Termes lingerie, fautes fr&#233;quentes, &#233;quivalents pays, noms de gamme.</td><td>La recherche ne saura pas deviner toute la langue Etam.</td><td>e-merch</td></tr>
+            <tr><td>Merchandising</td><td>Produits &#224; pousser, masquer, &#233;pingler, campagnes, banni&#232;res, redirections search.</td><td>Permet de piloter les temps forts sans d&#233;pendre en permanence du d&#233;veloppement.</td><td>e-merch</td></tr>
+            <tr><td>No-results</td><td>Top requ&#234;tes sans r&#233;sultat SFCC et actions attendues.</td><td>Les no-results sont une perte directe de conversion.</td><td>e-merch + analytics</td></tr>
+            <tr><td>Analytics</td><td>&#201;v&#233;nements vue, clic, ajout panier et conversion.</td><td>N&#233;cessaire pour piloter les performances et activer les recommandations.</td><td>dev + analytics</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="note">
-        Recommandation : prioriser les fondamentaux au go-live — facettes, pertinence, synonymes, tris, règles de merchandising manuel et tracking. Les recommandations, la personnalisation et l’IA doivent venir après validation de la qualité des données et des événements.
+        Recommandation : prioriser les fondamentaux au go-live &#8212; facettes, pertinence, synonymes, tris, r&#232;gles de merchandising manuel et tracking. Les recommandations, la personnalisation et l&#8217;IA doivent venir apr&#232;s validation de la qualit&#233; des donn&#233;es et des &#233;v&#233;nements.
       </div>
 
       <h2 id="international">International</h2>
-      <p>Chaque marché doit être décrit explicitement. C’est le meilleur moyen d’éviter les oublis de langue, devise, prix, taxe, livraison, stock, SEO ou contenu.</p>
+      <p>Chaque march&#233; doit &#234;tre d&#233;crit explicitement. C&#8217;est le meilleur moyen d&#8217;&#233;viter les oublis de langue, devise, prix, taxe, livraison, stock, SEO ou contenu.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Dimension</th><th>Question à trancher</th><th>Livrable attendu</th><th>Owner</th></tr>
+            <tr><th>Dimension</th><th>Question &#224; trancher</th><th>Livrable attendu</th><th>Owner</th></tr>
           </thead>
           <tbody>
             <tr><td>Langue</td><td>Quelle langue principale et quel fallback si la traduction est absente ?</td><td>Matrice des locales.</td><td>International</td></tr>
-            <tr><td>Devise</td><td>Quelle devise par marché et qui valide les prix ?</td><td>Matrice prix.</td><td>e-merch + finance</td></tr>
+            <tr><td>Devise</td><td>Quelle devise par march&#233; et qui valide les prix ?</td><td>Matrice prix.</td><td>e-merch + finance</td></tr>
             <tr><td>Assortiment</td><td>Tous les produits sont-ils vendus partout ?</td><td>Matrice assortiment.</td><td>International + e-merch</td></tr>
-            <tr><td>Taxes</td><td>Quelles règles fiscales par pays ?</td><td>Matrice taxes.</td><td>Finance + dev</td></tr>
-            <tr><td>Livraison</td><td>Quels modes, délais, coûts et zones ?</td><td>Matrice livraison.</td><td>Opérations</td></tr>
-            <tr><td>SEO</td><td>Quels slugs, hreflang et contenus localisés ?</td><td>Matrice SEO internationale.</td><td>SEO + international</td></tr>
+            <tr><td>Taxes</td><td>Quelles r&#232;gles fiscales par pays ?</td><td>Matrice taxes.</td><td>Finance + dev</td></tr>
+            <tr><td>Livraison</td><td>Quels modes, d&#233;lais, co&#251;ts et zones ?</td><td>Matrice livraison.</td><td>Op&#233;rations</td></tr>
+            <tr><td>SEO</td><td>Quels slugs, hreflang et contenus localis&#233;s ?</td><td>Matrice SEO internationale.</td><td>SEO + international</td></tr>
           </tbody>
         </table>
       </div>
 
       <h2 id="seo">SEO et URLs</h2>
-      <p>Le SEO doit être traité dès le début du projet. La bascule ne doit pas révéler les redirections manquantes, les slugs incohérents ou les pages critiques oubliées.</p>
+      <p>Le SEO doit &#234;tre trait&#233; d&#232;s le d&#233;but du projet. La bascule ne doit pas r&#233;v&#233;ler les redirections manquantes, les slugs incoh&#233;rents ou les pages critiques oubli&#233;es.</p>
 
-      <h3>Checklist métier SEO</h3>
+      <h3>Checklist m&#233;tier SEO</h3>
       <ul>
         <li>Crawler toutes les URLs SFCC indexables avant migration.</li>
-        <li>Identifier les top pages SEO et les pages à fort chiffre d’affaires.</li>
-        <li>Décider quelles URLs sont conservées et lesquelles changent.</li>
-        <li>Produire un fichier de redirections 301 complet et testé.</li>
-        <li>Vérifier canonicals, hreflang, sitemap, robots et données structurées.</li>
-        <li>Suivre 404, logs, Google Search Console, trafic SEO et conversion à J+1, J+7 et J+30.</li>
+        <li>Identifier les top pages SEO et les pages &#224; fort chiffre d&#8217;affaires.</li>
+        <li>D&#233;cider quelles URLs sont conserv&#233;es et lesquelles changent.</li>
+        <li>Produire un fichier de redirections 301 complet et test&#233;.</li>
+        <li>V&#233;rifier canonicals, hreflang, sitemap, robots et donn&#233;es structur&#233;es.</li>
+        <li>Suivre 404, logs, Google Search Console, trafic SEO et conversion &#224; J+1, J+7 et J+30.</li>
       </ul>
 
       <div class="note attention">
-        Point critique : Algolia peut gérer des redirections dans la recherche interne, mais les redirections SEO doivent vivre côté serveur, edge ou frontend. Les règles Algolia ne doivent pas devenir le plan 301 principal.
+        Point critique : Algolia peut g&#233;rer des redirections dans la recherche interne, mais les redirections SEO doivent vivre c&#244;t&#233; serveur, edge ou frontend. Les r&#232;gles Algolia ne doivent pas devenir le plan 301 principal.
       </div>
 
       <h2 id="promotions">Promotions, coupons et campagnes</h2>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Élément SFCC</th><th>Ce que le métier doit faire</th><th>Contrôle avant go-live</th><th>Owner</th></tr>
+            <tr><th>&#201;l&#233;ment SFCC</th><th>Ce que le m&#233;tier doit faire</th><th>Contr&#244;le avant go-live</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Promotions panier</td><td>Lister conditions, exclusions, priorités, cumul et calendrier.</td><td>Tests panier sur cas simples et cas limites.</td><td>e-merch</td></tr>
-            <tr><td>Promotions produit</td><td>Identifier les produits, catégories, pays et périodes concernés.</td><td>Vérification PLP, PDP, panier et prix barré.</td><td>e-merch</td></tr>
-            <tr><td>Coupons</td><td>Exporter codes, dates, usages, segments et limites.</td><td>Test code valide, expiré, déjà utilisé et non éligible.</td><td>CRM</td></tr>
-            <tr><td>Campagnes</td><td>Synchroniser contenu, prix, search, bannières et emails.</td><td>Checklist campagne complète.</td><td>PM + marketing</td></tr>
-            <tr><td>Customer groups</td><td>Clarifier les groupes clients et leurs droits promotionnels.</td><td>Tests avec comptes clients représentatifs.</td><td>CRM + dev</td></tr>
+            <tr><td>Promotions panier</td><td>Lister conditions, exclusions, priorit&#233;s, cumul et calendrier.</td><td>Tests panier sur cas simples et cas limites.</td><td>e-merch</td></tr>
+            <tr><td>Promotions produit</td><td>Identifier les produits, cat&#233;gories, pays et p&#233;riodes concern&#233;s.</td><td>V&#233;rification PLP, PDP, panier et prix barr&#233;.</td><td>e-merch</td></tr>
+            <tr><td>Coupons</td><td>Exporter codes, dates, usages, segments et limites.</td><td>Test code valide, expir&#233;, d&#233;j&#224; utilis&#233; et non &#233;ligible.</td><td>CRM</td></tr>
+            <tr><td>Campagnes</td><td>Synchroniser contenu, prix, search, banni&#232;res et emails.</td><td>Checklist campagne compl&#232;te.</td><td>PM + marketing</td></tr>
+            <tr><td>Customer groups</td><td>Clarifier les groupes clients et leurs droits promotionnels.</td><td>Tests avec comptes clients repr&#233;sentatifs.</td><td>CRM + dev</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="gouvernance">Droits, rôles et gouvernance</h2>
-      <p>Les droits SFCC ne doivent pas être recopiés tels quels. Il faut repartir de ce que chaque profil doit réellement faire dans la nouvelle organisation.</p>
+      <h2 id="gouvernance">Droits, r&#244;les et gouvernance</h2>
+      <p>Les droits SFCC ne doivent pas &#234;tre recopi&#233;s tels quels. Il faut repartir de ce que chaque profil doit r&#233;ellement faire dans la nouvelle organisation.</p>
 
       <div class="table-wrap">
         <table>
@@ -626,29 +626,29 @@
             <tr><th>Profil</th><th>Droits attendus</th><th>Restrictions importantes</th><th>Owner validation</th></tr>
           </thead>
           <tbody>
-            <tr><td>e-merch France</td><td>Lire le catalogue, piloter le merchandising search, contribuer aux pages catégories et campagnes.</td><td>Pas de suppression massive, pas de droits techniques administrateur.</td><td>PM + e-merch</td></tr>
-            <tr><td>e-merch international</td><td>Adapter contenus, search, catégories et campagnes par marché.</td><td>Limiter aux langues et marchés concernés.</td><td>International</td></tr>
-            <tr><td>Contenu</td><td>Créer pages, blocs, assets, guides, FAQ et releases.</td><td>Pas de modification des prix, du stock ou de la logique panier.</td><td>Contenu</td></tr>
-            <tr><td>CRM</td><td>Gérer coupons, segments et groupes clients si applicable.</td><td>Accès client encadré par le RGPD.</td><td>CRM + juridique</td></tr>
-            <tr><td>Développement et intégrateur</td><td>Configurer, importer, monitorer et corriger.</td><td>Droits production temporaires, tracés et validés par la PM.</td><td>Tech lead + PM</td></tr>
+            <tr><td>e-merch France</td><td>Lire le catalogue, piloter le merchandising search, contribuer aux pages cat&#233;gories et campagnes.</td><td>Pas de suppression massive, pas de droits techniques administrateur.</td><td>PM + e-merch</td></tr>
+            <tr><td>e-merch international</td><td>Adapter contenus, search, cat&#233;gories et campagnes par march&#233;.</td><td>Limiter aux langues et march&#233;s concern&#233;s.</td><td>International</td></tr>
+            <tr><td>Contenu</td><td>Cr&#233;er pages, blocs, assets, guides, FAQ et releases.</td><td>Pas de modification des prix, du stock ou de la logique panier.</td><td>Contenu</td></tr>
+            <tr><td>CRM</td><td>G&#233;rer coupons, segments et groupes clients si applicable.</td><td>Acc&#232;s client encadr&#233; par le RGPD.</td><td>CRM + juridique</td></tr>
+            <tr><td>D&#233;veloppement et int&#233;grateur</td><td>Configurer, importer, monitorer et corriger.</td><td>Droits production temporaires, trac&#233;s et valid&#233;s par la PM.</td><td>Tech lead + PM</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="bascule">Bascule et hypercare</h2>
+      <h2 id="bascule">Bascule et support post-lancement</h2>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Moment</th><th>Action</th><th>Validation métier</th><th>Owner</th></tr>
+            <tr><th>Moment</th><th>Action</th><th>Validation m&#233;tier</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>J-30</td><td>Valider inventaires, modèles, matrices pays, SEO et premiers imports.</td><td>Go pour industrialisation.</td><td>PM</td></tr>
-            <tr><td>J-14</td><td>Former les équipes, lancer un dry run campagne et un dry run import delta.</td><td>Équipes capables de réaliser leurs actions en autonomie.</td><td>PM + managers</td></tr>
-            <tr><td>J-7</td><td>Figer conventions, contenus structurants, promotions majeures et plan de retour arrière.</td><td>Liste des changements autorisés jusqu’à J.</td><td>PM</td></tr>
-            <tr><td>J-1</td><td>Geler catalogue, contenu et promotions selon la fenêtre prévue ; exécuter le delta final.</td><td>Signature e-merch, SEO, développement et international.</td><td>War room</td></tr>
-            <tr><td>J</td><td>Basculer, tester homepage, PLP, PDP, search, panier, paiement et confirmation commande.</td><td>Go / no-go documenté.</td><td>War room</td></tr>
-            <tr><td>J+1</td><td>Suivre commandes, 404, no-results, conversion et incidents clients.</td><td>Plan correctif priorisé.</td><td>PM + support</td></tr>
-            <tr><td>J+7</td><td>Faire le bilan stabilisation, SEO, performance et backlog post go-live.</td><td>Sortie d’hypercare ou prolongation.</td><td>PM</td></tr>
+            <tr><td>J-30</td><td>Valider inventaires, mod&#232;les, matrices pays, SEO et premiers imports.</td><td>Go pour industrialisation.</td><td>PM</td></tr>
+            <tr><td>J-14</td><td>Former les &#233;quipes, lancer un dry run campagne et un dry run import delta.</td><td>&#201;quipes capables de r&#233;aliser leurs actions en autonomie.</td><td>PM + managers</td></tr>
+            <tr><td>J-7</td><td>Figer conventions, contenus structurants, promotions majeures et plan de retour arri&#232;re.</td><td>Liste des changements autoris&#233;s jusqu&#8217;&#224; J.</td><td>PM</td></tr>
+            <tr><td>J-1</td><td>Geler catalogue, contenu et promotions selon la fen&#234;tre pr&#233;vue ; ex&#233;cuter le delta final.</td><td>Signature e-merch, SEO, d&#233;veloppement et international.</td><td>War room</td></tr>
+            <tr><td>J</td><td>Basculer, tester homepage, PLP, PDP, search, panier, paiement et confirmation commande.</td><td>Go / no-go document&#233;.</td><td>War room</td></tr>
+            <tr><td>J+1</td><td>Suivre commandes, 404, no-results, conversion et incidents clients.</td><td>Plan correctif prioris&#233;.</td><td>PM + support</td></tr>
+            <tr><td>J+7</td><td>Faire le bilan stabilisation, SEO, performance et backlog post go-live.</td><td>Sortie du support post-lancement ou prolongation.</td><td>PM</td></tr>
           </tbody>
         </table>
       </div>
@@ -660,56 +660,56 @@
             <tr><th>Risque</th><th>Impact</th><th>Parade</th><th>Owner</th></tr>
           </thead>
           <tbody>
-            <tr><td>Catalogue repris trop vite sans nettoyage.</td><td>Filtres faux, pages incohérentes, imports instables.</td><td>Dictionnaire attributs obligatoire avant import complet.</td><td>e-merch</td></tr>
-            <tr><td>Variantes mal modélisées.</td><td>PDP, stock, taille, bonnet et panier impactés.</td><td>Tester les familles les plus complexes en pilote.</td><td>e-merch + dev</td></tr>
-            <tr><td>SEO traité trop tard.</td><td>Perte de trafic organique et de chiffre d’affaires.</td><td>Crawl et redirections dès le début du projet.</td><td>SEO</td></tr>
-            <tr><td>Contenus SFCC recopiés bruts.</td><td>Dette éditoriale et pages difficiles à maintenir.</td><td>Remodéliser en composants Contentstack.</td><td>Contenu</td></tr>
-            <tr><td>Search configuré sans historique.</td><td>Requêtes sans résultat, facettes inutiles, conversion dégradée.</td><td>Exploiter les analytics SFCC, top requêtes et no-results.</td><td>e-merch</td></tr>
-            <tr><td>Droits trop larges.</td><td>Erreurs en production, risque sécurité et RGPD.</td><td>Matrice RACI et droits limités par outil.</td><td>PM + sécurité</td></tr>
-            <tr><td>International incomplet.</td><td>Marchés bloqués ou expérience dégradée.</td><td>Matrice pays obligatoire avant recette.</td><td>International</td></tr>
-            <tr><td>Cutover sans retour arrière clair.</td><td>Décision difficile en cas d’incident.</td><td>Scénario de retour arrière validé avant J-7.</td><td>PM + dev</td></tr>
+            <tr><td>Catalogue repris trop vite sans nettoyage.</td><td>Filtres faux, pages incoh&#233;rentes, imports instables.</td><td>Dictionnaire attributs obligatoire avant import complet.</td><td>e-merch</td></tr>
+            <tr><td>Variantes mal mod&#233;lis&#233;es.</td><td>PDP, stock, taille, bonnet et panier impact&#233;s.</td><td>Tester les familles les plus complexes en pilote.</td><td>e-merch + dev</td></tr>
+            <tr><td>SEO trait&#233; trop tard.</td><td>Perte de trafic organique et de chiffre d&#8217;affaires.</td><td>Crawl et redirections d&#232;s le d&#233;but du projet.</td><td>SEO</td></tr>
+            <tr><td>Contenus SFCC recopi&#233;s bruts.</td><td>Dette &#233;ditoriale et pages difficiles &#224; maintenir.</td><td>Remod&#233;liser en composants Contentstack.</td><td>Contenu</td></tr>
+            <tr><td>Search configur&#233; sans historique.</td><td>Requ&#234;tes sans r&#233;sultat, facettes inutiles, conversion d&#233;grad&#233;e.</td><td>Exploiter les analytics SFCC, top requ&#234;tes et no-results.</td><td>e-merch</td></tr>
+            <tr><td>Droits trop larges.</td><td>Erreurs en production, risque s&#233;curit&#233; et RGPD.</td><td>Matrice RACI et droits limit&#233;s par outil.</td><td>PM + s&#233;curit&#233;</td></tr>
+            <tr><td>International incomplet.</td><td>March&#233;s bloqu&#233;s ou exp&#233;rience d&#233;grad&#233;e.</td><td>Matrice pays obligatoire avant recette.</td><td>International</td></tr>
+            <tr><td>Cutover sans retour arri&#232;re clair.</td><td>D&#233;cision difficile en cas d&#8217;incident.</td><td>Sc&#233;nario de retour arri&#232;re valid&#233; avant J-7.</td><td>PM + dev</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="ateliers">Ateliers métier à planifier</h2>
+      <h2 id="ateliers">Ateliers m&#233;tier &#224; planifier</h2>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Atelier</th><th>Participants</th><th>Sortie attendue</th><th>Durée</th></tr>
+            <tr><th>Atelier</th><th>Participants</th><th>Sortie attendue</th><th>Dur&#233;e</th></tr>
           </thead>
           <tbody>
-            <tr><td>Catalogue et variantes lingerie</td><td>e-merch, PIM/catalogue, développement, intégrateur</td><td>Règles master, variante, gamme, taille, couleur, bonnet.</td><td>2 x 2 h</td></tr>
-            <tr><td>Catégories, navigation et SEO</td><td>e-merch, SEO, international, contenu</td><td>Arborescence cible et stratégie URL.</td><td>2 h</td></tr>
-            <tr><td>Search et merchandising</td><td>e-merch, analytics, développement, Algolia</td><td>Facettes, tris, synonymes, règles, KPIs.</td><td>2 x 2 h</td></tr>
-            <tr><td>Contenus et workflow</td><td>Contenu, e-merch, international, PM</td><td>Composants CMS, workflow, releases et rôles.</td><td>2 h</td></tr>
-            <tr><td>International</td><td>International, finance, opérations, SEO, développement</td><td>Matrice pays, langues, devises, taxes, livraison.</td><td>2 h</td></tr>
-            <tr><td>Promotions et CRM</td><td>e-merch, CRM, développement, finance</td><td>Catalogue promotions, coupons et scénarios panier.</td><td>2 h</td></tr>
-            <tr><td>Go-live et retour arrière</td><td>PM, e-merch, développement, intégrateur, support, SEO</td><td>Checklist J-30 à J+7 et arbre de décision.</td><td>2 h</td></tr>
+            <tr><td>Catalogue et variantes lingerie</td><td>e-merch, PIM/catalogue, d&#233;veloppement, int&#233;grateur</td><td>R&#232;gles master, variante, gamme, taille, couleur, bonnet.</td><td>2 x 2 h</td></tr>
+            <tr><td>Cat&#233;gories, navigation et SEO</td><td>e-merch, SEO, international, contenu</td><td>Arborescence cible et strat&#233;gie URL.</td><td>2 h</td></tr>
+            <tr><td>Search et merchandising</td><td>e-merch, analytics, d&#233;veloppement, Algolia</td><td>Facettes, tris, synonymes, r&#232;gles, KPIs.</td><td>2 x 2 h</td></tr>
+            <tr><td>Contenus et workflow</td><td>Contenu, e-merch, international, PM</td><td>Composants CMS, workflow, releases et r&#244;les.</td><td>2 h</td></tr>
+            <tr><td>International</td><td>International, finance, op&#233;rations, SEO, d&#233;veloppement</td><td>Matrice pays, langues, devises, taxes, livraison.</td><td>2 h</td></tr>
+            <tr><td>Promotions et CRM</td><td>e-merch, CRM, d&#233;veloppement, finance</td><td>Catalogue promotions, coupons et sc&#233;narios panier.</td><td>2 h</td></tr>
+            <tr><td>Go-live et retour arri&#232;re</td><td>PM, e-merch, d&#233;veloppement, int&#233;grateur, support, SEO</td><td>Checklist J-30 &#224; J+7 et arbre de d&#233;cision.</td><td>2 h</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 id="sources">Sources et points à clarifier</h2>
-      <p>Le contenu s’appuie sur la documentation publique consultée précédemment et sur le contexte Etam fourni. Les limites exactes doivent être confirmées selon les contrats, les options activées et les choix d’architecture.</p>
+      <h2 id="sources">Sources et points &#224; clarifier</h2>
+      <p>Le contenu s&#8217;appuie sur la documentation publique consult&#233;e pr&#233;c&#233;demment et sur le contexte Etam fourni. Les limites exactes doivent &#234;tre confirm&#233;es selon les contrats, les options activ&#233;es et les choix d&#8217;architecture.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Domaine</th><th>Sources utilisées</th><th>À confirmer</th></tr>
+            <tr><th>Domaine</th><th>Sources utilis&#233;es</th><th>&#192; confirmer</th></tr>
           </thead>
           <tbody>
-            <tr><td>commercetools</td><td><a href="https://docs.commercetools.com/api/projects/products">Products</a>, <a href="https://docs.commercetools.com/api/projects/productTypes">Product Types</a>, <a href="https://docs.commercetools.com/api/projects/stores">Stores</a>, <a href="https://docs.commercetools.com/api/limits">Limits</a>.</td><td>Limites projet applicables, stratégie Stores / projets, prix, connecteurs et droits.</td></tr>
+            <tr><td>commercetools</td><td><a href="https://docs.commercetools.com/api/projects/products">Products</a>, <a href="https://docs.commercetools.com/api/projects/productTypes">Product Types</a>, <a href="https://docs.commercetools.com/api/projects/stores">Stores</a>, <a href="https://docs.commercetools.com/api/limits">Limits</a>.</td><td>Limites projet applicables, strat&#233;gie Stores / projets, prix, connecteurs et droits.</td></tr>
             <tr><td>Contentstack</td><td><a href="https://www.contentstack.com/docs/developers/create-content-types">Content Types</a>, <a href="https://www.contentstack.com/docs/developers/create-content-types/modular-blocks">Modular Blocks</a>, <a href="https://www.contentstack.com/docs/developers/multilingual-content/about-languages/">Languages</a>, <a href="https://www.contentstack.com/docs/developers/set-up-workflows-and-publish-rules/about-workflows">Workflows</a>.</td><td>Plan Etam, branches, workflows, droits, SSO, assets et quotas.</td></tr>
-            <tr><td>Algolia</td><td><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data">Prepare your data</a>, <a href="https://www.algolia.com/doc/guides/managing-results/refine-results/faceting">Faceting</a>, <a href="https://www.algolia.com/doc/guides/managing-results/rules/rules-overview/">Rules</a>, <a href="https://www.algolia.com/doc/guides/scaling/algolia-service-limits/">Service limits</a>.</td><td>Plan, nombre de records, replicas, fonctions avancées, coûts et gouvernance.</td></tr>
-            <tr><td>SFCC</td><td><a href="https://developer.salesforce.com/docs/commerce/commerce-api/guide/get-started-with-ocapi.html">OCAPI</a> et documentation Salesforce B2C Commerce.</td><td>Exports réellement disponibles chez Etam, jobs existants, droits d’accès et qualité des données.</td></tr>
-            <tr><td>MACH</td><td><a href="https://machalliance.org/mach-principles">MACH Alliance - principes MACH</a> et documentation publique sur l’architecture composable.</td><td>Documentation interne “MACHI” à intégrer si elle existe côté Etam ou intégrateur.</td></tr>
+            <tr><td>Algolia</td><td><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data">Prepare your data</a>, <a href="https://www.algolia.com/doc/guides/managing-results/refine-results/faceting">Faceting</a>, <a href="https://www.algolia.com/doc/guides/managing-results/rules/rules-overview/">Rules</a>, <a href="https://www.algolia.com/doc/guides/scaling/algolia-service-limits/">Service limits</a>.</td><td>Plan, nombre de records, replicas, fonctions avanc&#233;es, co&#251;ts et gouvernance.</td></tr>
+            <tr><td>SFCC</td><td><a href="https://developer.salesforce.com/docs/commerce/commerce-api/guide/get-started-with-ocapi.html">OCAPI</a> et documentation Salesforce B2C Commerce.</td><td>Exports r&#233;ellement disponibles chez Etam, jobs existants, droits d&#8217;acc&#232;s et qualit&#233; des donn&#233;es.</td></tr>
+            <tr><td>MACH</td><td><a href="https://machalliance.org/mach-principles">MACH Alliance - principes MACH</a> et documentation publique sur l&#8217;architecture composable.</td><td>Documentation interne &#8220;MACHI&#8221; &#224; int&#233;grer si elle existe c&#244;t&#233; Etam ou int&#233;grateur.</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="note soft">
-        Données manquantes à obtenir avant cadrage final : volumes exacts par marché, liste des attributs SFCC, top requêtes search, fichiers de prix, règles promo, inventaire complet des URLs, exports des contenus et matrice actuelle des rôles Business Manager.
+        Donn&#233;es manquantes &#224; obtenir avant cadrage final : volumes exacts par march&#233;, liste des attributs SFCC, top requ&#234;tes search, fichiers de prix, r&#232;gles promo, inventaire complet des URLs, exports des contenus et matrice actuelle des r&#244;les Business Manager.
       </div>
     </main>
   </div>
