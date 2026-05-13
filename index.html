@@ -8,15 +8,15 @@
     :root {
       --ink: #20242a;
       --muted: #65717d;
-      --line: #ead8e2;
-      --paper: #fff9fb;
-      --soft: #fdeff5;
-      --lilac: #efe7ff;
-      --blue: #e9f7ff;
-      --peach: #fff1df;
-      --rose: #c83f72;
-      --plum: #6a3478;
-      --sand: #fff4e8;
+      --line: #dfe5eb;
+      --paper: #fbfcfd;
+      --soft: #f2f5f7;
+      --neutral-panel: #eef3f7;
+      --blue: #eef6f8;
+      --peach: #f7f4ee;
+      --accent: #4f6575;
+      --heading: #2f4656;
+      --sand: #f6f3ed;
     }
 
     * { box-sizing: border-box; }
@@ -45,7 +45,7 @@
       height: 100vh;
       overflow: auto;
       padding: 18px 14px;
-      background: linear-gradient(180deg, #fdeaf2 0%, #f2e9ff 52%, #eaf7ff 100%);
+      background: linear-gradient(180deg, #f7f9fb 0%, #eef3f7 55%, #f4f6f8 100%);
       border-right: 1px solid var(--line);
     }
 
@@ -55,7 +55,7 @@
     }
 
     .brand {
-      color: var(--plum);
+      color: var(--heading);
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: .04em;
@@ -97,8 +97,8 @@
       margin: 28px 0 10px;
       padding: 9px 10px;
       color: #242935;
-      background: linear-gradient(90deg, #f0e5ff, #fdeaf2);
-      border-left: 4px solid var(--rose);
+      background: linear-gradient(90deg, #eef3f7, #f7f9fb);
+      border-left: 4px solid var(--accent);
       border-radius: 0 6px 6px 0;
       font-weight: 800;
     }
@@ -119,9 +119,9 @@
       display: inline-block;
       padding: 3px 8px;
       margin-bottom: 8px;
-      color: var(--plum);
-      background: #f0e5ff;
-      border: 1px solid #ddd2ec;
+      color: var(--heading);
+      background: #eef3f7;
+      border: 1px solid #d8e0e7;
       border-radius: 999px;
       font-weight: 700;
     }
@@ -145,7 +145,7 @@
     .tile strong {
       display: block;
       margin-bottom: 4px;
-      color: var(--plum);
+      color: var(--heading);
     }
 
     .note {
@@ -194,20 +194,20 @@
 
     th {
       color: #242935;
-      background: #f6e6ef;
+      background: #e9eef3;
       font-weight: 800;
     }
 
     td:last-child, th:last-child { border-right: 0; }
     tr:last-child td { border-bottom: 0; }
-    tr:nth-child(even) td { background: #fffafc; }
+    tr:nth-child(even) td { background: #f8fafb; }
 
     .tag {
       display: inline-block;
       padding: 1px 6px;
       color: #5b5266;
-      background: var(--lilac);
-      border: 1px solid #ddd2ec;
+      background: var(--neutral-panel);
+      border: 1px solid #d8e0e7;
       border-radius: 999px;
       white-space: nowrap;
     }
