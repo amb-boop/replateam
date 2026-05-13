@@ -1,45 +1,35 @@
-# Etam - plan metier de replat e-commerce
+# Etam - plan métier de replat e-commerce
 
-Ce depot publie une version HTML claire et orientee metier du plan d'anticipation de migration SFCC vers une stack composable:
-
-- commercetools pour le commerce, le catalogue, les prix, les stocks, le panier et les commandes.
-- Contentstack pour les contenus editoriaux, pages, blocs, traductions, assets et workflows.
-- Algolia pour la recherche, les facettes, le merchandising, les synonymes, les tris et les recommandations.
+Ce dépôt publie une version HTML claire, accentuée et orientée métier du plan d’anticipation de migration SFCC vers une stack composable.
 
 ## Objectif
 
-Le document n'est pas un rapport technique. Il sert aux equipes e-merch, international, contenu, CRM, PM et dev pour preparer le replat:
+Le document sert aux équipes e-merchandising, international, contenu, CRM, PM, développement et intégration pour préparer le replat :
 
-- ce qu'il faut nettoyer dans SFCC;
-- ce qu'il faut decider avant les imports;
-- ce qu'il faut produire comme livrables;
-- qui doit etre owner;
-- quels risques surveiller avant, pendant et apres la bascule.
+- recenser les contenus, pages, arborescences, règles de merchandising, promotions, URLs et droits SFCC ;
+- nettoyer les données avant migration ;
+- décider les règles métier avant les imports ;
+- préparer les checklists et les to-dos par équipe ;
+- cadrer les use cases de recette ;
+- identifier les points à confirmer avec les vendors et l’intégrateur.
 
 ## Fichier principal
 
 Ouvrir `index.html`.
 
-La page contient:
+La page contient :
 
-- une navigation laterale;
-- une police plafonnee a 12 px;
-- des tableaux d'actions par chantier;
-- un calendrier J-30 a J+7;
-- une liste d'ateliers metier;
-- les sources documentaires vendor conservees en fin de page.
+- une navigation latérale ;
+- une police plafonnée à 12 px ;
+- une palette claire et douce ;
+- des mémos de cadrage MACH / SFCC / e-merch ;
+- des checklists de recensement ;
+- des use cases métier à tester ;
+- un calendrier de préparation ;
+- des tableaux d’actions par chantier ;
+- les sources documentaires et points à clarifier.
 
-## Chantiers couverts
+## Sources
 
-- inventaire SFCC;
-- donnees catalogue;
-- contenus et CMS;
-- search et merchandising;
-- international;
-- SEO et URLs;
-- promotions et campagnes;
-- droits et gouvernance;
-- cutover;
-- risques;
-- ateliers metier.
+Le document s’appuie sur le contexte Etam fourni, la documentation publique SFCC, commercetools, Contentstack, Algolia et MACH Alliance. La documentation interne “MACHI” n’a pas été trouvée dans le dossier local au moment de la mise à jour ; elle devra être ajoutée si elle existe.
 
