@@ -8,15 +8,15 @@
     :root {
       --ink: #20242a;
       --muted: #65717d;
-      --line: #dfe5eb;
-      --paper: #fbfcfd;
-      --soft: #f2f5f7;
-      --neutral-panel: #eef3f7;
-      --blue: #eef6f8;
-      --peach: #f7f4ee;
-      --accent: #4f6575;
-      --heading: #2f4656;
-      --sand: #f6f3ed;
+      --line: #e3d9c9;
+      --paper: #fffdf8;
+      --soft: #f8f3ea;
+      --neutral-panel: #f3eadc;
+      --blue: #f4f7f6;
+      --peach: #fbf2e5;
+      --accent: #8a765f;
+      --heading: #4f463a;
+      --sand: #f7efe2;
     }
 
     * { box-sizing: border-box; }
@@ -45,7 +45,7 @@
       height: 100vh;
       overflow: auto;
       padding: 18px 14px;
-      background: linear-gradient(180deg, #f7f9fb 0%, #eef3f7 55%, #f4f6f8 100%);
+      background: linear-gradient(180deg, #fbf6ed 0%, #f4eadb 58%, #fffaf1 100%);
       border-right: 1px solid var(--line);
     }
 
@@ -94,34 +94,34 @@
     }
 
     h2 {
-      margin: 28px 0 10px;
-      padding: 9px 10px;
+      margin: 34px 0 14px;
+      padding: 11px 12px;
       color: #242935;
-      background: linear-gradient(90deg, #eef3f7, #f7f9fb);
+      background: linear-gradient(90deg, #f3eadc, #fffaf1);
       border-left: 4px solid var(--accent);
       border-radius: 0 6px 6px 0;
       font-weight: 800;
     }
 
     h3 {
-      margin: 18px 0 7px;
-      padding-bottom: 4px;
+      margin: 22px 0 10px;
+      padding-bottom: 6px;
       color: #242935;
       border-bottom: 1px solid var(--line);
       font-weight: 800;
     }
 
-    p { margin: 7px 0; }
-    ul { margin: 6px 0 10px 18px; padding: 0; }
-    li { margin: 3px 0; }
+    p { margin: 9px 0; }
+    ul { margin: 8px 0 14px 20px; padding: 0; }
+    li { margin: 5px 0; }
 
     .kicker {
       display: inline-block;
       padding: 3px 8px;
       margin-bottom: 8px;
       color: var(--heading);
-      background: #eef3f7;
-      border: 1px solid #d8e0e7;
+      background: #f3eadc;
+      border: 1px solid #e0d4c2;
       border-radius: 999px;
       font-weight: 700;
     }
@@ -130,12 +130,73 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
-      margin: 14px 0 18px;
+      margin: 18px 0 24px;
+    }
+
+    .todo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 16px 0 24px;
+    }
+
+    .todo-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 1px 4px rgba(79, 70, 58, .08);
+    }
+
+    .todo-card h3 {
+      margin: 0 0 9px;
+      padding: 0 0 7px;
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .checklist li {
+      position: relative;
+      margin: 0 0 8px;
+      padding-left: 20px;
+    }
+
+    .checklist li::before {
+      content: "\2610";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .memo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 14px 0 22px;
+    }
+
+    .memo {
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+    }
+
+    .memo strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--heading);
     }
 
     .tile {
       min-height: 100%;
-      padding: 10px;
+      padding: 13px;
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -149,7 +210,7 @@
     }
 
     .note {
-      margin: 10px 0 14px;
+      margin: 14px 0 20px;
       padding: 9px 10px;
       background: var(--blue);
       border: 1px solid #d6e8f0;
@@ -171,7 +232,7 @@
 
     .table-wrap {
       overflow: auto;
-      margin: 8px 0 16px;
+      margin: 12px 0 22px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #ffffff;
@@ -185,7 +246,7 @@
     }
 
     th, td {
-      padding: 6px 7px;
+      padding: 9px 10px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       vertical-align: top;
@@ -194,20 +255,20 @@
 
     th {
       color: #242935;
-      background: #e9eef3;
+      background: #efe6d7;
       font-weight: 800;
     }
 
     td:last-child, th:last-child { border-right: 0; }
     tr:last-child td { border-bottom: 0; }
-    tr:nth-child(even) td { background: #f8fafb; }
+    tr:nth-child(even) td { background: #fffaf1; }
 
     .tag {
       display: inline-block;
       padding: 1px 6px;
       color: #5b5266;
       background: var(--neutral-panel);
-      border: 1px solid #d8e0e7;
+      border: 1px solid #e0d4c2;
       border-radius: 999px;
       white-space: nowrap;
     }
@@ -236,6 +297,8 @@
       aside { position: relative; height: auto; }
       main { padding: 18px 14px 60px; }
       .summary { grid-template-columns: 1fr 1fr; }
+      .todo-grid { grid-template-columns: 1fr; }
+      .memo-strip { grid-template-columns: 1fr 1fr; }
       table { min-width: 680px; }
       .actions { display: none; }
     }
@@ -261,8 +324,10 @@
         <a href="#objectif">Objectif</a>
         <a href="#message-cle">Message cl&#233;</a>
         <a href="#chantiers">Chantiers prioritaires</a>
+        <a href="#todo-immediat">To-do imm&#233;diat</a>
         <a href="#memos">M&#233;mos de cadrage</a>
         <a href="#recensement">Listes de recensement</a>
+        <a href="#decision">Reprendre, refaire, optimiser</a>
         <a href="#use-cases">Cas de recette m&#233;tier</a>
         <a href="#calendrier">Calendrier de pr&#233;paration</a>
         <a href="#catalogue">Catalogue et donn&#233;es produit</a>
@@ -270,6 +335,7 @@
         <a href="#search">Recherche et merchandising</a>
         <a href="#international">International</a>
         <a href="#seo">SEO et URLs</a>
+        <a href="#arbo-seo">Menu, arborescence et SEO</a>
         <a href="#promotions">Promotions et campagnes</a>
         <a href="#gouvernance">Droits et gouvernance</a>
         <a href="#bascule">Bascule et support post-lancement</a>
@@ -290,6 +356,83 @@
         <div class="tile"><strong>D&#233;cider</strong>R&#232;gles de gamme, variantes, pays, langues, prix, stock, recherche, publication et responsabilit&#233;s.</div>
         <div class="tile"><strong>Tester</strong>Importer un p&#233;rim&#232;tre pilote, comparer avec SFCC, corriger, puis industrialiser.</div>
         <div class="tile"><strong>Basculer</strong>Pr&#233;parer le gel, le delta final, les tests, le monitoring, le support et le retour arri&#232;re.</div>
+      </div>
+
+      <h2 id="todo-immediat">To-do imm&#233;diat pour cadrer le replat</h2>
+      <p>Ces blocs sont &#224; utiliser comme support d&#8217;atelier. Ils rendent visibles les actions attendues, les donn&#233;es &#224; collecter et les d&#233;cisions &#224; prendre avant d&#8217;importer quoi que ce soit.</p>
+
+      <div class="todo-grid">
+        <section class="todo-card">
+          <h3>&#192; faire cette semaine</h3>
+          <ul class="checklist">
+            <li>Nommer un owner m&#233;tier par domaine : catalogue, contenu, recherche, SEO, promotions, international, CRM.</li>
+            <li>Extraire la liste des objets SFCC disponibles : catalogue, contenus, slots, promotions, coupons, sorting rules, refinements, redirections, users.</li>
+            <li>D&#233;finir la grille de d&#233;cision : reprendre &#224; l&#8217;identique, refaire, optimiser, abandonner, reporter.</li>
+            <li>Identifier les pages P0 : pages SEO critiques, pages business fortes, pages de campagne imminentes.</li>
+            <li>Bloquer un atelier d&#233;di&#233; &#224; l&#8217;arborescence et au menu avec les donn&#233;es SEO.</li>
+          </ul>
+        </section>
+        <section class="todo-card">
+          <h3>&#192; collecter dans SFCC</h3>
+          <ul class="checklist">
+            <li>Catalogues, masters, variations, attributs custom, cat&#233;gories et assignations produits-cat&#233;gories.</li>
+            <li>Search refinements, sorting rules, r&#232;gles de ranking, synonymes, redirects search et no-results.</li>
+            <li>Content Assets, Content Slots, Page Designer pages, biblioth&#232;ques de contenu et m&#233;dias associ&#233;s.</li>
+            <li>Promotions produit, promotions panier, promotions livraison, campagnes, coupons et customer groups.</li>
+            <li>URL rules, redirections, m&#233;tadonn&#233;es SEO, sitemap, robots, pages &#224; backlinks et pages &#224; fort trafic.</li>
+          </ul>
+        </section>
+        <section class="todo-card">
+          <h3>&#192; d&#233;cider avant import</h3>
+          <ul class="checklist">
+            <li>Quelles pages doivent rester iso pour prot&#233;ger le SEO et le chiffre d&#8217;affaires ?</li>
+            <li>Quelles r&#232;gles de merchandising doivent &#234;tre pilotables par l&#8217;e-merch sans d&#233;veloppement ?</li>
+            <li>Quelles promotions sont reprises strictement et lesquelles sont simplifi&#233;es ?</li>
+            <li>Quelles recommandations produits sont obligatoires au lancement : PDP, panier, PLP, homepage ?</li>
+            <li>Quels contenus sont repris, r&#233;&#233;crits, fusionn&#233;s, supprim&#233;s ou bascul&#233;s en mod&#232;le Contentstack ?</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="memo-strip">
+        <div class="memo"><strong>M&#233;mo 1</strong>Une cible iso ne signifie pas recopier la dette SFCC. Elle signifie pr&#233;server les capacit&#233;s utiles du site actuel.</div>
+        <div class="memo"><strong>M&#233;mo 2</strong>Tout objet SFCC sans owner, sans usage ou sans performance mesurable doit &#234;tre challeng&#233;.</div>
+        <div class="memo"><strong>M&#233;mo 3</strong>Une page performante SEO ne doit pas changer d&#8217;URL sans d&#233;cision, mapping et redirection test&#233;e.</div>
+        <div class="memo"><strong>M&#233;mo 4</strong>Les r&#232;gles de recherche et merchandising doivent &#234;tre recens&#233;es comme des actifs m&#233;tier, pas comme de la configuration technique.</div>
+      </div>
+
+      <h2 id="iso-site">Cible iso site actuel : tout recenser avant de migrer</h2>
+      <p>La cible doit permettre de retrouver, au minimum, les capacit&#233;s du site actuel. Chaque fonctionnalit&#233; SFCC doit &#234;tre recens&#233;e, qualifi&#233;e, puis affect&#233;e &#224; une brique cible. Le sujet n&#8217;est pas uniquement technique : il faut savoir ce que l&#8217;on reprend &#224; l&#8217;identique, ce que l&#8217;on reconstruit diff&#233;remment et ce que l&#8217;on am&#233;liore.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Capacit&#233; SFCC actuelle</th><th>Ce qu&#8217;il faut recenser</th><th>Cible probable</th><th>Question m&#233;tier cl&#233;</th></tr></thead>
+          <tbody>
+            <tr><td>Catalogues, masters et variations</td><td>Produits, variantes, statuts, familles, gammes, saison, pays, attributs obligatoires.</td><td>commercetools + Algolia.</td><td>Quel niveau doit piloter la PLP, la PDP, le stock, le prix et la recherche ?</td></tr>
+            <tr><td>Arborescence cat&#233;gories</td><td>Cat&#233;gories visibles, cach&#233;es, SEO-only, navigation, cat&#233;gories campagne, cat&#233;gories obsol&#232;tes.</td><td>commercetools + frontend + Algolia.</td><td>Quelles cat&#233;gories doivent rester iso pour pr&#233;server le SEO et les habitudes clientes ?</td></tr>
+            <tr><td>Search refinements</td><td>Filtres par cat&#233;gorie, ordre d&#8217;affichage, valeurs inutiles, attributs mal aliment&#233;s.</td><td>Algolia.</td><td>Quelles facettes cr&#233;ent r&#233;ellement de la valeur et lesquelles polluent l&#8217;exp&#233;rience ?</td></tr>
+            <tr><td>Sorting rules</td><td>R&#232;gles de tri par cat&#233;gorie, tri par d&#233;faut, tri prix, nouveaut&#233;, best-seller, merchandising manuel.</td><td>Algolia replicas, ranking et r&#232;gles.</td><td>Quels tris doivent &#234;tre strictement iso au lancement ?</td></tr>
+            <tr><td>Product recommendations</td><td>Emplacements, logique de recommandation, produits compl&#233;mentaires, cross-sell, up-sell, best-sellers, personnalisation.</td><td>Algolia Recommend, r&#232;gles manuelles ou moteur tiers &#224; confirmer.</td><td>Quelles recommandations sont business critical sur PDP, panier, PLP et homepage ?</td></tr>
+            <tr><td>Promotions produit</td><td>Conditions, produits &#233;ligibles, exclusions, messages, dates, pays, priorit&#233;s.</td><td>commercetools discounts + affichage frontend + Algolia pour visibilit&#233;.</td><td>Quelles m&#233;caniques doivent &#234;tre test&#233;es en panier avant go-live ?</td></tr>
+            <tr><td>Promotions panier et livraison</td><td>Seuils, customer groups, coupons, livraison offerte, cumul, exclusions, messages d&#8217;erreur.</td><td>commercetools cart discounts, shipping discounts et codes promo.</td><td>Quelles promotions actuelles sont trop sp&#233;cifiques et doivent &#234;tre simplifi&#233;es ?</td></tr>
+            <tr><td>Campaigns SFCC</td><td>Calendrier, contenus, promotions, slots, cat&#233;gories, search rules, emails, march&#233;s.</td><td>Contentstack releases + commercetools + Algolia.</td><td>Comment synchroniser une op&#233;ration commerciale multi-outils sans perte de contr&#244;le ?</td></tr>
+            <tr><td>Content Slots</td><td>Emplacements, r&#232;gles de ciblage, planning, customer groups, contenus associ&#233;s.</td><td>Contentstack composants + frontend + &#233;ventuellement Algolia rules.</td><td>Quels slots sont encore utiles et lesquels sont de la dette historique ?</td></tr>
+            <tr><td>Page Designer</td><td>Pages, composants, variantes locales, contenus obsol&#232;tes, d&#233;pendances m&#233;dias.</td><td>Contentstack content types et composants.</td><td>Quelles pages doivent &#234;tre reconstruites plut&#244;t que reprises &#224; l&#8217;identique ?</td></tr>
+            <tr><td>SEO rules et redirects</td><td>Slugs, URLs, redirects, canonicals, hreflang, m&#233;tadonn&#233;es, sitemap, robots.</td><td>Frontend / edge + Contentstack + commercetools.</td><td>Quelles URLs ne doivent absolument pas changer ?</td></tr>
+            <tr><td>Users, r&#244;les et workflows</td><td>Utilisateurs Business Manager, r&#244;les, validations, droits march&#233;, droits contenu, droits promotions.</td><td>RBAC par outil + SSO si disponible.</td><td>Qui doit pouvoir publier, modifier une r&#232;gle search, activer une promotion ou changer une page ?</td></tr>
+            <tr><td>Jobs, exports et flux tiers</td><td>Jobs catalogue, prix, stock, commandes, clients, CRM, avis, fid&#233;lit&#233;, feeds prestataires.</td><td>APIs, webhooks, subscriptions, jobs d&#8217;int&#233;gration.</td><td>Quels flux SFCC actuels sont invisibles mais indispensables au run ?</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note attention">
+        M&#233;mo SFCC : les sorting rules contr&#244;lent la pr&#233;sentation des r&#233;sultats de recherche ; les refinements structurent les filtres ; les promotions peuvent &#234;tre produit, commande ou livraison ; les content slots peuvent afficher produits, cat&#233;gories, content assets ou HTML selon planning et r&#232;gles. Les recommandations produits peuvent aussi &#234;tre port&#233;es par des slots ou des m&#233;caniques Einstein / personnalis&#233;es. Ces capacit&#233;s doivent toutes avoir un &#233;quivalent cible ou une d&#233;cision explicite d&#8217;abandon.
+      </div>
+
+      <div class="todo-grid">
+        <section class="todo-card"><h3>To-do SFCC recherche</h3><ul class="checklist"><li>Exporter toutes les sorting rules par site et cat&#233;gorie racine.</li><li>Exporter tous les search refinements et leur ordre d&#8217;affichage.</li><li>Identifier les r&#232;gles de recherche li&#233;es aux promotions.</li><li>Relever les requ&#234;tes internes qui redirigent vers une page ou cat&#233;gorie.</li></ul></section>
+        <section class="todo-card"><h3>To-do contenus SFCC</h3><ul class="checklist"><li>Recenser tous les content slots visibles sur homepage, PLP, PDP, panier et pages service.</li><li>Identifier les slots personnalis&#233;s par customer group, campagne ou planning.</li><li>Mapper Page Designer vers composants Contentstack cibles.</li><li>V&#233;rifier les assets d&#233;pendants du CDN SFCC.</li></ul></section>
+        <section class="todo-card"><h3>To-do promotions SFCC</h3><ul class="checklist"><li>Classer promotions produit, commande, livraison, coupons et bonus products.</li><li>Recenser priorit&#233;s, cumuls, exclusions et customer groups.</li><li>Identifier les messages promo affich&#233;s sur PLP, PDP, panier et checkout.</li><li>Construire les sc&#233;narios de test panier associ&#233;s.</li></ul></section>
       </div>
 
       <h2 id="message-cle">Message cl&#233; pour les &#233;quipes m&#233;tier</h2>
@@ -601,7 +744,55 @@
         Point critique : Algolia peut g&#233;rer des redirections dans la recherche interne, mais les redirections SEO doivent vivre c&#244;t&#233; serveur, edge ou frontend. Les r&#232;gles Algolia ne doivent pas devenir le plan 301 principal.
       </div>
 
-      <h2 id="promotions">Promotions, coupons et campagnes</h2>
+            <h2 id="arbo-seo">Menu, arborescence et performance SEO</h2>
+      <p>La refonte de l&#8217;arborescence et du menu doit &#234;tre pilot&#233;e avec les donn&#233;es de performance. L&#8217;objectif est de pr&#233;server les pages qui performent, corriger les pages faibles et &#233;viter de casser les signaux SEO existants.</p>
+
+      <div class="todo-grid">
+        <section class="todo-card">
+          <h3>&#192; analyser</h3>
+          <ul class="checklist">
+            <li>Top cat&#233;gories par sessions SEO, chiffre d&#8217;affaires, conversion et marge.</li>
+            <li>Cat&#233;gories avec backlinks, impressions SEO ou positions strat&#233;giques.</li>
+            <li>Entr&#233;es de menu peu cliqu&#233;es ou peu rentables.</li>
+            <li>Pages cat&#233;gories vides, pauvres, doublons ou trop profondes.</li>
+            <li>Facettes g&#233;n&#233;ratrices de trafic SEO et facettes &#224; bloquer.</li>
+          </ul>
+        </section>
+        <section class="todo-card">
+          <h3>&#192; d&#233;cider</h3>
+          <ul class="checklist">
+            <li>Quelles cat&#233;gories restent visibles dans le menu desktop et mobile ?</li>
+            <li>Quelles pages restent indexables sans &#234;tre forc&#233;ment dans le menu ?</li>
+            <li>Quelles pages doivent &#234;tre fusionn&#233;es ou redirig&#233;es ?</li>
+            <li>Quels slugs sont conserv&#233;s &#224; l&#8217;identique ?</li>
+            <li>Quelles pages n&#233;cessitent un contenu &#233;ditorial Contentstack ?</li>
+          </ul>
+        </section>
+        <section class="todo-card">
+          <h3>Crit&#232;re de sortie</h3>
+          <ul class="checklist">
+            <li>Arborescence cible valid&#233;e par e-merch, SEO et international.</li>
+            <li>Menu desktop et mobile valid&#233; avec donn&#233;es de performance.</li>
+            <li>Liste P0/P1/P2/P3 des pages cat&#233;gories finalis&#233;e.</li>
+            <li>Plan de redirections pr&#234;t et test&#233;.</li>
+            <li>Pages &#224; r&#233;&#233;crire ou optimiser assign&#233;es &#224; un owner.</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Priorit&#233;</th><th>Crit&#232;res</th><th>Traitement recommand&#233;</th></tr></thead>
+          <tbody>
+            <tr><td>P0 - pages critiques</td><td>Fort trafic SEO, fort chiffre d&#8217;affaires, backlinks, pages c&#339;ur de navigation, campagnes imminentes.</td><td>Reprise iso ou am&#233;lioration tr&#232;s contr&#244;l&#233;e, validation SEO obligatoire, redirection test&#233;e.</td></tr>
+            <tr><td>P1 - pages importantes</td><td>Trafic ou CA moyen, r&#244;le navigation, contenu utile, potentiel recherche.</td><td>Reprise avec optimisations limit&#233;es, contr&#244;le post go-live.</td></tr>
+            <tr><td>P2 - pages &#224; rationaliser</td><td>Faible trafic, doublons, contenu pauvre, arborescence confuse.</td><td>Fusion, redirection, r&#233;&#233;criture ou retrait du menu.</td></tr>
+            <tr><td>P3 - pages &#224; abandonner</td><td>Obsol&#232;tes, non vues, non index&#233;es, sans owner, sans valeur client.</td><td>Suppression ou archive, avec redirection si l&#8217;URL est connue.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+<h2 id="promotions">Promotions, coupons et campagnes</h2>
       <div class="table-wrap">
         <table>
           <thead>
